@@ -1,0 +1,9 @@
+2026-03-31 22:58:47,877 - __main__ - INFO - 
+======================================================================
+2026-03-31 22:58:47,877 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-03-31 22:58:47,877 - __main__ - INFO - ======================================================================
+
+2026-03-31 22:58:47,877 - src.pipeline - INFO - ======================================================================
+2026-03-31 22:58:47,878 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-03-31 22:58:47,878 - src.pipeline - INFO - ======================================================================
+2026-03-31 22:58:47,946 - src.data_loader - ERROR - Archivo no encontrado: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2024-2026_ene.xlsx
