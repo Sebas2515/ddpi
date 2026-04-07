@@ -8,6 +8,18 @@ def aplicar_transformaciones(df, correlac_pais, correlac_prod, correlac_cap):
     try:
         logger.info("Iniciando transformaciones...")
         
+        # Asegurar que los campos usados en los merges sean texto y tengan formato consistente.
+        df['cod_pais'] = df['cod_pais'].astype(str)
+        df['codigo_partida'] = df['codigo_partida'].astype(str).str.zfill(10)
+        df['cuatro_dig'] = df['cuatro_dig'].astype(str).str.zfill(4)
+
+        correlac_pais['cod_pais'] = correlac_pais['cod_pais'].astype(str)
+        correlac_prod['codigo_partida'] = correlac_prod['codigo_partida'].astype(str).str.zfill(10)
+        correlac_cap['cuatro_dig'] = correlac_cap['cuatro_dig'].astype(str).str.zfill(4)
+
+        # Evitar colisiones de columna: correlac_prod también tiene cuatro_dig, pero lo usaremos solo en correlac_cap.
+        correlac_prod = correlac_prod.drop(columns=['cuatro_dig'], errors='ignore')
+
         df = df.merge(correlac_pais, on='cod_pais', how='left')
         logger.debug(f"Merge país completado: {len(df)} registros")
         
@@ -81,6 +93,16 @@ def aplicar_transformaciones(df, correlac_pais, correlac_prod, correlac_cap):
         # Textil
         df.loc[(df['Rubro_Textil']=='Prendas') & (df['Sector']=='Textil'), 'grupo2'] = 'Confecciones'
         df.loc[(df['Rubro_Textil'].isin(['Textiles', 'Otros'])) & (df['Sector']=='Textil'), 'grupo2'] = 'Textiles'
+
+
+
+
+
+
+
+
+
+        
         
         # Agro
         df.loc[df['Grupo']=='Frutas', 'grupo2'] = 'Frutas'

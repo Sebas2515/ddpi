@@ -7,3 +7,525 @@
 2026-03-31 22:58:47,878 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
 2026-03-31 22:58:47,878 - src.pipeline - INFO - ======================================================================
 2026-03-31 22:58:47,946 - src.data_loader - ERROR - Archivo no encontrado: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2024-2026_ene.xlsx
+2026-04-07 08:26:22,774 - __main__ - INFO - 
+======================================================================
+2026-04-07 08:26:22,774 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-07 08:26:22,774 - __main__ - INFO - ======================================================================
+
+2026-04-07 08:26:22,774 - src.pipeline - INFO - ======================================================================
+2026-04-07 08:26:22,775 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-07 08:26:22,775 - src.pipeline - INFO - ======================================================================
+2026-04-07 08:26:22,775 - src.pipeline - INFO - Cargando datos...
+2026-04-07 08:26:22,775 - src.data_loader - INFO - Cargando archivo: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-07 08:26:57,816 - src.data_loader - INFO - Base cargada con éxito: 329542 registros
+2026-04-07 08:26:57,816 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-07 08:26:57,816 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-07 08:26:59,097 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-07 08:26:59,097 - src.pipeline - INFO - Procesando base...
+2026-04-07 08:26:59,097 - src.processing - INFO - Iniciando procesamiento de 329542 registros
+2026-04-07 08:26:59,248 - src.processing - ERROR - Error en procesar_base: "['mes'] not in index"
+2026-04-07 08:26:59,261 - __main__ - ERROR - Traceback completo:
+Traceback (most recent call last):
+  File "C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\main.py", line 30, in main
+    run_pipeline()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\src\pipeline.py", line 27, in run_pipeline
+    df = procesar_base(df, config)
+  File "C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\src\processing.py", line 30, in procesar_base
+    df[variables_a_agrupar_x] = df[variables_a_agrupar_x].fillna('NaN_temp')
+                                ~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gmendoza\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 4119, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\gmendoza\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py", line 6212, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gmendoza\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py", line 6264, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['mes'] not in index"
+2026-04-07 08:28:39,883 - __main__ - INFO - 
+======================================================================
+2026-04-07 08:28:39,883 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-07 08:28:39,883 - __main__ - INFO - ======================================================================
+
+2026-04-07 08:28:39,883 - src.pipeline - INFO - ======================================================================
+2026-04-07 08:28:39,883 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-07 08:28:39,884 - src.pipeline - INFO - ======================================================================
+2026-04-07 08:28:39,884 - src.pipeline - INFO - Cargando datos...
+2026-04-07 08:28:39,884 - src.data_loader - INFO - Cargando archivo: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-07 08:29:11,105 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-07 08:29:11,105 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-07 08:29:11,106 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-07 08:29:12,343 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-07 08:29:12,344 - src.pipeline - INFO - Procesando base...
+2026-04-07 08:29:12,344 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-07 08:29:12,498 - src.processing - ERROR - Error en procesar_base: "Column(s) ['PesoNeto'] do not exist"
+2026-04-07 08:29:12,515 - __main__ - ERROR - Traceback completo:
+Traceback (most recent call last):
+  File "C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\main.py", line 30, in main
+    run_pipeline()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\src\pipeline.py", line 27, in run_pipeline
+    df = procesar_base(df, config)
+  File "C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\src\processing.py", line 32, in procesar_base
+    base1_x = df.groupby(variables_a_agrupar_x).agg({
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+        'fob': 'sum',
+        ^^^^^^^^^^^^^
+        'PesoNeto': 'sum'
+        ^^^^^^^^^^^^^^^^^
+    }).reset_index()
+    ^^
+  File "C:\Users\gmendoza\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\generic.py", line 1432, in aggregate
+    result = op.agg()
+  File "C:\Users\gmendoza\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\apply.py", line 190, in agg
+    return self.agg_dict_like()
+           ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\gmendoza\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\apply.py", line 423, in agg_dict_like
+    return self.agg_or_apply_dict_like(op_name="agg")
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\gmendoza\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\apply.py", line 1603, in agg_or_apply_dict_like
+    result_index, result_data = self.compute_dict_like(
+                                ~~~~~~~~~~~~~~~~~~~~~~^
+        op_name, selected_obj, selection, kwargs
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\gmendoza\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\apply.py", line 462, in compute_dict_like
+    func = self.normalize_dictlike_arg(op_name, selected_obj, func)
+  File "C:\Users\gmendoza\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\apply.py", line 663, in normalize_dictlike_arg
+    raise KeyError(f"Column(s) {list(cols)} do not exist")
+KeyError: "Column(s) ['PesoNeto'] do not exist"
+2026-04-07 08:31:52,171 - __main__ - INFO - 
+======================================================================
+2026-04-07 08:31:52,172 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-07 08:31:52,172 - __main__ - INFO - ======================================================================
+
+2026-04-07 08:31:52,172 - src.pipeline - INFO - ======================================================================
+2026-04-07 08:31:52,172 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-07 08:31:52,172 - src.pipeline - INFO - ======================================================================
+2026-04-07 08:31:52,172 - src.pipeline - INFO - Cargando datos...
+2026-04-07 08:31:52,172 - src.data_loader - INFO - Cargando archivo: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-07 08:32:23,340 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-07 08:32:23,341 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-07 08:32:23,341 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-07 08:32:24,584 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-07 08:32:24,584 - src.pipeline - INFO - Procesando base...
+2026-04-07 08:32:24,584 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-07 08:32:25,541 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-07 08:32:25,564 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-07 08:32:25,564 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-07 08:32:25,623 - src.transformations - ERROR - Error en transformaciones: You are trying to merge on object and int64 columns for key 'codigo_partida'. If you wish to proceed you should use pd.concat
+2026-04-07 08:32:25,634 - __main__ - ERROR - Traceback completo:
+Traceback (most recent call last):
+  File "C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\main.py", line 30, in main
+    run_pipeline()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\src\pipeline.py", line 30, in run_pipeline
+    df = aplicar_transformaciones(df, c_pais, c_prod, c_cap)
+  File "C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\src\transformations.py", line 14, in aplicar_transformaciones
+    df = df.merge(correlac_prod, on='codigo_partida', how='left')
+  File "C:\Users\gmendoza\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 10859, in merge
+    return merge(
+        self,
+    ...<11 lines>...
+        validate=validate,
+    )
+  File "C:\Users\gmendoza\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\reshape\merge.py", line 170, in merge
+    op = _MergeOperation(
+        left_df,
+    ...<10 lines>...
+        validate=validate,
+    )
+  File "C:\Users\gmendoza\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\reshape\merge.py", line 807, in __init__
+    self._maybe_coerce_merge_keys()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\gmendoza\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\reshape\merge.py", line 1509, in _maybe_coerce_merge_keys
+    raise ValueError(msg)
+ValueError: You are trying to merge on object and int64 columns for key 'codigo_partida'. If you wish to proceed you should use pd.concat
+2026-04-07 08:37:31,073 - __main__ - INFO - 
+======================================================================
+2026-04-07 08:37:31,073 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-07 08:37:31,073 - __main__ - INFO - ======================================================================
+
+2026-04-07 08:37:31,073 - src.pipeline - INFO - ======================================================================
+2026-04-07 08:37:31,073 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-07 08:37:31,073 - src.pipeline - INFO - ======================================================================
+2026-04-07 08:37:31,074 - src.pipeline - INFO - Cargando datos...
+2026-04-07 08:37:31,074 - src.data_loader - INFO - Cargando archivo: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-07 08:38:02,294 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-07 08:38:02,294 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-07 08:38:02,294 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-07 08:38:03,549 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-07 08:38:03,549 - src.pipeline - INFO - Procesando base...
+2026-04-07 08:38:03,549 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-07 08:38:04,510 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-07 08:38:04,533 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-07 08:38:04,534 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-07 08:38:04,558 - src.transformations - ERROR - Error en transformaciones: 'cuatro_dig'
+2026-04-07 08:38:04,572 - __main__ - ERROR - Traceback completo:
+Traceback (most recent call last):
+  File "C:\Users\gmendoza\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'cuatro_dig'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\main.py", line 30, in main
+    run_pipeline()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\src\pipeline.py", line 30, in run_pipeline
+    df = aplicar_transformaciones(df, c_pais, c_prod, c_cap)
+  File "C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\src\transformations.py", line 14, in aplicar_transformaciones
+    df['cuatro_dig'] = df['cuatro_dig'].astype(str).str.zfill(4)
+                       ~~^^^^^^^^^^^^^^
+  File "C:\Users\gmendoza\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\gmendoza\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'cuatro_dig'
+2026-04-07 08:41:11,664 - __main__ - INFO - 
+======================================================================
+2026-04-07 08:41:11,665 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-07 08:41:11,665 - __main__ - INFO - ======================================================================
+
+2026-04-07 08:41:11,665 - src.pipeline - INFO - ======================================================================
+2026-04-07 08:41:11,665 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-07 08:41:11,665 - src.pipeline - INFO - ======================================================================
+2026-04-07 08:41:11,665 - src.pipeline - INFO - Cargando datos...
+2026-04-07 08:41:11,665 - src.data_loader - INFO - Cargando archivo: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-07 08:41:42,687 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-07 08:41:42,687 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-07 08:41:42,688 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-07 08:41:43,938 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-07 08:41:43,938 - src.pipeline - INFO - Procesando base...
+2026-04-07 08:41:43,938 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-07 08:41:45,012 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-07 08:41:45,040 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-07 08:41:45,040 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-07 08:41:45,276 - src.transformations - ERROR - Error en transformaciones: 'cuatro_dig'
+2026-04-07 08:41:45,292 - __main__ - ERROR - Traceback completo:
+Traceback (most recent call last):
+  File "C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\main.py", line 30, in main
+    run_pipeline()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\src\pipeline.py", line 30, in run_pipeline
+    df = aplicar_transformaciones(df, c_pais, c_prod, c_cap)
+  File "C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\src\transformations.py", line 26, in aplicar_transformaciones
+    df = df.merge(correlac_cap, on='cuatro_dig', how='left')
+  File "C:\Users\gmendoza\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 10859, in merge
+    return merge(
+        self,
+    ...<11 lines>...
+        validate=validate,
+    )
+  File "C:\Users\gmendoza\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\reshape\merge.py", line 170, in merge
+    op = _MergeOperation(
+        left_df,
+    ...<10 lines>...
+        validate=validate,
+    )
+  File "C:\Users\gmendoza\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\reshape\merge.py", line 794, in __init__
+    ) = self._get_merge_keys()
+        ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\gmendoza\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\reshape\merge.py", line 1311, in _get_merge_keys
+    left_keys.append(left._get_label_or_level_values(lk))
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^
+  File "C:\Users\gmendoza\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\generic.py", line 1914, in _get_label_or_level_values
+    raise KeyError(key)
+KeyError: 'cuatro_dig'
+2026-04-07 08:49:34,596 - __main__ - INFO - 
+======================================================================
+2026-04-07 08:49:34,597 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-07 08:49:34,599 - __main__ - INFO - ======================================================================
+
+2026-04-07 08:49:34,599 - src.pipeline - INFO - ======================================================================
+2026-04-07 08:49:34,599 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-07 08:49:34,600 - src.pipeline - INFO - ======================================================================
+2026-04-07 08:49:34,600 - src.pipeline - INFO - Cargando datos...
+2026-04-07 08:49:34,600 - src.data_loader - INFO - Cargando archivo: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-07 08:50:07,490 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-07 08:50:07,490 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-07 08:50:07,491 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-07 08:50:08,787 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-07 08:50:08,787 - src.pipeline - INFO - Procesando base...
+2026-04-07 08:50:08,787 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-07 08:50:09,956 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-07 08:50:09,984 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-07 08:50:09,985 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-07 08:50:11,041 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-07 08:50:11,047 - src.pipeline - INFO - Períodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-07 08:50:11,047 - src.pipeline - INFO - Período para ordenar: Ult_12_meses
+2026-04-07 08:50:11,047 - src.pipeline - INFO - Generando tablas para Textil/Confecciones...
+2026-04-07 08:50:11,048 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-07 08:50:11,111 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-07 08:50:11,171 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-07 08:50:11,223 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-07 08:50:11,231 - src.pipeline - INFO - Tabla final generada: (3, 6)
+2026-04-07 08:50:11,231 - src.pipeline - INFO - Generando ranking de destinos...
+2026-04-07 08:50:11,232 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-07 08:50:11,283 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-07 08:50:11,288 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-07 08:50:11,289 - src.pipeline - INFO - Calculando numero de destinos...
+2026-04-07 08:50:11,289 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-07 08:50:11,331 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-07 08:50:11,331 - src.pipeline - INFO - Número de destinos: (1, 4)
+2026-04-07 08:50:11,331 - src.pipeline - INFO - Generando indices...
+2026-04-07 08:50:11,331 - src.indices_generator - INFO - Generando índices por sector...
+2026-04-07 08:50:11,476 - src.indices_generator - INFO - Índices generados exitosamente
+2026-04-07 08:50:11,476 - src.pipeline - INFO - Exportando a Excel...
+2026-04-07 08:50:11,477 - src.excel_writer - INFO - Cargando plantilla: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-07 08:50:49,955 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-07 08:50:49,956 - src.excel_writer - ERROR - Error escribiendo Comercio_Textil: Cannot convert ('EXPORTACION', 'EXPORTACION', 'Textil', 'Confecciones') to Excel
+2026-04-07 08:50:49,956 - src.excel_writer - ERROR - Error generando reporte: Cannot convert ('EXPORTACION', 'EXPORTACION', 'Textil', 'Confecciones') to Excel
+2026-04-07 08:50:49,956 - src.pipeline - ERROR - 
+ERROR EN PIPELINE: Cannot convert ('EXPORTACION', 'EXPORTACION', 'Textil', 'Confecciones') to Excel
+
+2026-04-07 08:50:49,956 - __main__ - ERROR - 
+ERROR CRÍTICO: Cannot convert ('EXPORTACION', 'EXPORTACION', 'Textil', 'Confecciones') to Excel
+2026-04-07 08:50:49,956 - __main__ - ERROR - Traceback completo:
+Traceback (most recent call last):
+  File "C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\main.py", line 30, in main
+    run_pipeline()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\src\pipeline.py", line 88, in run_pipeline
+    generar_reporte(tablas_dict, indices, config)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\src\excel_writer.py", line 27, in generar_reporte
+    _escribir_comercio_textil(libro['Comercio_Textil'], tabla_final, tabla_destinos, num_destinos)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\src\excel_writer.py", line 87, in _escribir_comercio_textil
+    hoja.cell(11+(15*x), 6).value = tabla_final.index[x+1]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\gmendoza\AppData\Local\Programs\Python\Python313\Lib\site-packages\openpyxl\cell\cell.py", line 218, in value
+    self._bind_value(value)
+    ~~~~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\gmendoza\AppData\Local\Programs\Python\Python313\Lib\site-packages\openpyxl\cell\cell.py", line 187, in _bind_value
+    raise ValueError("Cannot convert {0!r} to Excel".format(value))
+ValueError: Cannot convert ('EXPORTACION', 'EXPORTACION', 'Textil', 'Confecciones') to Excel
+2026-04-07 08:59:26,339 - main - INFO - 
+======================================================================
+2026-04-07 08:59:26,339 - main - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-07 08:59:26,339 - main - INFO - ======================================================================
+
+2026-04-07 08:59:26,340 - src.pipeline - INFO - ======================================================================
+2026-04-07 08:59:26,340 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-07 08:59:26,340 - src.pipeline - INFO - ======================================================================
+2026-04-07 08:59:26,340 - src.pipeline - INFO - Cargando datos...
+2026-04-07 08:59:26,340 - src.data_loader - INFO - Cargando archivo: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-07 09:00:00,256 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-07 09:00:00,256 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-07 09:00:00,256 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-07 09:00:01,646 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-07 09:00:01,646 - src.pipeline - INFO - Procesando base...
+2026-04-07 09:00:01,646 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-07 09:00:02,824 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-07 09:00:02,852 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-07 09:00:02,852 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-07 09:00:03,976 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-07 09:00:03,983 - src.pipeline - INFO - Períodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-07 09:00:03,983 - src.pipeline - INFO - Período para ordenar: Ult_12_meses
+2026-04-07 09:00:03,983 - src.pipeline - INFO - Generando tablas para Textil/Confecciones...
+2026-04-07 09:00:03,983 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-07 09:00:04,034 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-07 09:00:04,093 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-07 09:00:04,143 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-07 09:00:04,149 - src.pipeline - INFO - Tabla final generada: (3, 6)
+2026-04-07 09:00:04,149 - src.pipeline - INFO - Generando ranking de destinos...
+2026-04-07 09:00:04,149 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-07 09:00:04,201 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-07 09:00:04,206 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-07 09:00:04,206 - src.pipeline - INFO - Calculando numero de destinos...
+2026-04-07 09:00:04,206 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-07 09:00:04,245 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-07 09:00:04,246 - src.pipeline - INFO - Número de destinos: (1, 4)
+2026-04-07 09:00:04,246 - src.pipeline - INFO - Generando indices...
+2026-04-07 09:00:04,246 - src.indices_generator - INFO - Generando índices por sector...
+2026-04-07 09:00:04,390 - src.indices_generator - INFO - Índices generados exitosamente
+2026-04-07 09:00:04,390 - src.pipeline - INFO - Exportando a Excel...
+2026-04-07 09:00:04,391 - src.excel_writer - INFO - Cargando plantilla: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-07 09:00:47,583 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-07 09:00:47,584 - src.excel_writer - ERROR - Error escribiendo Comercio_Textil: 'MergedCell' object attribute 'value' is read-only
+2026-04-07 09:00:47,584 - src.excel_writer - ERROR - Error generando reporte: 'MergedCell' object attribute 'value' is read-only
+2026-04-07 09:00:47,584 - src.pipeline - ERROR - 
+ERROR EN PIPELINE: 'MergedCell' object attribute 'value' is read-only
+
+2026-04-07 09:00:47,584 - main - ERROR - 
+ERROR CRÍTICO: 'MergedCell' object attribute 'value' is read-only
+2026-04-07 09:00:47,584 - main - ERROR - Traceback completo:
+Traceback (most recent call last):
+  File "c:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\main.py", line 30, in main
+    run_pipeline()
+    ~~~~~~~~~~~~^^
+  File "c:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\src\pipeline.py", line 88, in run_pipeline
+    generar_reporte(tablas_dict, indices, config)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\src\excel_writer.py", line 27, in generar_reporte
+    _escribir_comercio_textil(libro['Comercio_Textil'], tabla_final, tabla_destinos, num_destinos)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\src\excel_writer.py", line 104, in _escribir_comercio_textil
+    hoja.cell(55+x, 6).value = _index_label(tabla_destinos.index[x+1])
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MergedCell' object attribute 'value' is read-only
+2026-04-07 09:05:04,980 - main - INFO - 
+======================================================================
+2026-04-07 09:05:04,981 - main - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-07 09:05:04,981 - main - INFO - ======================================================================
+
+2026-04-07 09:05:04,981 - src.pipeline - INFO - ======================================================================
+2026-04-07 09:05:04,981 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-07 09:05:04,981 - src.pipeline - INFO - ======================================================================
+2026-04-07 09:05:04,981 - src.pipeline - INFO - Cargando datos...
+2026-04-07 09:05:04,981 - src.data_loader - INFO - Cargando archivo: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-07 09:05:43,391 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-07 09:05:43,391 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-07 09:05:43,391 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-07 09:05:45,665 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-07 09:05:45,666 - src.pipeline - INFO - Procesando base...
+2026-04-07 09:05:45,666 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-07 09:05:48,714 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-07 09:05:48,758 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-07 09:05:48,758 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-07 09:05:50,382 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-07 09:05:50,390 - src.pipeline - INFO - Períodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-07 09:05:50,390 - src.pipeline - INFO - Período para ordenar: Ult_12_meses
+2026-04-07 09:05:50,390 - src.pipeline - INFO - Generando tablas para Textil/Confecciones...
+2026-04-07 09:05:50,394 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-07 09:05:50,514 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-07 09:05:50,634 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-07 09:05:50,743 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-07 09:05:50,751 - src.pipeline - INFO - Tabla final generada: (3, 6)
+2026-04-07 09:05:50,751 - src.pipeline - INFO - Generando ranking de destinos...
+2026-04-07 09:05:50,752 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-07 09:05:50,822 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-07 09:05:50,829 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-07 09:05:50,829 - src.pipeline - INFO - Calculando numero de destinos...
+2026-04-07 09:05:50,829 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-07 09:05:50,887 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-07 09:05:50,887 - src.pipeline - INFO - Número de destinos: (1, 4)
+2026-04-07 09:05:50,887 - src.pipeline - INFO - Generando indices...
+2026-04-07 09:05:50,888 - src.indices_generator - INFO - Generando índices por sector...
+2026-04-07 09:05:51,109 - src.indices_generator - INFO - Índices generados exitosamente
+2026-04-07 09:05:51,109 - src.pipeline - INFO - Exportando a Excel...
+2026-04-07 09:05:51,117 - src.excel_writer - INFO - Cargando plantilla: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-07 09:06:34,751 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-07 09:06:34,752 - src.excel_writer - INFO - Guardando reporte en: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\outputs\reportes\RMC_feb_2026.xlsx
+2026-04-07 09:06:54,914 - main - INFO - 
+======================================================================
+2026-04-07 09:06:54,914 - main - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-07 09:06:54,914 - main - INFO - ======================================================================
+
+2026-04-07 09:06:54,914 - src.pipeline - INFO - ======================================================================
+2026-04-07 09:06:54,914 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-07 09:06:54,914 - src.pipeline - INFO - ======================================================================
+2026-04-07 09:06:54,914 - src.pipeline - INFO - Cargando datos...
+2026-04-07 09:06:54,914 - src.data_loader - INFO - Cargando archivo: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-07 09:07:07,453 - src.excel_writer - INFO - Reporte completado exitosamente
+2026-04-07 09:07:07,453 - src.pipeline - INFO - ======================================================================
+2026-04-07 09:07:07,453 - src.pipeline - INFO - PIPELINE COMPLETADO EXITOSAMENTE
+2026-04-07 09:07:07,453 - src.pipeline - INFO - ======================================================================
+2026-04-07 09:07:07,487 - main - INFO - 
+======================================================================
+2026-04-07 09:07:07,487 - main - INFO - EJECUCION COMPLETADA EXITOSAMENTE
+2026-04-07 09:07:07,487 - main - INFO - ======================================================================
+
+2026-04-07 09:07:31,759 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-07 09:07:31,760 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-07 09:07:31,760 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-07 09:07:33,145 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-07 09:07:33,145 - src.pipeline - INFO - Procesando base...
+2026-04-07 09:07:33,145 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-07 09:07:34,391 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-07 09:07:34,420 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-07 09:07:34,420 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-07 09:07:35,728 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-07 09:07:35,736 - src.pipeline - INFO - Períodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-07 09:07:35,736 - src.pipeline - INFO - Período para ordenar: Ult_12_meses
+2026-04-07 09:07:35,736 - src.pipeline - INFO - Generando tablas para Textil/Confecciones...
+2026-04-07 09:07:35,736 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-07 09:07:35,792 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-07 09:07:35,857 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-07 09:07:35,916 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-07 09:07:35,923 - src.pipeline - INFO - Tabla final generada: (3, 6)
+2026-04-07 09:07:35,923 - src.pipeline - INFO - Generando ranking de destinos...
+2026-04-07 09:07:35,923 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-07 09:07:35,983 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-07 09:07:35,988 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-07 09:07:35,988 - src.pipeline - INFO - Calculando numero de destinos...
+2026-04-07 09:07:35,988 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-07 09:07:36,035 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-07 09:07:36,035 - src.pipeline - INFO - Número de destinos: (1, 4)
+2026-04-07 09:07:36,035 - src.pipeline - INFO - Generando indices...
+2026-04-07 09:07:36,035 - src.indices_generator - INFO - Generando índices por sector...
+2026-04-07 09:07:36,206 - src.indices_generator - INFO - Índices generados exitosamente
+2026-04-07 09:07:36,206 - src.pipeline - INFO - Exportando a Excel...
+2026-04-07 09:07:36,206 - src.excel_writer - INFO - Cargando plantilla: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-07 09:08:50,822 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-07 09:08:50,823 - src.excel_writer - INFO - Guardando reporte en: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\outputs\reportes\RMC_feb_2026.xlsx
+2026-04-07 09:09:24,834 - src.excel_writer - INFO - Reporte completado exitosamente
+2026-04-07 09:09:24,834 - src.pipeline - INFO - ======================================================================
+2026-04-07 09:09:24,834 - src.pipeline - INFO - PIPELINE COMPLETADO EXITOSAMENTE
+2026-04-07 09:09:24,834 - src.pipeline - INFO - ======================================================================
+2026-04-07 09:09:24,861 - main - INFO - 
+======================================================================
+2026-04-07 09:09:24,862 - main - INFO - EJECUCION COMPLETADA EXITOSAMENTE
+2026-04-07 09:09:24,862 - main - INFO - ======================================================================
+
+2026-04-07 09:10:49,274 - __main__ - INFO - 
+======================================================================
+2026-04-07 09:10:49,274 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-07 09:10:49,275 - __main__ - INFO - ======================================================================
+
+2026-04-07 09:10:49,275 - src.pipeline - INFO - ======================================================================
+2026-04-07 09:10:49,275 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-07 09:10:49,275 - src.pipeline - INFO - ======================================================================
+2026-04-07 09:10:49,275 - src.pipeline - INFO - Cargando datos...
+2026-04-07 09:10:49,275 - src.data_loader - INFO - Cargando archivo: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-07 09:11:22,863 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-07 09:11:22,863 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-07 09:11:22,863 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-07 09:11:24,426 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-07 09:11:24,426 - src.pipeline - INFO - Procesando base...
+2026-04-07 09:11:24,426 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-07 09:11:25,558 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-07 09:11:25,582 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-07 09:11:25,582 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-07 09:11:26,668 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-07 09:11:26,675 - src.pipeline - INFO - Períodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-07 09:11:26,675 - src.pipeline - INFO - Período para ordenar: Ult_12_meses
+2026-04-07 09:11:26,675 - src.pipeline - INFO - Generando tablas para Textil/Confecciones...
+2026-04-07 09:11:26,675 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-07 09:11:26,728 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-07 09:11:26,817 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-07 09:11:26,871 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-07 09:11:26,876 - src.pipeline - INFO - Tabla final generada: (3, 6)
+2026-04-07 09:11:26,876 - src.pipeline - INFO - Generando ranking de destinos...
+2026-04-07 09:11:26,877 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-07 09:11:26,929 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-07 09:11:26,934 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-07 09:11:26,934 - src.pipeline - INFO - Calculando numero de destinos...
+2026-04-07 09:11:26,934 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-07 09:11:26,975 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-07 09:11:26,976 - src.pipeline - INFO - Número de destinos: (1, 4)
+2026-04-07 09:11:26,976 - src.pipeline - INFO - Generando indices...
+2026-04-07 09:11:26,976 - src.indices_generator - INFO - Generando índices por sector...
+2026-04-07 09:11:27,141 - src.indices_generator - INFO - Índices generados exitosamente
+2026-04-07 09:11:27,142 - src.pipeline - INFO - Exportando a Excel...
+2026-04-07 09:11:27,142 - src.excel_writer - INFO - Cargando plantilla: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-07 09:12:07,154 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-07 09:12:07,155 - src.excel_writer - INFO - Guardando reporte en: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\outputs\reportes\RMC_feb_2026.xlsx
+2026-04-07 09:12:37,508 - src.excel_writer - INFO - Reporte completado exitosamente
+2026-04-07 09:12:37,508 - src.pipeline - INFO - ======================================================================
+2026-04-07 09:12:37,508 - src.pipeline - INFO - PIPELINE COMPLETADO EXITOSAMENTE
+2026-04-07 09:12:37,508 - src.pipeline - INFO - ======================================================================
+2026-04-07 09:12:37,535 - __main__ - INFO - 
+======================================================================
+2026-04-07 09:12:37,535 - __main__ - INFO - EJECUCION COMPLETADA EXITOSAMENTE
+2026-04-07 09:12:37,535 - __main__ - INFO - ======================================================================
+

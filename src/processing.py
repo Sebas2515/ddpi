@@ -26,7 +26,7 @@ def procesar_base(df, config):
         df['cuatro_dig'] = df['codigo_partida'].str[:4]
 
         # PRIMERA AGRUPACIÓN: consolidar por variables_a_agrupar
-        variables_a_agrupar_x = ['flujo_comercial','cod_pais','cod_capitulo','codigo_partida','año','mes','CADU','RUC']
+        variables_a_agrupar_x = ['flujo_comercial','cod_pais','cod_capitulo','codigo_partida','cuatro_dig','año','mes','CADU','RUC']
         df[variables_a_agrupar_x] = df[variables_a_agrupar_x].fillna('NaN_temp')
 
         base1_x = df.groupby(variables_a_agrupar_x).agg({
@@ -75,7 +75,7 @@ def procesar_base(df, config):
         data_final_x = pd.concat([base1_x, base2_x], axis=0, ignore_index=True)
 
         # TERCERA AGRUPACIÓN: consolidar por periodos
-        variables_a_agrupar2_x = ['flujo_comercial','cod_pais','cod_capitulo','codigo_partida','año','CADU','RUC','periodo']
+        variables_a_agrupar2_x = ['flujo_comercial','cod_pais','cod_capitulo','codigo_partida','cuatro_dig','año','CADU','RUC','periodo']
         data_final_x[variables_a_agrupar2_x] = data_final_x[variables_a_agrupar2_x].fillna('NaN_temp')
 
         data_final_x = data_final_x.groupby(variables_a_agrupar2_x).agg({

@@ -17,16 +17,16 @@ def run_pipeline():
         logger.info("INICIANDO PIPELINE DE PROCESAMIENTO RMC")
         logger.info("="*70)
 
-        logger.info("📥 Cargando datos...")
+        logger.info("Cargando datos...")
         df = cargar_base(config)
 
-        logger.info("🔗 Cargando correlaciones...")
+        logger.info("Cargando correlaciones...")
         c_pais, c_prod, c_cap = cargar_correlaciones(config)
 
-        logger.info("🧹 Procesando base...")
+        logger.info("Procesando base...")
         df = procesar_base(df, config)
 
-        logger.info("🔄 Aplicando transformaciones...")
+        logger.info("Aplicando transformaciones...")
         df = aplicar_transformaciones(df, c_pais, c_prod, c_cap)
         
         # Agregar columnas necesarias para generar tablas
@@ -42,7 +42,7 @@ def run_pipeline():
         logger.info(f"Período para ordenar: {periodo_ordenar}")
 
         # GENERAR TABLAS SECTORIALES PARA AGRO
-        logger.info("📊 Generando tablas para Textil/Confecciones...")
+        logger.info("Generando tablas para Textil/Confecciones...")
         sectores_a_procesar = ['Textil']
         
         tabla_final = pd.DataFrame()
@@ -60,7 +60,7 @@ def run_pipeline():
         logger.info(f"Tabla final generada: {tabla_final.shape}")
 
         # RANKING DE DESTINOS POR SECTOR
-        logger.info("🌍 Generando ranking de destinos...")
+        logger.info("Generando ranking de destinos...")
         tabla_destinos = pd.DataFrame()
         for sector in sectores_a_procesar:
             tabla_rank = ranking_destinos(df, sector, periodos, periodos_miles_TM, periodo_ordenar)
@@ -69,16 +69,16 @@ def run_pipeline():
         logger.info(f"Ranking de destinos generado: {tabla_destinos.shape}")
 
         # NUMERO DE DESTINOS
-        logger.info("📍 Calculando número de destinos...")
+        logger.info("Calculando numero de destinos...")
         num_destinos_sect = numero_destinos(df, sectores_a_procesar, periodos)
         logger.info(f"Número de destinos: {num_destinos_sect.shape}")
 
         # GENERAR INDICES
-        logger.info("📈 Generando índices...")
+        logger.info("Generando indices...")
         indices = generar_indices(df, sectores_a_procesar, periodos, periodo_ordenar)
 
         # EXPORTAR A EXCEL
-        logger.info("📤 Exportando a Excel...")
+        logger.info("Exportando a Excel...")
         tablas_dict = {
             'tabla_final': tabla_final,
             'tabla_destinos': tabla_destinos,
@@ -88,12 +88,12 @@ def run_pipeline():
         generar_reporte(tablas_dict, indices, config)
 
         logger.info("="*70)
-        logger.info("✅ PIPELINE COMPLETADO EXITOSAMENTE")
+        logger.info("PIPELINE COMPLETADO EXITOSAMENTE")
         logger.info("="*70)
         
         return df
 
     except Exception as e:
-        logger.error(f"\n❌ ERROR EN PIPELINE: {str(e)}\n")
+        logger.error(f"\nERROR EN PIPELINE: {str(e)}\n")
         raise
 

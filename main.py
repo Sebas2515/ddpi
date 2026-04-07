@@ -30,18 +30,18 @@ def main():
         run_pipeline()
         
         logger.info("\n" + "="*70)
-        logger.info("✅ EJECUCIÓN COMPLETADA EXITOSAMENTE")
+        logger.info("EJECUCION COMPLETADA EXITOSAMENTE")
         logger.info("="*70 + "\n")
         return 0
         
     except KeyboardInterrupt:
-        logger.warning("\n⚠️ Pipeline interrumpido por el usuario")
+        logger.warning("Pipeline interrumpido por el usuario")
         return 1
     except FileNotFoundError as e:
-        logger.error(f"\n❌ ARCHIVO NO ENCONTRADO: {str(e)}")
+        logger.error(f"\nARCHIVO NO ENCONTRADO: {str(e)}")
         return 2
     except Exception as e:
-        logger.error(f"\n❌ ERROR CRÍTICO: {str(e)}")
+        logger.error(f"\nERROR CRÍTICO: {str(e)}")
         logger.exception("Traceback completo:")
         return 1
 
