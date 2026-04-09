@@ -126,7 +126,8 @@ def detalle_textil(df, periodos, periodos_miles_TM):
             ),
             'mantas_pelo_fino': (
                 (data_textil['grupo2']=='Confecciones') &
-                (data_textil['Producto']=='Productos de lana y pelo fino')
+                (data_textil['producto2']=='Otras confecciones') &
+                (data_textil['producto21']=='Lana y pelo fino')
             ),
             'fibras_textiles': (
                 (data_textil['grupo2']=='Textiles') &

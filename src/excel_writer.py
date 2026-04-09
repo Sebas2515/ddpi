@@ -118,17 +118,17 @@ def _escribir_comercio_textil(hoja, tabla_final, detalle_textil, tabla_destinos,
             for t in range(0, 2):
                 hoja.cell(row, 13+t).value = detalle_textil.loc[etiqueta].iloc[t+4]
         
-        # Principales destinos
+        # Principales destinos (la fila 25 es encabezado combinado en la plantilla)
         for x in range(0, 3):
-            hoja.cell(24+x, 6).value = _index_label(tabla_destinos.index[x+1])
+            hoja.cell(25+x, 6).value = _index_label(tabla_destinos.index[x+1])
             for t in range(0, 3):
-                hoja.cell(24+x, 8+t).value = tabla_destinos.iloc[x+1, t]
-            hoja.cell(24+x, 13).value = tabla_destinos.iloc[x+1, 4]
-            hoja.cell(24+x, 14).value = tabla_destinos.iloc[x+1, 5]
+                hoja.cell(25+x, 8+t).value = tabla_destinos.iloc[x+1, t]
+            hoja.cell(25+x, 13).value = tabla_destinos.iloc[x+1, 4]
+            hoja.cell(25+x, 14).value = tabla_destinos.iloc[x+1, 5]
         
         # Numero de destinos
         for t in range(0, 3):
-            hoja.cell(27, 8+t).value = num_destinos.iloc[0, t]
+            hoja.cell(28, 8+t).value = num_destinos.iloc[0, t]
         
         logger.debug("Hoja Comercio_Textil completada")
     except Exception as e:
