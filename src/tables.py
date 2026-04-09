@@ -107,6 +107,83 @@ def tabla_productos(df, sector, grupo, productos, periodos, periodos_miles_TM, p
         logger.error(f"Error en tabla_productos: {str(e)}")
         raise
 
+
+def detalle_textil(df, periodos, periodos_miles_TM):
+    """Construye el detalle de productos esperado por la plantilla de Comercio_Textil."""
+    try:
+        logger.info("Generando detalle de productos para Textil")
+        data_textil = df[(df['sector2']=='Textil') & (df['periodo'].isin(periodos))]
+
+        definiciones = {
+            'prendas_vestir': (
+                (data_textil['grupo2']=='Confecciones') &
+                (data_textil['producto2']=='Prendas de vestir')
+            ),
+            'prendas_algodon': (
+                (data_textil['grupo2']=='Confecciones') &
+                (data_textil['producto2']=='Prendas de vestir') &
+                (data_textil['producto21']=='Algodón')
+            ),
+            'mantas_pelo_fino': (
+                (data_textil['grupo2']=='Confecciones') &
+                (data_textil['Producto']=='Productos de lana y pelo fino')
+            ),
+            'fibras_textiles': (
+                (data_textil['grupo2']=='Textiles') &
+                (data_textil['producto2']=='Fibras textiles')
+            ),
+            'tejidos': (
+                (data_textil['grupo2']=='Textiles') &
+                (data_textil['producto2']=='Tejidos')
+            ),
+            'tejidos_algodon': (
+                (data_textil['grupo2']=='Textiles') &
+                (data_textil['producto2']=='Tejidos') &
+                (data_textil['producto21']=='Algodón')
+            ),
+            'hilos_hilados': (
+                (data_textil['grupo2']=='Textiles') &
+                (data_textil['producto2']=='Hilos e Hilados')
+            ),
+        }
+
+        filas = []
+        for etiqueta, filtro in definiciones.items():
+            serie = _resumen_periodos(data_textil[filtro], periodos, periodos_miles_TM)
+            serie.name = etiqueta
+            filas.append(serie)
+
+        resultado = pd.DataFrame(filas)
+        logger.info(f"Detalle de productos textil generado: {resultado.shape}")
+        return resultado
+    except Exception as e:
+        logger.error(f"Error en detalle_textil: {str(e)}")
+        raise
+
+
+def _resumen_periodos(df_filtrado, periodos, periodos_miles_TM):
+    """Resume FOB y TM por período en el orden esperado por la plantilla."""
+    columnas = (
+        [('millones_fob', periodo) for periodo in periodos] +
+        [('miles_TM', periodo) for periodo in periodos_miles_TM]
+    )
+
+    if df_filtrado.empty:
+        return pd.Series([None] * len(columnas), index=columnas, dtype='object')
+
+    resumen = df_filtrado.groupby('periodo')[['millones_fob', 'miles_TM']].sum()
+    valores = []
+
+    for periodo in periodos:
+        valor = resumen.loc[periodo, 'millones_fob'] if periodo in resumen.index else None
+        valores.append(valor)
+
+    for periodo in periodos_miles_TM:
+        valor = resumen.loc[periodo, 'miles_TM'] if periodo in resumen.index else None
+        valores.append(valor)
+
+    return pd.Series(valores, index=columnas, dtype='object')
+
 def ranking_destinos(df, sector, periodos, periodos_miles_TM, periodo_orden):
     """Genera ranking de top 5 destinos por sector."""
     try:

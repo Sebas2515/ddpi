@@ -1,7 +1,7 @@
 from src.data_loader import cargar_base, cargar_correlaciones
 from src.processing import procesar_base
 from src.transformations import aplicar_transformaciones
-from src.tables import tabla_sectorial, tabla_grupos, tabla_productos, ranking_destinos, numero_destinos
+from src.tables import tabla_sectorial, tabla_grupos, tabla_productos, ranking_destinos, numero_destinos, detalle_textil
 from src.excel_writer import generar_reporte
 from src.indices_generator import generar_indices
 import src.config as config
@@ -59,6 +59,9 @@ def run_pipeline():
         
         logger.info(f"Tabla final generada: {tabla_final.shape}")
 
+        logger.info("Generando detalle de productos textil...")
+        tabla_detalle_textil = detalle_textil(df, periodos, periodos_miles_TM)
+
         # RANKING DE DESTINOS POR SECTOR
         logger.info("Generando ranking de destinos...")
         tabla_destinos = pd.DataFrame()
@@ -81,6 +84,7 @@ def run_pipeline():
         logger.info("Exportando a Excel...")
         tablas_dict = {
             'tabla_final': tabla_final,
+            'detalle_textil': tabla_detalle_textil,
             'tabla_destinos': tabla_destinos,
             'num_destinos': num_destinos_sect
         }

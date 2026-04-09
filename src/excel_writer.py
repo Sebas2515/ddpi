@@ -21,10 +21,11 @@ def generar_reporte(tablas, indices, config):
         # LLENAR HOJA COMERCIO_TEXTIL
         logger.info("Escribiendo datos en hoja Comercio_Textil...")
         tabla_final = tablas['tabla_final']
+        detalle_textil = tablas.get('detalle_textil', pd.DataFrame())
         tabla_destinos = tablas['tabla_destinos']
         num_destinos = tablas['num_destinos']
         
-        _escribir_comercio_textil(libro['Comercio_Textil'], tabla_final, tabla_destinos, num_destinos)
+        _escribir_comercio_textil(libro['Comercio_Textil'], tabla_final, detalle_textil, tabla_destinos, num_destinos)
         
         logger.info(f"Guardando reporte en: {output}")
         libro.save(output)
@@ -82,7 +83,7 @@ def _index_label(value):
     return str(value)
 
 
-def _escribir_comercio_textil(hoja, tabla_final, tabla_destinos, num_destinos):
+def _escribir_comercio_textil(hoja, tabla_final, detalle_textil, tabla_destinos, num_destinos):
     """Escribe datos en la hoja Comercio_Textil."""
     try:
         # Flujos y grupos de productos
@@ -92,6 +93,30 @@ def _escribir_comercio_textil(hoja, tabla_final, tabla_destinos, num_destinos):
                 hoja.cell(row, 8+t).value = tabla_final.iloc[idx, t]
             for t in range(0, 2):
                 hoja.cell(row, 13+t).value = tabla_final.iloc[idx, t+4]
+
+        # Detalle de productos
+        detalle_map = {
+            'prendas_vestir': 13,
+            'prendas_algodon': 14,
+            'mantas_pelo_fino': 16,
+            'fibras_textiles': 18,
+            'tejidos': 19,
+            'tejidos_algodon': 20,
+            'hilos_hilados': 21,
+        }
+        for etiqueta, row in detalle_map.items():
+            for col in range(8, 11):
+                hoja.cell(row, col).value = None
+            for col in range(13, 15):
+                hoja.cell(row, col).value = None
+
+            if etiqueta not in detalle_textil.index:
+                continue
+
+            for t in range(0, 3):
+                hoja.cell(row, 8+t).value = detalle_textil.loc[etiqueta].iloc[t]
+            for t in range(0, 2):
+                hoja.cell(row, 13+t).value = detalle_textil.loc[etiqueta].iloc[t+4]
         
         # Principales destinos
         for x in range(0, 3):

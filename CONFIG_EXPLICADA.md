@@ -2853,3 +2853,752 @@ df.loc[(df['cinco_dig']!='03029') & (df['cinco_dig']!='03039') &
 - config.py → data_loader.py → processing.py → transformations.py → tables.py → excel_writer.py
 
 **¿Quieres profundizar en tables.py o excel_writer.py?** 👇
+
+---
+
+# 📊 EXPLICACIÓN DE `tables.py`
+
+Si `transformations.py` fue el módulo que "ordenó y clasificó" la data, entonces `tables.py` es el módulo que la **convierte en tablas listas para reportar**.
+
+En otras palabras:
+
+```python
+transformations.py  → deja columnas limpias y clasificadas
+tables.py           → resume esas columnas en tablas pivot
+excel_writer.py     → escribe esas tablas dentro del Excel
+```
+
+---
+
+## 1️⃣ ¿Qué hace realmente `tables.py`?
+
+Hace 5 tipos de resumen:
+
+```python
+1. tabla_sectorial()   → resumen total del sector
+2. tabla_grupos()      → resumen por grupos dentro del sector
+3. tabla_productos()   → resumen por productos dentro del grupo
+4. ranking_destinos()  → top países o bloques destino
+5. numero_destinos()   → cuántos destinos únicos hubo
+```
+
+Es decir: toma una base "larga" y la convierte en reportes "anchos".
+
+Ejemplo:
+
+```python
+# Entrada (larga)
+sector2   periodo         millones_fob
+Textil    2025            10
+Textil    Ene 25          12
+Textil    Ene 26          15
+Textil    Ult_12_meses    60
+
+# Salida (ancha)
+           2025   Ene 25   Ene 26   Ult_12_meses
+Textil      10      12       15         60
+```
+
+Eso es exactamente lo que hace `pivot_table()`.
+
+---
+
+## 2️⃣ `tabla_sectorial()`
+
+### ¿Para qué sirve?
+
+Genera la fila principal del sector completo.
+
+Ejemplo conceptual para Textil:
+
+```python
+Textil | FOB 2025 | FOB Ene25 | FOB Ene26 | FOB Ult12m | TM Ene25 | TM Ene26
+```
+
+### Paso a paso
+
+#### Paso 1: filtra solo el sector pedido
+
+```python
+datos_filtrados = df[(df['sector2']==sector) & (df['periodo'].isin(periodos))]
+```
+
+Si `sector = 'Textil'`, solo sobreviven las filas textiles.
+
+#### Paso 2: crea una tabla pivote
+
+```python
+tabla = datos_filtrados.pivot_table(
+    index=['flujo_comercial', 'flujo_comercial2', 'flujo_comercial3', 'sector2'],
+    columns='periodo',
+    values=['millones_fob','miles_TM'],
+    aggfunc='sum'
+)
+```
+
+Esto significa:
+
+```python
+index   = qué va a identificar la fila
+columns = qué va a convertirse en columnas
+values  = qué números quieres sumar
+aggfunc = cómo agregas (sumar)
+```
+
+### ¿Por qué usa varios `flujo_comercial`?
+
+Porque la plantilla histórica del Excel está diseñada para varios niveles de filas, y este índice múltiple permite conservar esa estructura aunque en la práctica el valor sea casi siempre `"EXPORTACION"`.
+
+### ¿Qué sale de aquí?
+
+Algo así:
+
+```python
+                         millones_fob                     miles_TM
+periodo                       2025  Ene 25  Ene 26 ...   Ene 25  Ene 26
+EXPORTACION EXPORTACION ...
+Textil                         100    120     140          20      25
+```
+
+### Luego selecciona columnas específicas
+
+```python
+columnas_miles_TM = [col for col in tabla.columns if col[1] in periodos_miles_TM and col[0]=='miles_TM']
+columnas_millones_fob = [col for col in tabla.columns if col[0]=='millones_fob']
+tabla_final = tabla[columnas_millones_fob + columnas_miles_TM]
+```
+
+Aquí hay una decisión de negocio importante:
+
+```python
+FOB      → usa todos los períodos
+TM       → usa solo algunos períodos (periodos_miles_TM)
+```
+
+No es casualidad. Se hace así porque la plantilla no siempre muestra TM en todas las columnas.
+
+---
+
+## 3️⃣ `tabla_grupos()`
+
+### ¿Para qué sirve?
+
+Genera las filas de los grupos principales dentro del sector.
+
+Ejemplo:
+
+```python
+Textil
+├─ Confecciones
+└─ Textiles
+```
+
+### Lógica
+
+Recibe una lista de grupos ya ordenados por importancia desde `pipeline.py`:
+
+```python
+grupos = [g for g in flujo_grupo_ordenado.index if g != "NA"][:2]
+```
+
+Eso significa:
+
+```python
+1. agrupa por grupo2
+2. suma FOB
+3. ordena de mayor a menor
+4. toma los 2 más importantes
+```
+
+Luego `tabla_grupos()` repite la lógica de pivote para cada grupo y concatena los resultados:
+
+```python
+tablas_grupos = pd.concat([tablas_grupos, tabla_grupo_final])
+```
+
+### Idea importante
+
+`tabla_sectorial()` devuelve la fila "padre" del sector.
+
+`tabla_grupos()` devuelve las filas "hijas" de los grupos.
+
+Después, en el pipeline, ambas se apilan:
+
+```python
+tabla_5 = pd.concat([tabla_1, tabla_3])
+```
+
+Entonces obtienes una tabla final como:
+
+```python
+Fila 1: Textil
+Fila 2: Confecciones
+Fila 3: Textiles
+```
+
+Y esa estructura es la que `excel_writer.py` copia en el Excel.
+
+---
+
+## 4️⃣ `tabla_productos()`
+
+Este método está preparado para un nivel aún más detallado.
+
+### ¿Qué hace?
+
+Construye:
+
+```python
+1. una fila resumen del producto2
+2. hasta 3 subproductos detallados usando producto21
+```
+
+Ejemplo:
+
+```python
+producto2   = "Prendas de vestir"
+producto21  = "Algodón", "Sintético", "Mezcla"
+```
+
+Entonces podría producir:
+
+```python
+Prendas de vestir        ← resumen total
+Algodón                  ← detalle 1
+Sintético                ← detalle 2
+Mezcla                   ← detalle 3
+```
+
+### ¿Por qué hace dos pivotes?
+
+Porque uno responde a un nivel distinto del otro:
+
+```python
+tabla_prod          → resumen por producto2
+tabla_prod_producto → detalle por producto21
+```
+
+### ¿Por qué usa `.head(3)`?
+
+```python
+tabla_prod_producto = tabla_prod_producto.sort_values(
+    by=('millones_fob', periodo_orden),
+    ascending=False
+).head(3)
+```
+
+Porque el reporte no quiere todos los subdetalles posibles, sino solo los 3 más importantes.
+
+Es una decisión de negocio, no una limitación técnica.
+
+---
+
+## 5️⃣ `ranking_destinos()`
+
+### ¿Qué hace?
+
+Crea una tabla con:
+
+```python
+1. una fila del sector total
+2. las 5 filas de principales destinos
+```
+
+### ¿Qué usa como destino?
+
+```python
+index='Pais_UE27'
+```
+
+Ojo: no usa `Pais` sino `Pais_UE27`.
+
+Eso significa que el ranking puede ser por:
+
+```python
+UE27
+ASIA
+EEUU
+OTROS
+```
+
+o por el nombre que venga en esa columna según tu correlacionador.
+
+### ¿Cómo lo arma?
+
+Primero:
+
+```python
+tabla_sector = data_filtrada.pivot_table(index='sector2', ...)
+```
+
+Eso da el total del sector.
+
+Luego:
+
+```python
+tabla_paises = data_filtrada.pivot_table(index='Pais_UE27', ...)
+```
+
+Eso da los destinos.
+
+Después:
+
+```python
+tabla_paises = tabla_paises.sort_values(...).head(5)
+```
+
+Y finalmente:
+
+```python
+tabla_final = pd.concat([tabla_sectores, tabla_paises_final])
+```
+
+Queda así:
+
+```python
+Fila 1: Textil
+Fila 2: EEUU
+Fila 3: ASIA
+Fila 4: UE27
+...
+```
+
+Por eso en `excel_writer.py` muchas veces se empieza a leer desde `index[x+1]`: la fila 0 es el total del sector, y las siguientes son los destinos.
+
+---
+
+## 6️⃣ `numero_destinos()`
+
+Este método responde una pregunta muy concreta:
+
+```python
+¿Cuántos países distintos compraron exportaciones de este sector?
+```
+
+### Código clave
+
+```python
+resultado = df[(df['periodo'].isin(periodos)) &
+               (df['sector2'].isin(sectores)) &
+               (df['millones_fob'] > 0)] \
+               .groupby(['sector2', 'periodo']) \
+               .agg(Numero_Destinos=('Pais', 'nunique')) \
+               .unstack()
+```
+
+### Traducción humana
+
+```python
+1. filtra solo los períodos deseados
+2. filtra solo los sectores deseados
+3. elimina filas con FOB = 0
+4. agrupa por sector y período
+5. cuenta países únicos
+6. convierte el resultado en formato ancho
+```
+
+### ¿Qué significa `nunique`?
+
+```python
+nunique = number of unique values
+```
+
+Ejemplo:
+
+```python
+Pais
+Perú
+Chile
+Chile
+EEUU
+
+nunique = 3
+```
+
+No cuenta filas, cuenta países distintos.
+
+---
+
+## 7️⃣ Error típico en `tables.py`
+
+### Error 1: creer que `pivot_table()` solo reordena
+
+No. También agrega.
+
+```python
+aggfunc='sum'
+```
+
+Si tienes 20 filas para el mismo sector/período, las suma.
+
+### Error 2: olvidar que `head(5)` corta información
+
+En ranking:
+
+```python
+.head(5)
+```
+
+Eso significa que el país 6 ya no aparece aunque sí exista en la base.
+
+### Error 3: pensar que el orden de filas es aleatorio
+
+No lo es:
+
+```python
+sort_values(by=('millones_fob', periodo_orden), ascending=False)
+```
+
+El ranking depende del período usado para ordenar.
+
+Si cambias `periodo_orden`, cambia el top.
+
+---
+
+# 🧾 EXPLICACIÓN DE `excel_writer.py`
+
+Si `tables.py` arma las tablas, `excel_writer.py` es quien las **copia celda por celda dentro de la plantilla Excel**.
+
+No calcula nada nuevo.
+
+Solo hace esto:
+
+```python
+1. abre la plantilla
+2. ubica la hoja correcta
+3. toma valores del DataFrame
+4. los coloca en coordenadas exactas (fila, columna)
+5. guarda el archivo final
+```
+
+---
+
+## 8️⃣ `generar_reporte()`
+
+Esta es la función principal del módulo.
+
+### ¿Qué hace?
+
+```python
+template = config.TEMPLATES / f"Cuadros de RMC-{config.MES_ACTUAL}-{config.ANIOS[0]}-Joel-act.xlsx"
+output = config.OUTPUT_REPORTES / f"RMC_{config.MES_ACTUAL}_{config.ANIOS[0]}.xlsx"
+```
+
+Construye:
+
+```python
+1. la ruta de la plantilla base
+2. la ruta donde se guardará el reporte nuevo
+```
+
+Luego:
+
+```python
+libro = load_workbook(template)
+```
+
+Carga el archivo Excel en memoria.
+
+Después extrae las tablas:
+
+```python
+tabla_final = tablas['tabla_final']
+tabla_destinos = tablas['tabla_destinos']
+num_destinos = tablas['num_destinos']
+```
+
+Y llama a la función especializada:
+
+```python
+_escribir_comercio_textil(...)
+```
+
+Finalmente:
+
+```python
+libro.save(output)
+```
+
+Guarda el Excel completo ya rellenado.
+
+---
+
+## 9️⃣ ¿Por qué hay funciones separadas por hoja?
+
+Porque cada hoja de la plantilla tiene posiciones distintas.
+
+Ejemplo:
+
+```python
+Comercio_Agro    → escribe grupos en filas 11 y 26
+Comercio_Textil  → escribe grupos en filas 12 y 17
+comercio_Pesca   → destinos desde fila 37
+```
+
+Entonces no basta con tener un solo "writer" genérico.
+
+Cada hoja necesita su propio mapa de coordenadas.
+
+---
+
+## 🔟 `_escribir_comercio_textil()`
+
+Esta función es especialmente importante en tu proyecto actual.
+
+### Parte 1: filas principales
+
+```python
+row_map = {0: 10, 1: 12, 2: 17}
+```
+
+Esto significa:
+
+```python
+fila del DataFrame 0 → fila 10 del Excel
+fila del DataFrame 1 → fila 12 del Excel
+fila del DataFrame 2 → fila 17 del Excel
+```
+
+No es un patrón matemático continuo.
+
+Es un "mapa manual" basado en cómo está diseñada la plantilla.
+
+### ¿Qué contiene cada una?
+
+Usualmente:
+
+```python
+0 → total sector Textil
+1 → primer grupo principal
+2 → segundo grupo principal
+```
+
+### Parte 2: escribir FOB y TM
+
+```python
+for t in range(0, 3):
+    hoja.cell(row, 8+t).value = tabla_final.iloc[idx, t]
+for t in range(0, 2):
+    hoja.cell(row, 13+t).value = tabla_final.iloc[idx, t+4]
+```
+
+Eso se traduce en:
+
+```python
+Columnas H, I, J   → primeros 3 valores
+Columnas M, N      → últimos 2 valores de TM
+```
+
+Recuerda:
+
+```python
+8  = columna H
+9  = columna I
+10 = columna J
+13 = columna M
+14 = columna N
+```
+
+### Parte 3: destinos
+
+```python
+for x in range(0, 3):
+    hoja.cell(24+x, 6).value = _index_label(tabla_destinos.index[x+1])
+```
+
+Esto significa:
+
+```python
+Fila 24 Excel ← destino #1
+Fila 25 Excel ← destino #2
+Fila 26 Excel ← destino #3
+```
+
+Y usa `x+1` porque:
+
+```python
+tabla_destinos.iloc[0] = total del sector
+tabla_destinos.iloc[1] = primer destino real
+```
+
+### Parte 4: número de destinos
+
+```python
+for t in range(0, 3):
+    hoja.cell(27, 8+t).value = num_destinos.iloc[0, t]
+```
+
+Escribe 3 valores horizontales en la fila 27.
+
+---
+
+## 1️⃣1️⃣ `_index_label()`
+
+Esta función parece pequeña, pero resuelve un problema real:
+
+los índices de un `pivot_table()` muchas veces no son strings simples sino tuplas.
+
+Ejemplo:
+
+```python
+('EXPORTACION', 'EXPORTACION', 'Textil', 'Confecciones')
+```
+
+Si escribieras eso directo en Excel, saldría feo e inútil.
+
+Entonces `_index_label()` hace esto:
+
+```python
+1. si el índice es tupla
+2. la recorre desde el final
+3. devuelve el último valor no vacío
+```
+
+Resultado:
+
+```python
+'Confecciones'
+```
+
+Eso hace que el Excel muestre etiquetas limpias.
+
+---
+
+## 1️⃣2️⃣ `_escribir_comercio_agro()` y `_escribir_comercio_pesca()`
+
+Siguen exactamente la misma filosofía que Textil:
+
+```python
+1. toman filas concretas del DataFrame
+2. las colocan en coordenadas exactas del Excel
+3. insertan destinos
+4. insertan número de destinos
+```
+
+La diferencia no es conceptual.
+
+La diferencia es puramente de plantilla:
+
+```python
+Agro   → otra hoja, otras filas
+Pesca  → otra hoja, otras filas
+Textil → otra hoja, otras filas
+```
+
+---
+
+## 1️⃣3️⃣ Error típico en `excel_writer.py`
+
+### Error 1: pensar que `.iloc[0]` siempre es el primer destino
+
+No.
+
+En varias tablas:
+
+```python
+iloc[0] = total sector
+iloc[1] = primer destino o primer grupo
+```
+
+Si te equivocas aquí, escribes el total donde debería ir un país.
+
+### Error 2: mover columnas sin revisar la plantilla
+
+```python
+hoja.cell(10, 8)
+```
+
+Eso no es un número arbitrario.
+
+Es la celda exacta esperada por la plantilla.
+
+Si cambias `8` por `7`, desalineas todo el reporte.
+
+### Error 3: abrir el Excel mientras el script quiere guardar
+
+En Windows, si el archivo está abierto, `openpyxl` puede fallar con:
+
+```python
+Permission denied
+```
+
+No es que el cálculo esté mal.
+
+Es que Excel está bloqueando la sobrescritura del archivo.
+
+---
+
+## 🔗 Conexión final entre `tables.py` y `excel_writer.py`
+
+La relación es esta:
+
+```python
+tables.py
+    ↓
+genera DataFrames con forma exacta
+    ↓
+excel_writer.py
+    ↓
+los copia en celdas exactas del Excel
+```
+
+Si `tables.py` sale mal:
+
+```python
+- faltan filas
+- sobran filas
+- el orden cambia
+- las columnas no coinciden
+```
+
+Entonces `excel_writer.py` escribirá datos equivocados aunque su lógica esté "bien".
+
+Y si `tables.py` está bien pero `excel_writer.py` apunta a celdas incorrectas:
+
+```python
+- el dato existe
+- pero aparece en el lugar equivocado
+```
+
+Por eso estos dos módulos siempre deben entenderse juntos.
+
+---
+
+## 🎯 RESUMEN FINAL
+
+```python
+config.py
+    define rutas y períodos
+
+data_loader.py
+    carga archivos
+
+processing.py
+    limpia y agrega base
+
+transformations.py
+    clasifica y enriquece columnas
+
+tables.py
+    resume la base en tablas pivot
+
+excel_writer.py
+    coloca esas tablas en la plantilla Excel
+```
+
+La idea central es:
+
+```python
+Datos crudos
+→ datos procesados
+→ datos clasificados
+→ tablas
+→ Excel final
+```
+
+---
+
+**Si quieres, el siguiente paso puede ser uno de estos dos:**
+
+- seguir completando `CONFIG_EXPLICADA.md` con una sección igual de detallada sobre `indices_generator.py`
+- o rehacer todo el documento para que quede más ordenado, sin caracteres raros de codificación y con una estructura más limpia

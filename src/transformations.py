@@ -41,6 +41,8 @@ def aplicar_transformaciones(df, correlac_pais, correlac_prod, correlac_cap):
         
         # Textil/Confecciones
         df.loc[df['Sector']=='Textil', 'producto2'] = df['Familia_Textil']
+        df.loc[(df['Sector']=='Textil') & (df['producto2']=='fibras'), 'producto2'] = 'Fibras textiles'
+        df.loc[(df['Sector']=='Textil') & (df['producto2']=='Otras prendas'), 'producto2'] = 'Otras confecciones'
         
         # Metalúrgico
         df.loc[df['Producto']=='Zinc refinado', 'producto2'] = 'Lingotes de zinc - JUMBO'
