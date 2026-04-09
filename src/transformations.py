@@ -96,15 +96,6 @@ def aplicar_transformaciones(df, correlac_pais, correlac_prod, correlac_cap):
         df.loc[(df['Rubro_Textil']=='Prendas') & (df['Sector']=='Textil'), 'grupo2'] = 'Confecciones'
         df.loc[(df['Rubro_Textil'].isin(['Textiles', 'Otros'])) & (df['Sector']=='Textil'), 'grupo2'] = 'Textiles'
 
-
-
-
-
-
-
-
-
-        
         
         # Agro
         df.loc[df['Grupo']=='Frutas', 'grupo2'] = 'Frutas'
