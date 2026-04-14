@@ -129,6 +129,12 @@ def detalle_textil(df, periodos, periodos_miles_TM):
                 (data_textil['producto2']=='Otras confecciones') &
                 (data_textil['producto21']=='Lana y pelo fino')
             ),
+            'mantas_algodon': (
+                (data_textil['grupo2']=='Confecciones') &
+                (data_textil['producto2']=='Otras confecciones') &
+                (data_textil['producto21']=='Mantas de algodón') &
+                (data_textil['codigo_partida']=='6301300000')    
+            ),
             'fibras_textiles': (
                 (data_textil['grupo2']=='Textiles') &
                 (data_textil['producto2']=='Fibras textiles')

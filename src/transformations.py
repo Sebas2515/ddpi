@@ -36,6 +36,7 @@ def aplicar_transformaciones(df, correlac_pais, correlac_prod, correlac_cap):
         df['miles_TM'] = df['PesoNeto'] / 1_000_000
 
         # ===== TRANSFORMACIONES COMPLETAS =====
+
         # PRODUCTO2 - Clasificación refinada por sector
         df['producto2'] = df['Producto']
         
@@ -43,6 +44,7 @@ def aplicar_transformaciones(df, correlac_pais, correlac_prod, correlac_cap):
         df.loc[df['Sector']=='Textil', 'producto2'] = df['Familia_Textil']
         df.loc[(df['Sector']=='Textil') & (df['producto2']=='fibras'), 'producto2'] = 'Fibras textiles'
         df.loc[(df['Sector']=='Textil') & (df['producto2']=='Otras prendas'), 'producto2'] = 'Otras confecciones'
+        #df.loc[(df['Sector']=='Textil') & (df['Producto']=='Otras prendas') & ((df['Familia_Textil']=='Algodón')| (df['codigo_partida']=='6301300000') ), 'producto2'] = 'Mantas de algodón'
         
         # Metalúrgico
         df.loc[df['Producto']=='Zinc refinado', 'producto2'] = 'Lingotes de zinc - JUMBO'
@@ -71,7 +73,12 @@ def aplicar_transformaciones(df, correlac_pais, correlac_prod, correlac_cap):
         df['producto21'] = df['producto2']
         df.loc[df['Sector']=='Pesquero', 'producto21'] = df['Clasific_pesquero']
         df.loc[df['Sector']=='Textil', 'producto21'] = df['Material_Textil']
-
+        df.loc[
+            (df['Sector']=='Textil') &
+            (df['codigo_partida']=='6301300000'),
+            'producto21'
+        ] = 'Mantas de algodón'
+      
         # PRODUCTO3 - Para análisis de familia textil
         df['producto3'] = df['producto2']
         df.loc[df['Sector']=='Textil', 'producto3'] = df['Familia_Textil']
@@ -95,7 +102,7 @@ def aplicar_transformaciones(df, correlac_pais, correlac_prod, correlac_cap):
         # Textil
         df.loc[(df['Rubro_Textil']=='Prendas') & (df['Sector']=='Textil'), 'grupo2'] = 'Confecciones'
         df.loc[(df['Rubro_Textil'].isin(['Textiles', 'Otros'])) & (df['Sector']=='Textil'), 'grupo2'] = 'Textiles'
-
+        
         
         # Agro
         df.loc[df['Grupo']=='Frutas', 'grupo2'] = 'Frutas'
@@ -156,3 +163,4 @@ def aplicar_transformaciones(df, correlac_pais, correlac_prod, correlac_cap):
     except Exception as e:
         logger.error(f"Error en transformaciones: {str(e)}")
         raise
+

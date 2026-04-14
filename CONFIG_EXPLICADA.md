@@ -3602,3 +3602,681 @@ Datos crudos
 
 - seguir completando `CONFIG_EXPLICADA.md` con una sección igual de detallada sobre `indices_generator.py`
 - o rehacer todo el documento para que quede más ordenado, sin caracteres raros de codificación y con una estructura más limpia
+
+---
+
+# 👕 LÓGICA DE `aplicar_transformaciones()` CENTRADA EN TEXTIL
+
+Ahora sí vamos a enfocarnos solo en lo que pasa cuando una fila pertenece al sector `Textil`.
+
+La idea clave es esta:
+
+```python
+La base original trae códigos y nombres bastante "aduanales"
+↓
+aplicar_transformaciones() los convierte en categorías de negocio
+↓
+esas categorías luego alimentan las tablas y el Excel
+```
+
+En Textil esto es especialmente importante, porque no basta con saber:
+
+```python
+Producto = "T-shirts de punto, de algodón"
+```
+
+El reporte final quiere verlo más bien como:
+
+```python
+grupo2     = "Confecciones"
+producto2  = "Prendas de vestir"
+producto21 = "Algodón"
+producto3  = "Prendas de vestir"
+```
+
+Es decir:
+
+```python
+de un producto aduanal específico
+→ pasas a una familia comercial
+→ luego a un material
+→ luego a un bloque del reporte
+```
+
+---
+
+## 1️⃣ ¿Qué problema resuelve esta función para Textil?
+
+La base cruda no viene lista para el cuadro.
+
+Una fila textil puede venir así:
+
+```python
+codigo_partida = 6109100031
+Producto = "T-shirts de punto, de algodón"
+Sector = "Textil"
+Grupo = "Confecciones"
+```
+
+Pero el reporte no quiere listar todas las partidas una por una.
+
+Quiere algo mucho más resumido, como:
+
+```python
+Confecciones
+└─ Prendas de vestir
+   └─ Algodón
+```
+
+Entonces `aplicar_transformaciones()` hace justamente eso:
+
+```python
+1. une la base con correlacionadores
+2. trae columnas textiles auxiliares
+3. redefine nombres para análisis
+4. crea agrupaciones que luego usarán tables.py y excel_writer.py
+```
+
+---
+
+## 2️⃣ Los merges: ¿por qué son tan importantes para Textil?
+
+Antes de clasificar nada, la función hace merges con 3 correlacionadores:
+
+```python
+df = df.merge(correlac_pais, on='cod_pais', how='left')
+df = df.merge(correlac_prod, on='codigo_partida', how='left')
+df = df.merge(correlac_cap, on='cuatro_dig', how='left')
+```
+
+Para Textil, el merge más importante es este:
+
+```python
+df = df.merge(correlac_prod, on='codigo_partida', how='left')
+```
+
+Porque ahí llegan columnas como:
+
+```python
+Producto
+Sector
+Grupo
+Familia_Textil
+Material_Textil
+Rubro_Textil
+```
+
+Sin esas columnas, la lógica textil no existe.
+
+Es decir:
+
+```python
+codigo_partida = 6109100031
+```
+
+por sí solo no te dice mucho.
+
+Pero tras el merge puede transformarse en algo así:
+
+```python
+Producto         = "T-shirts de punto, de algodón"
+Sector           = "Textil"
+Familia_Textil   = "Prendas de vestir"
+Material_Textil  = "Algodón"
+Rubro_Textil     = "Prendas"
+```
+
+Y recién con eso ya puedes construir un cuadro entendible.
+
+---
+
+## 3️⃣ Normalización técnica antes del merge
+
+Estas líneas parecen técnicas, pero son fundamentales:
+
+```python
+df['codigo_partida'] = df['codigo_partida'].astype(str).str.zfill(10)
+df['cuatro_dig'] = df['cuatro_dig'].astype(str).str.zfill(4)
+```
+
+### ¿Por qué importan tanto en Textil?
+
+Porque los códigos de partida son la llave de clasificación.
+
+Si una partida viene así:
+
+```python
+610910031
+```
+
+en vez de:
+
+```python
+0610910031
+```
+
+o si le faltan ceros a la izquierda, el merge no va a encontrar coincidencia.
+
+Y si no encuentra coincidencia:
+
+```python
+Familia_Textil  = NaN
+Material_Textil = NaN
+Rubro_Textil    = NaN
+```
+
+Y entonces todo lo demás se cae.
+
+---
+
+## 4️⃣ `cinco_dig`: por qué se crea aunque en Textil casi no se use
+
+```python
+df['cinco_dig'] = df['codigo_partida'].str[:5]
+```
+
+Esta columna se usa más en pesca, pero forma parte del set de variables derivadas generales.
+
+En Textil no es la columna protagonista.
+
+La protagonista real para textil es más bien:
+
+```python
+Familia_Textil
+Material_Textil
+Rubro_Textil
+```
+
+---
+
+## 5️⃣ Variables monetarias: por qué se escalan
+
+```python
+df['millones_fob'] = df['fob'] / 1_000_000
+df['miles_TM'] = df['PesoNeto'] / 1_000_000
+```
+
+Esto no cambia la clasificación textil, pero sí el formato del reporte.
+
+Textil en Excel se muestra como:
+
+```python
+US$ Millones
+Miles de TM
+```
+
+Entonces estas variables son las que usarán después:
+
+```python
+tabla_sectorial()
+tabla_grupos()
+detalle_textil()
+ranking_destinos()
+indices_generator.py
+```
+
+---
+
+## 6️⃣ `producto2`: la gran clasificación comercial de Textil
+
+Aquí empieza la lógica más importante para tu sector:
+
+```python
+df['producto2'] = df['Producto']
+df.loc[df['Sector']=='Textil', 'producto2'] = df['Familia_Textil']
+```
+
+### ¿Qué significa eso?
+
+Primero, `producto2` nace como copia de `Producto`.
+
+Pero si la fila es `Textil`, entonces deja de usar el nombre aduanal específico y pasa a usar `Familia_Textil`.
+
+Ejemplo:
+
+```python
+Producto         = "T-shirts de punto, de algodón"
+Familia_Textil   = "Prendas de vestir"
+```
+
+Entonces:
+
+```python
+producto2 = "Prendas de vestir"
+```
+
+### Traducción de negocio
+
+Esto convierte miles de partidas textiles específicas en unas pocas familias grandes.
+
+En vez de reportar:
+
+```python
+- T-shirts
+- camisas
+- blusas
+- prendas diversas
+```
+
+el reporte las resume en:
+
+```python
+Prendas de vestir
+```
+
+Ese es el nombre que luego aparece en filas como:
+
+```python
+Prendas de vestir
+Fibras textiles
+Tejidos
+Hilos e hilados
+```
+
+---
+
+## 7️⃣ Ajustes finos dentro de `producto2` para Textil
+
+Luego agregaste estas dos líneas:
+
+```python
+df.loc[(df['Sector']=='Textil') & (df['producto2']=='fibras'), 'producto2'] = 'Fibras textiles'
+df.loc[(df['Sector']=='Textil') & (df['producto2']=='Otras prendas'), 'producto2'] = 'Otras confecciones'
+```
+
+### ¿Por qué fueron necesarias?
+
+Porque `Familia_Textil` venía con nombres que no calzaban perfecto con la plantilla.
+
+Por ejemplo:
+
+```python
+Familia_Textil = "fibras"
+```
+
+pero tu reporte espera ver:
+
+```python
+Fibras textiles
+```
+
+Y también:
+
+```python
+Familia_Textil = "Otras prendas"
+```
+
+pero la plantilla tiene:
+
+```python
+Otras confecciones
+```
+
+Entonces estas líneas no cambian el fondo del dato.
+
+Lo que hacen es:
+
+```python
+alinear el nombre de negocio con el nombre del cuadro Excel
+```
+
+---
+
+## 8️⃣ `producto21`: el segundo nivel de detalle textil
+
+```python
+df['producto21'] = df['producto2']
+df.loc[df['Sector']=='Textil', 'producto21'] = df['Material_Textil']
+```
+
+### ¿Qué representa para Textil?
+
+`producto2` te da la familia.
+
+`producto21` te da el material.
+
+Ejemplo:
+
+```python
+producto2  = "Prendas de vestir"
+producto21 = "Algodón"
+```
+
+o:
+
+```python
+producto2  = "Tejidos"
+producto21 = "Algodón"
+```
+
+### ¿Por qué esto es tan útil?
+
+Porque permite construir niveles como estos:
+
+```python
+Prendas de vestir
+└─ Prendas de algodón
+
+Tejidos
+└─ De algodón
+```
+
+Es exactamente la lógica que luego usamos en el detalle textil.
+
+Sin `producto21`, sabrías la familia, pero no sabrías el material.
+
+---
+
+## 9️⃣ `producto3`: una mirada alternativa pensada para Textil
+
+```python
+df['producto3'] = df['producto2']
+df.loc[df['Sector']=='Textil', 'producto3'] = df['Familia_Textil']
+df.loc[(df['Rubro_Textil'].isin(['Textiles', 'Otros'])) & (df['Sector']=='Textil'),
+       'producto3'] = 'Materias textiles'
+```
+
+### ¿Qué está haciendo aquí?
+
+Para Textil, `producto3` crea una clasificación alternativa.
+
+No está pensada para reemplazar a `producto2`, sino para dar otra forma de agrupar.
+
+### Caso clave
+
+Si el `Rubro_Textil` es:
+
+```python
+Textiles
+Otros
+```
+
+entonces:
+
+```python
+producto3 = "Materias textiles"
+```
+
+### ¿Por qué?
+
+Porque desde el punto de vista analítico a veces conviene separar:
+
+```python
+Confecciones terminadas
+vs
+Materias textiles / insumos textiles
+```
+
+Entonces `producto3` te da una mirada más conceptual:
+
+```python
+producto2 = detalle comercial
+producto3 = mirada más agrupada del negocio textil
+```
+
+---
+
+## 🔟 `grupo2`: el gran bloque del reporte textil
+
+Aquí está la división que más manda sobre tu cuadro:
+
+```python
+df['grupo2'] = df['Grupo']
+...
+df.loc[(df['Rubro_Textil']=='Prendas') & (df['Sector']=='Textil'), 'grupo2'] = 'Confecciones'
+df.loc[(df['Rubro_Textil'].isin(['Textiles', 'Otros'])) & (df['Sector']=='Textil'), 'grupo2'] = 'Textiles'
+```
+
+### ¿Qué significa esto?
+
+Toda fila textil termina cayendo en uno de estos dos grandes bloques:
+
+```python
+Confecciones
+Textiles
+```
+
+### Ejemplo práctico
+
+Si una fila tiene:
+
+```python
+Rubro_Textil = "Prendas"
+```
+
+entonces:
+
+```python
+grupo2 = "Confecciones"
+```
+
+Si una fila tiene:
+
+```python
+Rubro_Textil = "Textiles"
+```
+
+o:
+
+```python
+Rubro_Textil = "Otros"
+```
+
+entonces:
+
+```python
+grupo2 = "Textiles"
+```
+
+### ¿Por qué esto es tan importante?
+
+Porque en tu hoja `Comercio_Textil`, las dos filas grandes son justamente:
+
+```python
+Confecciones
+Textiles
+```
+
+O sea:
+
+```python
+grupo2 no es una columna más
+grupo2 es la columna que define la estructura central del cuadro textil
+```
+
+---
+
+## 1️⃣1️⃣ `grupo3`: agrupación todavía más amplia para Textil
+
+```python
+df.loc[df['Sector']=='Textil', 'grupo3'] = 'Textil-confecciones'
+```
+
+### ¿Qué hace?
+
+Le pone a todas las filas textiles el mismo gran rótulo:
+
+```python
+grupo3 = "Textil-confecciones"
+```
+
+### ¿Para qué serviría?
+
+Para análisis más macro, cuando no quieres separar:
+
+```python
+Confecciones
+Textiles
+familias
+materiales
+```
+
+y solo quieres un paraguas general.
+
+Entonces:
+
+```python
+grupo2 = nivel operativo del reporte
+grupo3 = nivel macro del sector
+```
+
+---
+
+## 1️⃣2️⃣ `sector2`: por qué en Textil casi no cambia
+
+```python
+df['sector2'] = df['Sector']
+df.loc[(df['Sector']=='Siderúrgico') | (df['Sector']=='Metalúrgico'), 'sector2'] = 'Sidero-Metalúrgico'
+```
+
+En Textil no hay una reasignación especial.
+
+Entonces:
+
+```python
+Sector  = "Textil"
+sector2 = "Textil"
+```
+
+### ¿Por qué importa igual?
+
+Porque todas las tablas luego filtran con `sector2`, por ejemplo:
+
+```python
+df[df['sector2']=='Textil']
+```
+
+Así que aunque en Textil no cambie el nombre, sí es la llave formal que usan los módulos siguientes.
+
+---
+
+## 1️⃣3️⃣ Ejemplo completo de una fila textil
+
+Imagina que entra una fila así:
+
+```python
+codigo_partida   = 6109100031
+Producto         = "T-shirts de punto, de algodón"
+Sector           = "Textil"
+Grupo            = "Confecciones"
+Familia_Textil   = "Prendas de vestir"
+Material_Textil  = "Algodón"
+Rubro_Textil     = "Prendas"
+fob              = 1200000
+PesoNeto         = 4500
+```
+
+Después de `aplicar_transformaciones()` quedaría aproximadamente así:
+
+```python
+producto2     = "Prendas de vestir"
+producto21    = "Algodón"
+producto3     = "Prendas de vestir"
+grupo2        = "Confecciones"
+grupo3        = "Textil-confecciones"
+sector2       = "Textil"
+millones_fob  = 1.2
+miles_TM      = 0.0045
+```
+
+Y luego eso alimenta:
+
+```python
+tabla_sectorial()   → total Textil
+tabla_grupos()      → Confecciones
+detalle_textil()    → Prendas de vestir / Prendas de algodón
+ranking_destinos()  → EEUU, UE, etc.
+indices_generator() → subpartidas textiles
+```
+
+---
+
+## 1️⃣4️⃣ La lógica jerárquica real del sector textil
+
+Si lo resumimos, tu transformación textil trabaja así:
+
+```python
+Nivel 1: sector2
+→ Textil
+
+Nivel 2: grupo2
+→ Confecciones / Textiles
+
+Nivel 3: producto2
+→ Prendas de vestir / Fibras textiles / Tejidos / Hilos e hilados / Otras confecciones
+
+Nivel 4: producto21
+→ Algodón / Lana y pelo fino / Sintéticas / Otros
+```
+
+Esa jerarquía es la razón por la que luego puedes construir cuadros como:
+
+```python
+Textil
+├─ Confecciones
+│  ├─ Prendas de vestir
+│  │  └─ Prendas de algodón
+│  └─ Otras confecciones
+│     └─ Mantas de pelo fino
+└─ Textiles
+   ├─ Fibras textiles
+   ├─ Tejidos
+   │  └─ De algodón
+   └─ Hilos e hilados
+```
+
+---
+
+## 1️⃣5️⃣ Qué pasaría si faltan columnas textiles en el correlacionador
+
+Si `correlac_prod` no trae bien estas columnas:
+
+```python
+Familia_Textil
+Material_Textil
+Rubro_Textil
+```
+
+entonces la transformación textil pierde casi toda su inteligencia.
+
+Podría pasar algo así:
+
+```python
+producto2  = NaN
+producto21 = NaN
+grupo2     = Grupo original o mal asignado
+```
+
+Y luego en el reporte verías:
+
+```python
+- filas vacías
+- grupos incorrectos
+- detalles que no aparecen
+```
+
+Por eso para Textil el correlacionador de productos es prácticamente el corazón de la clasificación.
+
+---
+
+## 🎯 Resumen final solo para Textil
+
+`aplicar_transformaciones()` en Textil hace esto:
+
+```python
+1. usa codigo_partida para traer Familia_Textil, Material_Textil y Rubro_Textil
+2. convierte el producto aduanal en una familia comercial (producto2)
+3. convierte esa familia en un detalle por material (producto21)
+4. agrupa todo en dos grandes bloques del cuadro: Confecciones y Textiles
+5. deja una clasificación macro adicional con grupo3
+6. genera las variables monetarias que el Excel necesita
+```
+
+La idea más importante de todas es esta:
+
+```python
+Textil no se reporta por producto aduanal puro
+se reporta por jerarquías de negocio
+```
+
+Y esas jerarquías nacen justamente aquí, dentro de `aplicar_transformaciones()`.

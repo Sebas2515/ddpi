@@ -87,7 +87,7 @@ def _escribir_comercio_textil(hoja, tabla_final, detalle_textil, tabla_destinos,
     """Escribe datos en la hoja Comercio_Textil."""
     try:
         # Flujos y grupos de productos
-        row_map = {0: 10, 1: 12, 2: 17}
+        row_map = {0: 10, 1: 12, 2: 18}
         for idx, row in row_map.items():
             for t in range(0, 3):
                 hoja.cell(row, 8+t).value = tabla_final.iloc[idx, t]
@@ -99,10 +99,11 @@ def _escribir_comercio_textil(hoja, tabla_final, detalle_textil, tabla_destinos,
             'prendas_vestir': 13,
             'prendas_algodon': 14,
             'mantas_pelo_fino': 16,
-            'fibras_textiles': 18,
-            'tejidos': 19,
-            'tejidos_algodon': 20,
-            'hilos_hilados': 21,
+            'mantas_algodon': 17,
+            'fibras_textiles': 19,
+            'tejidos': 20,
+            'tejidos_algodon': 21,
+            'hilos_hilados': 22,
         }
         for etiqueta, row in detalle_map.items():
             for col in range(8, 11):

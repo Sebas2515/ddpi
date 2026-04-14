@@ -1044,3 +1044,1637 @@ AttributeError: 'MergedCell' object attribute 'value' is read-only
 2026-04-09 14:59:13,545 - __main__ - INFO - EJECUCION COMPLETADA EXITOSAMENTE
 2026-04-09 14:59:13,545 - __main__ - INFO - ======================================================================
 
+2026-04-09 19:42:57,204 - __main__ - INFO - 
+======================================================================
+2026-04-09 19:42:57,205 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-09 19:42:57,206 - __main__ - INFO - ======================================================================
+
+2026-04-09 19:42:57,206 - src.pipeline - INFO - ======================================================================
+2026-04-09 19:42:57,206 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-09 19:42:57,207 - src.pipeline - INFO - ======================================================================
+2026-04-09 19:42:57,207 - src.pipeline - INFO - Cargando datos...
+2026-04-09 19:42:57,207 - src.data_loader - INFO - Cargando archivo: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-09 19:43:36,130 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-09 19:43:36,131 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-09 19:43:36,131 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-09 19:43:37,771 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-09 19:43:37,771 - src.pipeline - INFO - Procesando base...
+2026-04-09 19:43:37,771 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-09 19:43:39,420 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-09 19:43:39,455 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-09 19:43:39,455 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-09 19:43:41,026 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-09 19:43:41,036 - src.pipeline - INFO - Períodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-09 19:43:41,036 - src.pipeline - INFO - Período para ordenar: Ult_12_meses
+2026-04-09 19:43:41,036 - src.pipeline - INFO - Generando tablas para Textil/Confecciones...
+2026-04-09 19:43:41,038 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-09 19:43:41,117 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-09 19:43:41,205 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-09 19:43:41,297 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-09 19:43:41,307 - src.pipeline - INFO - Tabla final generada: (3, 6)
+2026-04-09 19:43:41,308 - src.pipeline - INFO - Generando detalle de productos textil...
+2026-04-09 19:43:41,308 - src.tables - INFO - Generando detalle de productos para Textil
+2026-04-09 19:43:41,468 - src.tables - INFO - Detalle de productos textil generado: (7, 6)
+2026-04-09 19:43:41,478 - src.pipeline - INFO - Generando ranking de destinos...
+2026-04-09 19:43:41,479 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-09 19:43:41,549 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-09 19:43:41,561 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-09 19:43:41,561 - src.pipeline - INFO - Calculando numero de destinos...
+2026-04-09 19:43:41,561 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-09 19:43:41,624 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-09 19:43:41,625 - src.pipeline - INFO - Número de destinos: (1, 4)
+2026-04-09 19:43:41,625 - src.pipeline - INFO - Generando indices...
+2026-04-09 19:43:41,625 - src.indices_generator - INFO - Generando índices por sector...
+2026-04-09 19:43:41,858 - src.indices_generator - INFO - Índices generados exitosamente
+2026-04-09 19:43:41,859 - src.pipeline - INFO - Exportando a Excel...
+2026-04-09 19:43:41,860 - src.excel_writer - INFO - Cargando plantilla: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-09 19:44:41,193 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-09 19:44:41,220 - src.excel_writer - INFO - Guardando reporte en: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\outputs\reportes\RMC_feb_2026.xlsx
+2026-04-09 19:45:25,594 - src.excel_writer - INFO - Reporte completado exitosamente
+2026-04-09 19:45:25,598 - src.pipeline - INFO - ======================================================================
+2026-04-09 19:45:25,598 - src.pipeline - INFO - PIPELINE COMPLETADO EXITOSAMENTE
+2026-04-09 19:45:25,598 - src.pipeline - INFO - ======================================================================
+2026-04-09 19:45:25,837 - __main__ - INFO - 
+======================================================================
+2026-04-09 19:45:25,837 - __main__ - INFO - EJECUCION COMPLETADA EXITOSAMENTE
+2026-04-09 19:45:25,837 - __main__ - INFO - ======================================================================
+
+2026-04-09 19:50:39,564 - __main__ - INFO - 
+======================================================================
+2026-04-09 19:50:39,565 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-09 19:50:39,566 - __main__ - INFO - ======================================================================
+
+2026-04-09 19:50:39,566 - src.pipeline - INFO - ======================================================================
+2026-04-09 19:50:39,566 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-09 19:50:39,566 - src.pipeline - INFO - ======================================================================
+2026-04-09 19:50:39,567 - src.pipeline - INFO - Cargando datos...
+2026-04-09 19:50:39,567 - src.data_loader - INFO - Cargando archivo: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-09 19:51:18,092 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-09 19:51:18,092 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-09 19:51:18,093 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-09 19:51:19,667 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-09 19:51:19,667 - src.pipeline - INFO - Procesando base...
+2026-04-09 19:51:19,667 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-09 19:51:21,377 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-09 19:51:21,430 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-09 19:51:21,431 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-09 19:51:23,044 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-09 19:51:23,057 - src.pipeline - INFO - Períodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-09 19:51:23,057 - src.pipeline - INFO - Período para ordenar: Ult_12_meses
+2026-04-09 19:51:23,058 - src.pipeline - INFO - Generando tablas para Textil/Confecciones...
+2026-04-09 19:51:23,058 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-09 19:51:23,163 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-09 19:51:23,273 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-09 19:51:23,337 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-09 19:51:23,345 - src.pipeline - INFO - Tabla final generada: (3, 6)
+2026-04-09 19:51:23,345 - src.pipeline - INFO - Generando detalle de productos textil...
+2026-04-09 19:51:23,346 - src.tables - INFO - Generando detalle de productos para Textil
+2026-04-09 19:51:23,507 - src.tables - INFO - Detalle de productos textil generado: (8, 6)
+2026-04-09 19:51:23,513 - src.pipeline - INFO - Generando ranking de destinos...
+2026-04-09 19:51:23,514 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-09 19:51:23,607 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-09 19:51:23,619 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-09 19:51:23,620 - src.pipeline - INFO - Calculando numero de destinos...
+2026-04-09 19:51:23,620 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-09 19:51:23,671 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-09 19:51:23,672 - src.pipeline - INFO - Número de destinos: (1, 4)
+2026-04-09 19:51:23,672 - src.pipeline - INFO - Generando indices...
+2026-04-09 19:51:23,672 - src.indices_generator - INFO - Generando índices por sector...
+2026-04-09 19:51:23,835 - src.indices_generator - INFO - Índices generados exitosamente
+2026-04-09 19:51:23,835 - src.pipeline - INFO - Exportando a Excel...
+2026-04-09 19:51:23,863 - src.excel_writer - INFO - Cargando plantilla: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-09 19:52:19,861 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-09 19:52:19,878 - src.excel_writer - INFO - Guardando reporte en: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\outputs\reportes\RMC_feb_2026.xlsx
+2026-04-09 19:52:58,088 - src.excel_writer - INFO - Reporte completado exitosamente
+2026-04-09 19:52:58,091 - src.pipeline - INFO - ======================================================================
+2026-04-09 19:52:58,092 - src.pipeline - INFO - PIPELINE COMPLETADO EXITOSAMENTE
+2026-04-09 19:52:58,092 - src.pipeline - INFO - ======================================================================
+2026-04-09 19:52:58,290 - __main__ - INFO - 
+======================================================================
+2026-04-09 19:52:58,290 - __main__ - INFO - EJECUCION COMPLETADA EXITOSAMENTE
+2026-04-09 19:52:58,291 - __main__ - INFO - ======================================================================
+
+2026-04-12 01:05:18,387 - __main__ - INFO - 
+======================================================================
+2026-04-12 01:05:18,387 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-12 01:05:18,387 - __main__ - INFO - ======================================================================
+
+2026-04-12 01:05:18,388 - src.pipeline - INFO - ======================================================================
+2026-04-12 01:05:18,388 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-12 01:05:18,388 - src.pipeline - INFO - ======================================================================
+2026-04-12 01:05:18,388 - src.pipeline - INFO - Cargando datos...
+2026-04-12 01:05:18,388 - src.data_loader - INFO - Cargando archivo: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-12 01:05:46,939 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-12 01:05:46,940 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-12 01:05:46,940 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-12 01:05:47,154 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-12 01:05:47,154 - src.pipeline - INFO - Procesando base...
+2026-04-12 01:05:47,154 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-12 01:05:48,565 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-12 01:05:48,602 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-12 01:05:48,602 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-12 01:05:48,662 - src.transformations - ERROR - Error en transformaciones: 'codigo_partida'
+2026-04-12 01:05:48,662 - src.pipeline - ERROR - 
+ERROR EN PIPELINE: 'codigo_partida'
+
+2026-04-12 01:05:48,663 - __main__ - ERROR - 
+ERROR CRÍTICO: 'codigo_partida'
+2026-04-12 01:05:48,663 - __main__ - ERROR - Traceback completo:
+Traceback (most recent call last):
+  File "C:\Users\Sebasteitor\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'codigo_partida'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\main.py", line 30, in main
+    run_pipeline()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\src\pipeline.py", line 30, in run_pipeline
+    df = aplicar_transformaciones(df, c_pais, c_prod, c_cap)
+  File "C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\src\transformations.py", line 17, in aplicar_transformaciones
+    correlac_prod['codigo_partida'] = correlac_prod['codigo_partida'].astype(str).str.zfill(10)
+                                      ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sebasteitor\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\Sebasteitor\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'codigo_partida'
+2026-04-12 13:04:02,625 - __main__ - INFO - 
+======================================================================
+2026-04-12 13:04:02,626 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-12 13:04:02,626 - __main__ - INFO - ======================================================================
+
+2026-04-12 13:04:02,626 - src.pipeline - INFO - ======================================================================
+2026-04-12 13:04:02,626 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-12 13:04:02,626 - src.pipeline - INFO - ======================================================================
+2026-04-12 13:04:02,626 - src.pipeline - INFO - Cargando datos...
+2026-04-12 13:04:02,627 - src.data_loader - INFO - Cargando archivo: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-12 13:04:33,407 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-12 13:04:33,408 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-12 13:04:33,408 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-12 13:04:33,637 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-12 13:04:33,637 - src.pipeline - INFO - Procesando base...
+2026-04-12 13:04:33,637 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-12 13:04:35,122 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-12 13:04:35,167 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-12 13:04:35,167 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-12 13:04:35,245 - src.transformations - ERROR - Error en transformaciones: 'codigo_partida'
+2026-04-12 13:04:35,246 - src.pipeline - ERROR - 
+ERROR EN PIPELINE: 'codigo_partida'
+
+2026-04-12 13:04:35,246 - __main__ - ERROR - 
+ERROR CRÍTICO: 'codigo_partida'
+2026-04-12 13:04:35,246 - __main__ - ERROR - Traceback completo:
+Traceback (most recent call last):
+  File "C:\Users\Sebasteitor\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'codigo_partida'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\main.py", line 30, in main
+    run_pipeline()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\src\pipeline.py", line 30, in run_pipeline
+    df = aplicar_transformaciones(df, c_pais, c_prod, c_cap)
+  File "C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\src\transformations.py", line 17, in aplicar_transformaciones
+    correlac_prod['codigo_partida'] = correlac_prod['codigo_partida'].astype(str).str.zfill(10)
+                                      ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sebasteitor\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\Sebasteitor\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'codigo_partida'
+2026-04-12 13:04:53,499 - __main__ - INFO - 
+======================================================================
+2026-04-12 13:04:53,499 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-12 13:04:53,499 - __main__ - INFO - ======================================================================
+
+2026-04-12 13:04:53,499 - src.pipeline - INFO - ======================================================================
+2026-04-12 13:04:53,499 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-12 13:04:53,499 - src.pipeline - INFO - ======================================================================
+2026-04-12 13:04:53,500 - src.pipeline - INFO - Cargando datos...
+2026-04-12 13:04:53,500 - src.data_loader - INFO - Cargando archivo: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-12 13:05:22,648 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-12 13:05:22,649 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-12 13:05:22,649 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-12 13:05:22,868 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-12 13:05:22,868 - src.pipeline - INFO - Procesando base...
+2026-04-12 13:05:22,868 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-12 13:05:24,285 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-12 13:05:24,318 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-12 13:05:24,318 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-12 13:05:24,378 - src.transformations - ERROR - Error en transformaciones: 'codigo_partida'
+2026-04-12 13:05:24,378 - src.pipeline - ERROR - 
+ERROR EN PIPELINE: 'codigo_partida'
+
+2026-04-12 13:05:24,378 - __main__ - ERROR - 
+ERROR CRÍTICO: 'codigo_partida'
+2026-04-12 13:05:24,379 - __main__ - ERROR - Traceback completo:
+Traceback (most recent call last):
+  File "C:\Users\Sebasteitor\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'codigo_partida'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\main.py", line 30, in main
+    run_pipeline()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\src\pipeline.py", line 30, in run_pipeline
+    df = aplicar_transformaciones(df, c_pais, c_prod, c_cap)
+  File "C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\src\transformations.py", line 17, in aplicar_transformaciones
+    correlac_prod['codigo_partida'] = correlac_prod['codigo_partida'].astype(str).str.zfill(10)
+                                      ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sebasteitor\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\Sebasteitor\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'codigo_partida'
+2026-04-12 13:06:09,290 - __main__ - INFO - 
+======================================================================
+2026-04-12 13:06:09,290 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-12 13:06:09,290 - __main__ - INFO - ======================================================================
+
+2026-04-12 13:06:09,290 - src.pipeline - INFO - ======================================================================
+2026-04-12 13:06:09,290 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-12 13:06:09,290 - src.pipeline - INFO - ======================================================================
+2026-04-12 13:06:09,290 - src.pipeline - INFO - Cargando datos...
+2026-04-12 13:06:09,290 - src.data_loader - INFO - Cargando archivo: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-12 13:06:40,941 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-12 13:06:40,941 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-12 13:06:40,942 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-12 13:06:41,169 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-12 13:06:41,170 - src.pipeline - INFO - Procesando base...
+2026-04-12 13:06:41,170 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-12 13:06:42,719 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-12 13:06:42,761 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-12 13:06:42,762 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-12 13:06:42,832 - src.transformations - ERROR - Error en transformaciones: 'codigo_partida'
+2026-04-12 13:06:42,833 - src.pipeline - ERROR - 
+ERROR EN PIPELINE: 'codigo_partida'
+
+2026-04-12 13:06:42,833 - __main__ - ERROR - 
+ERROR CRÍTICO: 'codigo_partida'
+2026-04-12 13:06:42,833 - __main__ - ERROR - Traceback completo:
+Traceback (most recent call last):
+  File "C:\Users\Sebasteitor\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'codigo_partida'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\main.py", line 30, in main
+    run_pipeline()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\src\pipeline.py", line 30, in run_pipeline
+    df = aplicar_transformaciones(df, c_pais, c_prod, c_cap)
+  File "C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\src\transformations.py", line 17, in aplicar_transformaciones
+    correlac_prod['codigo_partida'] = correlac_prod['codigo_partida'].astype(str).str.zfill(10)
+                                      ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sebasteitor\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 4107, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "C:\Users\Sebasteitor\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\indexes\base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'codigo_partida'
+2026-04-12 13:08:21,215 - __main__ - INFO - 
+======================================================================
+2026-04-12 13:08:21,215 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-12 13:08:21,216 - __main__ - INFO - ======================================================================
+
+2026-04-12 13:08:21,216 - src.pipeline - INFO - ======================================================================
+2026-04-12 13:08:21,216 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-12 13:08:21,216 - src.pipeline - INFO - ======================================================================
+2026-04-12 13:08:21,216 - src.pipeline - INFO - Cargando datos...
+2026-04-12 13:08:21,216 - src.data_loader - INFO - Cargando archivo: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-12 13:08:50,458 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-12 13:08:50,459 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-12 13:08:50,459 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-12 13:08:51,783 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-12 13:08:51,784 - src.pipeline - INFO - Procesando base...
+2026-04-12 13:08:51,784 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-12 13:08:53,247 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-12 13:08:53,280 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-12 13:08:53,280 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-12 13:08:54,668 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-12 13:08:54,676 - src.pipeline - INFO - Períodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-12 13:08:54,677 - src.pipeline - INFO - Período para ordenar: Ult_12_meses
+2026-04-12 13:08:54,677 - src.pipeline - INFO - Generando tablas para Textil/Confecciones...
+2026-04-12 13:08:54,678 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-12 13:08:54,743 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-12 13:08:54,813 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-12 13:08:54,887 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-12 13:08:54,894 - src.pipeline - INFO - Tabla final generada: (3, 6)
+2026-04-12 13:08:54,894 - src.pipeline - INFO - Generando detalle de productos textil...
+2026-04-12 13:08:54,895 - src.tables - INFO - Generando detalle de productos para Textil
+2026-04-12 13:08:55,039 - src.tables - INFO - Detalle de productos textil generado: (8, 6)
+2026-04-12 13:08:55,044 - src.pipeline - INFO - Generando ranking de destinos...
+2026-04-12 13:08:55,045 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-12 13:08:55,118 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 13:08:55,124 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 13:08:55,124 - src.pipeline - INFO - Calculando numero de destinos...
+2026-04-12 13:08:55,124 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-12 13:08:55,177 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-12 13:08:55,178 - src.pipeline - INFO - Número de destinos: (1, 4)
+2026-04-12 13:08:55,178 - src.pipeline - INFO - Generando indices...
+2026-04-12 13:08:55,178 - src.indices_generator - INFO - Generando índices por sector...
+2026-04-12 13:08:55,375 - src.indices_generator - INFO - Índices generados exitosamente
+2026-04-12 13:08:55,375 - src.pipeline - INFO - Exportando a Excel...
+2026-04-12 13:08:55,376 - src.excel_writer - INFO - Cargando plantilla: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-12 13:09:39,812 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-12 13:09:39,827 - src.excel_writer - INFO - Guardando reporte en: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\outputs\reportes\RMC_feb_2026.xlsx
+2026-04-12 13:10:11,777 - src.excel_writer - INFO - Reporte completado exitosamente
+2026-04-12 13:10:11,779 - src.pipeline - INFO - ======================================================================
+2026-04-12 13:10:11,779 - src.pipeline - INFO - PIPELINE COMPLETADO EXITOSAMENTE
+2026-04-12 13:10:11,779 - src.pipeline - INFO - ======================================================================
+2026-04-12 13:10:11,920 - __main__ - INFO - 
+======================================================================
+2026-04-12 13:10:11,920 - __main__ - INFO - EJECUCION COMPLETADA EXITOSAMENTE
+2026-04-12 13:10:11,920 - __main__ - INFO - ======================================================================
+
+2026-04-12 13:15:08,482 - __main__ - INFO - 
+======================================================================
+2026-04-12 13:15:08,482 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-12 13:15:08,482 - __main__ - INFO - ======================================================================
+
+2026-04-12 13:15:08,483 - src.pipeline - INFO - ======================================================================
+2026-04-12 13:15:08,483 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-12 13:15:08,483 - src.pipeline - INFO - ======================================================================
+2026-04-12 13:15:08,483 - src.pipeline - INFO - Cargando datos...
+2026-04-12 13:15:08,483 - src.data_loader - INFO - Cargando archivo: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-12 13:15:37,775 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-12 13:15:37,776 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-12 13:15:37,776 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-12 13:15:38,968 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-12 13:15:38,968 - src.pipeline - INFO - Procesando base...
+2026-04-12 13:15:38,968 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-12 13:15:40,351 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-12 13:15:40,396 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-12 13:15:40,397 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-12 13:15:41,698 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-12 13:15:41,708 - src.pipeline - INFO - Períodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-12 13:15:41,708 - src.pipeline - INFO - Período para ordenar: Ult_12_meses
+2026-04-12 13:15:41,708 - src.pipeline - INFO - Generando tablas para Textil/Confecciones...
+2026-04-12 13:15:41,709 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-12 13:15:41,770 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-12 13:15:41,839 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-12 13:15:41,904 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-12 13:15:41,912 - src.pipeline - INFO - Tabla final generada: (3, 6)
+2026-04-12 13:15:41,912 - src.pipeline - INFO - Generando detalle de productos textil...
+2026-04-12 13:15:41,912 - src.tables - INFO - Generando detalle de productos para Textil
+2026-04-12 13:15:42,047 - src.tables - INFO - Detalle de productos textil generado: (8, 6)
+2026-04-12 13:15:42,053 - src.pipeline - INFO - Generando ranking de destinos...
+2026-04-12 13:15:42,053 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-12 13:15:42,116 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 13:15:42,122 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 13:15:42,122 - src.pipeline - INFO - Calculando numero de destinos...
+2026-04-12 13:15:42,122 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-12 13:15:42,172 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-12 13:15:42,173 - src.pipeline - INFO - Número de destinos: (1, 4)
+2026-04-12 13:15:42,173 - src.pipeline - INFO - Generando indices...
+2026-04-12 13:15:42,173 - src.indices_generator - INFO - Generando índices por sector...
+2026-04-12 13:15:42,352 - src.indices_generator - INFO - Índices generados exitosamente
+2026-04-12 13:15:42,353 - src.pipeline - INFO - Exportando a Excel...
+2026-04-12 13:15:42,354 - src.excel_writer - INFO - Cargando plantilla: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-12 13:16:27,930 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-12 13:16:27,943 - src.excel_writer - INFO - Guardando reporte en: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\outputs\reportes\RMC_feb_2026.xlsx
+2026-04-12 13:16:59,596 - src.excel_writer - INFO - Reporte completado exitosamente
+2026-04-12 13:16:59,599 - src.pipeline - INFO - ======================================================================
+2026-04-12 13:16:59,599 - src.pipeline - INFO - PIPELINE COMPLETADO EXITOSAMENTE
+2026-04-12 13:16:59,600 - src.pipeline - INFO - ======================================================================
+2026-04-12 13:16:59,735 - __main__ - INFO - 
+======================================================================
+2026-04-12 13:16:59,736 - __main__ - INFO - EJECUCION COMPLETADA EXITOSAMENTE
+2026-04-12 13:16:59,736 - __main__ - INFO - ======================================================================
+
+2026-04-12 13:18:07,963 - __main__ - INFO - 
+======================================================================
+2026-04-12 13:18:07,963 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-12 13:18:07,963 - __main__ - INFO - ======================================================================
+
+2026-04-12 13:18:07,963 - src.pipeline - INFO - ======================================================================
+2026-04-12 13:18:07,963 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-12 13:18:07,963 - src.pipeline - INFO - ======================================================================
+2026-04-12 13:18:07,963 - src.pipeline - INFO - Cargando datos...
+2026-04-12 13:18:07,964 - src.data_loader - INFO - Cargando archivo: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-12 13:18:35,279 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-12 13:18:35,279 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-12 13:18:35,279 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-12 13:18:36,452 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-12 13:18:36,452 - src.pipeline - INFO - Procesando base...
+2026-04-12 13:18:36,452 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-12 13:18:37,756 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-12 13:18:37,796 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-12 13:18:37,796 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-12 13:18:39,114 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-12 13:18:39,123 - src.pipeline - INFO - Períodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-12 13:18:39,123 - src.pipeline - INFO - Período para ordenar: Ult_12_meses
+2026-04-12 13:18:39,123 - src.pipeline - INFO - Generando tablas para Textil/Confecciones...
+2026-04-12 13:18:39,124 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-12 13:18:39,202 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-12 13:18:39,271 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-12 13:18:39,332 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-12 13:18:39,339 - src.pipeline - INFO - Tabla final generada: (3, 6)
+2026-04-12 13:18:39,339 - src.pipeline - INFO - Generando detalle de productos textil...
+2026-04-12 13:18:39,339 - src.tables - INFO - Generando detalle de productos para Textil
+2026-04-12 13:18:39,504 - src.tables - INFO - Detalle de productos textil generado: (8, 6)
+2026-04-12 13:18:39,510 - src.pipeline - INFO - Generando ranking de destinos...
+2026-04-12 13:18:39,510 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-12 13:18:39,583 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 13:18:39,589 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 13:18:39,589 - src.pipeline - INFO - Calculando numero de destinos...
+2026-04-12 13:18:39,589 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-12 13:18:39,641 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-12 13:18:39,642 - src.pipeline - INFO - Número de destinos: (1, 4)
+2026-04-12 13:18:39,642 - src.pipeline - INFO - Generando indices...
+2026-04-12 13:18:39,642 - src.indices_generator - INFO - Generando índices por sector...
+2026-04-12 13:18:39,809 - src.indices_generator - INFO - Índices generados exitosamente
+2026-04-12 13:18:39,809 - src.pipeline - INFO - Exportando a Excel...
+2026-04-12 13:18:39,811 - src.excel_writer - INFO - Cargando plantilla: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-12 13:19:20,193 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-12 13:19:20,195 - src.excel_writer - INFO - Guardando reporte en: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\outputs\reportes\RMC_feb_2026.xlsx
+2026-04-12 13:19:48,700 - src.excel_writer - INFO - Reporte completado exitosamente
+2026-04-12 13:19:48,702 - src.pipeline - INFO - ======================================================================
+2026-04-12 13:19:48,702 - src.pipeline - INFO - PIPELINE COMPLETADO EXITOSAMENTE
+2026-04-12 13:19:48,702 - src.pipeline - INFO - ======================================================================
+2026-04-12 13:19:48,814 - __main__ - INFO - 
+======================================================================
+2026-04-12 13:19:48,814 - __main__ - INFO - EJECUCION COMPLETADA EXITOSAMENTE
+2026-04-12 13:19:48,814 - __main__ - INFO - ======================================================================
+
+2026-04-12 13:23:26,705 - __main__ - INFO - 
+======================================================================
+2026-04-12 13:23:26,705 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-12 13:23:26,705 - __main__ - INFO - ======================================================================
+
+2026-04-12 13:23:26,705 - src.pipeline - INFO - ======================================================================
+2026-04-12 13:23:26,706 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-12 13:23:26,706 - src.pipeline - INFO - ======================================================================
+2026-04-12 13:23:26,706 - src.pipeline - INFO - Cargando datos...
+2026-04-12 13:23:26,706 - src.data_loader - INFO - Cargando archivo: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-12 13:23:54,702 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-12 13:23:54,702 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-12 13:23:54,703 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-12 13:23:55,880 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-12 13:23:55,880 - src.pipeline - INFO - Procesando base...
+2026-04-12 13:23:55,880 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-12 13:23:57,242 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-12 13:23:57,285 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-12 13:23:57,286 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-12 13:23:58,616 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-12 13:23:58,624 - src.pipeline - INFO - Períodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-12 13:23:58,625 - src.pipeline - INFO - Período para ordenar: Ult_12_meses
+2026-04-12 13:23:58,625 - src.pipeline - INFO - Generando tablas para Textil/Confecciones...
+2026-04-12 13:23:58,626 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-12 13:23:58,706 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-12 13:23:58,776 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-12 13:23:58,842 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-12 13:23:58,850 - src.pipeline - INFO - Tabla final generada: (3, 6)
+2026-04-12 13:23:58,850 - src.pipeline - INFO - Generando detalle de productos textil...
+2026-04-12 13:23:58,850 - src.tables - INFO - Generando detalle de productos para Textil
+2026-04-12 13:23:58,988 - src.tables - INFO - Detalle de productos textil generado: (8, 6)
+2026-04-12 13:23:58,994 - src.pipeline - INFO - Generando ranking de destinos...
+2026-04-12 13:23:58,995 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-12 13:23:59,057 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 13:23:59,063 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 13:23:59,063 - src.pipeline - INFO - Calculando numero de destinos...
+2026-04-12 13:23:59,064 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-12 13:23:59,114 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-12 13:23:59,114 - src.pipeline - INFO - Número de destinos: (1, 4)
+2026-04-12 13:23:59,114 - src.pipeline - INFO - Generando indices...
+2026-04-12 13:23:59,115 - src.indices_generator - INFO - Generando índices por sector...
+2026-04-12 13:23:59,289 - src.indices_generator - INFO - Índices generados exitosamente
+2026-04-12 13:23:59,289 - src.pipeline - INFO - Exportando a Excel...
+2026-04-12 13:23:59,311 - src.excel_writer - INFO - Cargando plantilla: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-12 13:24:40,306 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-12 13:24:40,309 - src.excel_writer - INFO - Guardando reporte en: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\outputs\reportes\RMC_feb_2026.xlsx
+2026-04-12 13:24:40,315 - src.excel_writer - ERROR - Error generando reporte: [Errno 13] Permission denied: 'C:\\Users\\Sebasteitor\\Desktop\\DDPI_Repositorios\\ddpi_rmc\\outputs\\reportes\\RMC_feb_2026.xlsx'
+2026-04-12 13:24:40,316 - src.pipeline - ERROR - 
+ERROR EN PIPELINE: [Errno 13] Permission denied: 'C:\\Users\\Sebasteitor\\Desktop\\DDPI_Repositorios\\ddpi_rmc\\outputs\\reportes\\RMC_feb_2026.xlsx'
+
+2026-04-12 13:24:40,316 - __main__ - ERROR - 
+ERROR CRÍTICO: [Errno 13] Permission denied: 'C:\\Users\\Sebasteitor\\Desktop\\DDPI_Repositorios\\ddpi_rmc\\outputs\\reportes\\RMC_feb_2026.xlsx'
+2026-04-12 13:24:40,316 - __main__ - ERROR - Traceback completo:
+Traceback (most recent call last):
+  File "C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\main.py", line 30, in main
+    run_pipeline()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\src\pipeline.py", line 92, in run_pipeline
+    generar_reporte(tablas_dict, indices, config)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\src\excel_writer.py", line 31, in generar_reporte
+    libro.save(output)
+    ~~~~~~~~~~^^^^^^^^
+  File "C:\Users\Sebasteitor\AppData\Local\Programs\Python\Python313\Lib\site-packages\openpyxl\workbook\workbook.py", line 386, in save
+    save_workbook(self, filename)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\Sebasteitor\AppData\Local\Programs\Python\Python313\Lib\site-packages\openpyxl\writer\excel.py", line 291, in save_workbook
+    archive = ZipFile(filename, 'w', ZIP_DEFLATED, allowZip64=True)
+  File "C:\Users\Sebasteitor\AppData\Local\Programs\Python\Python313\Lib\zipfile\__init__.py", line 1367, in __init__
+    self.fp = io.open(file, filemode)
+              ~~~~~~~^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\Sebasteitor\\Desktop\\DDPI_Repositorios\\ddpi_rmc\\outputs\\reportes\\RMC_feb_2026.xlsx'
+2026-04-12 16:48:04,434 - __main__ - INFO - 
+======================================================================
+2026-04-12 16:48:04,435 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-12 16:48:04,435 - __main__ - INFO - ======================================================================
+
+2026-04-12 16:48:04,435 - src.pipeline - INFO - ======================================================================
+2026-04-12 16:48:04,435 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-12 16:48:04,435 - src.pipeline - INFO - ======================================================================
+2026-04-12 16:48:04,435 - src.pipeline - INFO - Cargando datos...
+2026-04-12 16:48:04,436 - src.data_loader - INFO - Cargando archivo: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-12 16:48:32,869 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-12 16:48:32,869 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-12 16:48:32,869 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-12 16:48:34,044 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-12 16:48:34,044 - src.pipeline - INFO - Procesando base...
+2026-04-12 16:48:34,044 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-12 16:48:35,480 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-12 16:48:35,515 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-12 16:48:35,515 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-12 16:48:36,906 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-12 16:48:36,915 - src.pipeline - INFO - Períodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-12 16:48:36,915 - src.pipeline - INFO - Período para ordenar: Ult_12_meses
+2026-04-12 16:48:36,915 - src.pipeline - INFO - Generando tablas para Textil/Confecciones...
+2026-04-12 16:48:36,916 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-12 16:48:36,991 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-12 16:48:37,062 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-12 16:48:37,123 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-12 16:48:37,132 - src.pipeline - INFO - Tabla final generada: (3, 6)
+2026-04-12 16:48:37,132 - src.pipeline - INFO - Generando detalle de productos textil...
+2026-04-12 16:48:37,132 - src.tables - INFO - Generando detalle de productos para Textil
+2026-04-12 16:48:37,263 - src.tables - INFO - Detalle de productos textil generado: (8, 6)
+2026-04-12 16:48:37,270 - src.pipeline - INFO - Generando ranking de destinos...
+2026-04-12 16:48:37,270 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-12 16:48:37,363 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 16:48:37,370 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 16:48:37,370 - src.pipeline - INFO - Calculando numero de destinos...
+2026-04-12 16:48:37,370 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-12 16:48:37,423 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-12 16:48:37,423 - src.pipeline - INFO - Número de destinos: (1, 4)
+2026-04-12 16:48:37,423 - src.pipeline - INFO - Generando indices...
+2026-04-12 16:48:37,424 - src.indices_generator - INFO - Generando índices por sector...
+2026-04-12 16:48:37,596 - src.indices_generator - INFO - Índices generados exitosamente
+2026-04-12 16:48:37,597 - src.pipeline - INFO - Exportando a Excel...
+2026-04-12 16:48:37,644 - src.excel_writer - INFO - Cargando plantilla: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-12 16:49:18,958 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-12 16:49:18,975 - src.excel_writer - INFO - Guardando reporte en: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\outputs\reportes\RMC_feb_2026.xlsx
+2026-04-12 16:49:18,977 - src.excel_writer - ERROR - Error generando reporte: [Errno 13] Permission denied: 'C:\\Users\\Sebasteitor\\Desktop\\DDPI_Repositorios\\ddpi_rmc\\outputs\\reportes\\RMC_feb_2026.xlsx'
+2026-04-12 16:49:18,977 - src.pipeline - ERROR - 
+ERROR EN PIPELINE: [Errno 13] Permission denied: 'C:\\Users\\Sebasteitor\\Desktop\\DDPI_Repositorios\\ddpi_rmc\\outputs\\reportes\\RMC_feb_2026.xlsx'
+
+2026-04-12 16:49:18,977 - __main__ - ERROR - 
+ERROR CRÍTICO: [Errno 13] Permission denied: 'C:\\Users\\Sebasteitor\\Desktop\\DDPI_Repositorios\\ddpi_rmc\\outputs\\reportes\\RMC_feb_2026.xlsx'
+2026-04-12 16:49:18,978 - __main__ - ERROR - Traceback completo:
+Traceback (most recent call last):
+  File "C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\main.py", line 30, in main
+    run_pipeline()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\src\pipeline.py", line 92, in run_pipeline
+    generar_reporte(tablas_dict, indices, config)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\src\excel_writer.py", line 31, in generar_reporte
+    libro.save(output)
+    ~~~~~~~~~~^^^^^^^^
+  File "C:\Users\Sebasteitor\AppData\Local\Programs\Python\Python313\Lib\site-packages\openpyxl\workbook\workbook.py", line 386, in save
+    save_workbook(self, filename)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\Sebasteitor\AppData\Local\Programs\Python\Python313\Lib\site-packages\openpyxl\writer\excel.py", line 291, in save_workbook
+    archive = ZipFile(filename, 'w', ZIP_DEFLATED, allowZip64=True)
+  File "C:\Users\Sebasteitor\AppData\Local\Programs\Python\Python313\Lib\zipfile\__init__.py", line 1367, in __init__
+    self.fp = io.open(file, filemode)
+              ~~~~~~~^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\Sebasteitor\\Desktop\\DDPI_Repositorios\\ddpi_rmc\\outputs\\reportes\\RMC_feb_2026.xlsx'
+2026-04-12 16:49:50,377 - __main__ - INFO - 
+======================================================================
+2026-04-12 16:49:50,378 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-12 16:49:50,378 - __main__ - INFO - ======================================================================
+
+2026-04-12 16:49:50,378 - src.pipeline - INFO - ======================================================================
+2026-04-12 16:49:50,378 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-12 16:49:50,379 - src.pipeline - INFO - ======================================================================
+2026-04-12 16:49:50,379 - src.pipeline - INFO - Cargando datos...
+2026-04-12 16:49:50,379 - src.data_loader - INFO - Cargando archivo: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-12 16:50:18,429 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-12 16:50:18,429 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-12 16:50:18,429 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-12 16:50:19,593 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-12 16:50:19,593 - src.pipeline - INFO - Procesando base...
+2026-04-12 16:50:19,593 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-12 16:50:20,970 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-12 16:50:21,004 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-12 16:50:21,005 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-12 16:50:22,330 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-12 16:50:22,338 - src.pipeline - INFO - Períodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-12 16:50:22,338 - src.pipeline - INFO - Período para ordenar: Ult_12_meses
+2026-04-12 16:50:22,339 - src.pipeline - INFO - Generando tablas para Textil/Confecciones...
+2026-04-12 16:50:22,339 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-12 16:50:22,401 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-12 16:50:22,472 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-12 16:50:22,543 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-12 16:50:22,550 - src.pipeline - INFO - Tabla final generada: (3, 6)
+2026-04-12 16:50:22,551 - src.pipeline - INFO - Generando detalle de productos textil...
+2026-04-12 16:50:22,551 - src.tables - INFO - Generando detalle de productos para Textil
+2026-04-12 16:50:22,686 - src.tables - INFO - Detalle de productos textil generado: (8, 6)
+2026-04-12 16:50:22,692 - src.pipeline - INFO - Generando ranking de destinos...
+2026-04-12 16:50:22,693 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-12 16:50:22,755 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 16:50:22,762 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 16:50:22,763 - src.pipeline - INFO - Calculando numero de destinos...
+2026-04-12 16:50:22,763 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-12 16:50:22,812 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-12 16:50:22,812 - src.pipeline - INFO - Número de destinos: (1, 4)
+2026-04-12 16:50:22,812 - src.pipeline - INFO - Generando indices...
+2026-04-12 16:50:22,812 - src.indices_generator - INFO - Generando índices por sector...
+2026-04-12 16:50:22,986 - src.indices_generator - INFO - Índices generados exitosamente
+2026-04-12 16:50:22,986 - src.pipeline - INFO - Exportando a Excel...
+2026-04-12 16:50:22,987 - src.excel_writer - INFO - Cargando plantilla: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-12 16:51:05,697 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-12 16:51:05,712 - src.excel_writer - INFO - Guardando reporte en: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\outputs\reportes\RMC_feb_2026.xlsx
+2026-04-12 16:51:36,109 - src.excel_writer - INFO - Reporte completado exitosamente
+2026-04-12 16:51:36,114 - src.pipeline - INFO - ======================================================================
+2026-04-12 16:51:36,114 - src.pipeline - INFO - PIPELINE COMPLETADO EXITOSAMENTE
+2026-04-12 16:51:36,114 - src.pipeline - INFO - ======================================================================
+2026-04-12 16:51:36,266 - __main__ - INFO - 
+======================================================================
+2026-04-12 16:51:36,267 - __main__ - INFO - EJECUCION COMPLETADA EXITOSAMENTE
+2026-04-12 16:51:36,267 - __main__ - INFO - ======================================================================
+
+2026-04-12 16:55:29,935 - __main__ - INFO - 
+======================================================================
+2026-04-12 16:55:29,936 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-12 16:55:29,936 - __main__ - INFO - ======================================================================
+
+2026-04-12 16:55:29,936 - src.pipeline - INFO - ======================================================================
+2026-04-12 16:55:29,936 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-12 16:55:29,936 - src.pipeline - INFO - ======================================================================
+2026-04-12 16:55:29,936 - src.pipeline - INFO - Cargando datos...
+2026-04-12 16:55:29,937 - src.data_loader - INFO - Cargando archivo: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-12 16:55:59,599 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-12 16:55:59,599 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-12 16:55:59,600 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-12 16:56:00,904 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-12 16:56:00,905 - src.pipeline - INFO - Procesando base...
+2026-04-12 16:56:00,905 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-12 16:56:02,550 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-12 16:56:02,603 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-12 16:56:02,603 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-12 16:56:04,185 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-12 16:56:04,194 - src.pipeline - INFO - Períodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-12 16:56:04,194 - src.pipeline - INFO - Período para ordenar: Ult_12_meses
+2026-04-12 16:56:04,194 - src.pipeline - INFO - Generando tablas para Textil/Confecciones...
+2026-04-12 16:56:04,195 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-12 16:56:04,259 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-12 16:56:04,327 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-12 16:56:04,390 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-12 16:56:04,399 - src.pipeline - INFO - Tabla final generada: (3, 6)
+2026-04-12 16:56:04,399 - src.pipeline - INFO - Generando detalle de productos textil...
+2026-04-12 16:56:04,399 - src.tables - INFO - Generando detalle de productos para Textil
+2026-04-12 16:56:04,541 - src.tables - INFO - Detalle de productos textil generado: (8, 6)
+2026-04-12 16:56:04,547 - src.pipeline - INFO - Generando ranking de destinos...
+2026-04-12 16:56:04,547 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-12 16:56:04,614 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 16:56:04,622 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 16:56:04,622 - src.pipeline - INFO - Calculando numero de destinos...
+2026-04-12 16:56:04,622 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-12 16:56:04,675 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-12 16:56:04,675 - src.pipeline - INFO - Número de destinos: (1, 4)
+2026-04-12 16:56:04,675 - src.pipeline - INFO - Generando indices...
+2026-04-12 16:56:04,675 - src.indices_generator - INFO - Generando índices por sector...
+2026-04-12 16:56:04,869 - src.indices_generator - INFO - Índices generados exitosamente
+2026-04-12 16:56:04,869 - src.pipeline - INFO - Exportando a Excel...
+2026-04-12 16:56:04,870 - src.excel_writer - INFO - Cargando plantilla: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-12 16:56:51,542 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-12 16:56:51,564 - src.excel_writer - INFO - Guardando reporte en: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\outputs\reportes\RMC_feb_2026.xlsx
+2026-04-12 16:56:51,567 - src.excel_writer - ERROR - Error generando reporte: [Errno 13] Permission denied: 'C:\\Users\\Sebasteitor\\Desktop\\DDPI_Repositorios\\ddpi_rmc\\outputs\\reportes\\RMC_feb_2026.xlsx'
+2026-04-12 16:56:51,567 - src.pipeline - ERROR - 
+ERROR EN PIPELINE: [Errno 13] Permission denied: 'C:\\Users\\Sebasteitor\\Desktop\\DDPI_Repositorios\\ddpi_rmc\\outputs\\reportes\\RMC_feb_2026.xlsx'
+
+2026-04-12 16:56:51,567 - __main__ - ERROR - 
+ERROR CRÍTICO: [Errno 13] Permission denied: 'C:\\Users\\Sebasteitor\\Desktop\\DDPI_Repositorios\\ddpi_rmc\\outputs\\reportes\\RMC_feb_2026.xlsx'
+2026-04-12 16:56:51,568 - __main__ - ERROR - Traceback completo:
+Traceback (most recent call last):
+  File "C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\main.py", line 30, in main
+    run_pipeline()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\src\pipeline.py", line 92, in run_pipeline
+    generar_reporte(tablas_dict, indices, config)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\src\excel_writer.py", line 31, in generar_reporte
+    libro.save(output)
+    ~~~~~~~~~~^^^^^^^^
+  File "C:\Users\Sebasteitor\AppData\Local\Programs\Python\Python313\Lib\site-packages\openpyxl\workbook\workbook.py", line 386, in save
+    save_workbook(self, filename)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\Sebasteitor\AppData\Local\Programs\Python\Python313\Lib\site-packages\openpyxl\writer\excel.py", line 291, in save_workbook
+    archive = ZipFile(filename, 'w', ZIP_DEFLATED, allowZip64=True)
+  File "C:\Users\Sebasteitor\AppData\Local\Programs\Python\Python313\Lib\zipfile\__init__.py", line 1367, in __init__
+    self.fp = io.open(file, filemode)
+              ~~~~~~~^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'C:\\Users\\Sebasteitor\\Desktop\\DDPI_Repositorios\\ddpi_rmc\\outputs\\reportes\\RMC_feb_2026.xlsx'
+2026-04-12 16:57:05,273 - __main__ - INFO - 
+======================================================================
+2026-04-12 16:57:05,273 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-12 16:57:05,273 - __main__ - INFO - ======================================================================
+
+2026-04-12 16:57:05,273 - src.pipeline - INFO - ======================================================================
+2026-04-12 16:57:05,273 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-12 16:57:05,273 - src.pipeline - INFO - ======================================================================
+2026-04-12 16:57:05,274 - src.pipeline - INFO - Cargando datos...
+2026-04-12 16:57:05,274 - src.data_loader - INFO - Cargando archivo: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-12 16:57:36,414 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-12 16:57:36,414 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-12 16:57:36,415 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-12 16:57:37,661 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-12 16:57:37,661 - src.pipeline - INFO - Procesando base...
+2026-04-12 16:57:37,661 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-12 16:57:39,104 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-12 16:57:39,137 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-12 16:57:39,137 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-12 16:57:40,509 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-12 16:57:40,517 - src.pipeline - INFO - Períodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-12 16:57:40,517 - src.pipeline - INFO - Período para ordenar: Ult_12_meses
+2026-04-12 16:57:40,518 - src.pipeline - INFO - Generando tablas para Textil/Confecciones...
+2026-04-12 16:57:40,518 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-12 16:57:40,581 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-12 16:57:40,653 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-12 16:57:40,715 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-12 16:57:40,723 - src.pipeline - INFO - Tabla final generada: (3, 6)
+2026-04-12 16:57:40,724 - src.pipeline - INFO - Generando detalle de productos textil...
+2026-04-12 16:57:40,724 - src.tables - INFO - Generando detalle de productos para Textil
+2026-04-12 16:57:40,858 - src.tables - INFO - Detalle de productos textil generado: (8, 6)
+2026-04-12 16:57:40,865 - src.pipeline - INFO - Generando ranking de destinos...
+2026-04-12 16:57:40,866 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-12 16:57:40,926 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 16:57:40,933 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 16:57:40,933 - src.pipeline - INFO - Calculando numero de destinos...
+2026-04-12 16:57:40,933 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-12 16:57:40,982 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-12 16:57:40,982 - src.pipeline - INFO - Número de destinos: (1, 4)
+2026-04-12 16:57:40,983 - src.pipeline - INFO - Generando indices...
+2026-04-12 16:57:40,983 - src.indices_generator - INFO - Generando índices por sector...
+2026-04-12 16:57:41,176 - src.indices_generator - INFO - Índices generados exitosamente
+2026-04-12 16:57:41,176 - src.pipeline - INFO - Exportando a Excel...
+2026-04-12 16:57:41,178 - src.excel_writer - INFO - Cargando plantilla: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-12 16:58:27,040 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-12 16:58:27,053 - src.excel_writer - INFO - Guardando reporte en: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\outputs\reportes\RMC_feb_2026.xlsx
+2026-04-12 16:58:58,056 - src.excel_writer - INFO - Reporte completado exitosamente
+2026-04-12 16:58:58,061 - src.pipeline - INFO - ======================================================================
+2026-04-12 16:58:58,062 - src.pipeline - INFO - PIPELINE COMPLETADO EXITOSAMENTE
+2026-04-12 16:58:58,062 - src.pipeline - INFO - ======================================================================
+2026-04-12 16:58:58,205 - __main__ - INFO - 
+======================================================================
+2026-04-12 16:58:58,205 - __main__ - INFO - EJECUCION COMPLETADA EXITOSAMENTE
+2026-04-12 16:58:58,205 - __main__ - INFO - ======================================================================
+
+2026-04-12 17:00:14,475 - __main__ - INFO - 
+======================================================================
+2026-04-12 17:00:14,475 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-12 17:00:14,475 - __main__ - INFO - ======================================================================
+
+2026-04-12 17:00:14,475 - src.pipeline - INFO - ======================================================================
+2026-04-12 17:00:14,475 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-12 17:00:14,475 - src.pipeline - INFO - ======================================================================
+2026-04-12 17:00:14,475 - src.pipeline - INFO - Cargando datos...
+2026-04-12 17:00:14,476 - src.data_loader - INFO - Cargando archivo: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-12 17:00:43,477 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-12 17:00:43,477 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-12 17:00:43,478 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-12 17:00:44,688 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-12 17:00:44,688 - src.pipeline - INFO - Procesando base...
+2026-04-12 17:00:44,688 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-12 17:00:46,131 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-12 17:00:46,165 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-12 17:00:46,165 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-12 17:00:47,501 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-12 17:00:47,519 - src.pipeline - INFO - Períodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-12 17:00:47,519 - src.pipeline - INFO - Período para ordenar: Ult_12_meses
+2026-04-12 17:00:47,519 - src.pipeline - INFO - Generando tablas para Textil/Confecciones...
+2026-04-12 17:00:47,520 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-12 17:00:47,584 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-12 17:00:47,652 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-12 17:00:47,717 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-12 17:00:47,726 - src.pipeline - INFO - Tabla final generada: (3, 6)
+2026-04-12 17:00:47,726 - src.pipeline - INFO - Generando detalle de productos textil...
+2026-04-12 17:00:47,726 - src.tables - INFO - Generando detalle de productos para Textil
+2026-04-12 17:00:47,877 - src.tables - INFO - Detalle de productos textil generado: (8, 6)
+2026-04-12 17:00:47,883 - src.pipeline - INFO - Generando ranking de destinos...
+2026-04-12 17:00:47,883 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-12 17:00:47,946 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 17:00:47,951 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 17:00:47,952 - src.pipeline - INFO - Calculando numero de destinos...
+2026-04-12 17:00:47,952 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-12 17:00:48,001 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-12 17:00:48,002 - src.pipeline - INFO - Número de destinos: (1, 4)
+2026-04-12 17:00:48,002 - src.pipeline - INFO - Generando indices...
+2026-04-12 17:00:48,002 - src.indices_generator - INFO - Generando índices por sector...
+2026-04-12 17:00:48,178 - src.indices_generator - INFO - Índices generados exitosamente
+2026-04-12 17:00:48,178 - src.pipeline - INFO - Exportando a Excel...
+2026-04-12 17:00:48,179 - src.excel_writer - INFO - Cargando plantilla: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-12 17:01:30,684 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-12 17:01:30,687 - src.excel_writer - INFO - Guardando reporte en: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\outputs\reportes\RMC_feb_2026.xlsx
+2026-04-12 17:02:03,716 - src.excel_writer - INFO - Reporte completado exitosamente
+2026-04-12 17:02:03,721 - src.pipeline - INFO - ======================================================================
+2026-04-12 17:02:03,722 - src.pipeline - INFO - PIPELINE COMPLETADO EXITOSAMENTE
+2026-04-12 17:02:03,722 - src.pipeline - INFO - ======================================================================
+2026-04-12 17:02:03,916 - __main__ - INFO - 
+======================================================================
+2026-04-12 17:02:03,916 - __main__ - INFO - EJECUCION COMPLETADA EXITOSAMENTE
+2026-04-12 17:02:03,917 - __main__ - INFO - ======================================================================
+
+2026-04-12 17:04:27,336 - __main__ - INFO - 
+======================================================================
+2026-04-12 17:04:27,336 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-12 17:04:27,336 - __main__ - INFO - ======================================================================
+
+2026-04-12 17:04:27,337 - src.pipeline - INFO - ======================================================================
+2026-04-12 17:04:27,337 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-12 17:04:27,337 - src.pipeline - INFO - ======================================================================
+2026-04-12 17:04:27,337 - src.pipeline - INFO - Cargando datos...
+2026-04-12 17:04:27,337 - src.data_loader - INFO - Cargando archivo: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-12 17:05:03,915 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-12 17:05:03,916 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-12 17:05:03,916 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-12 17:05:05,099 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-12 17:05:05,099 - src.pipeline - INFO - Procesando base...
+2026-04-12 17:05:05,100 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-12 17:05:06,474 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-12 17:05:06,507 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-12 17:05:06,508 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-12 17:05:07,833 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-12 17:05:07,843 - src.pipeline - INFO - Períodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-12 17:05:07,843 - src.pipeline - INFO - Período para ordenar: Ult_12_meses
+2026-04-12 17:05:07,844 - src.pipeline - INFO - Generando tablas para Textil/Confecciones...
+2026-04-12 17:05:07,844 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-12 17:05:07,910 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-12 17:05:07,982 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-12 17:05:08,043 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-12 17:05:08,050 - src.pipeline - INFO - Tabla final generada: (3, 6)
+2026-04-12 17:05:08,050 - src.pipeline - INFO - Generando detalle de productos textil...
+2026-04-12 17:05:08,050 - src.tables - INFO - Generando detalle de productos para Textil
+2026-04-12 17:05:08,186 - src.tables - INFO - Detalle de productos textil generado: (8, 6)
+2026-04-12 17:05:08,192 - src.pipeline - INFO - Generando ranking de destinos...
+2026-04-12 17:05:08,192 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-12 17:05:08,255 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 17:05:08,262 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 17:05:08,262 - src.pipeline - INFO - Calculando numero de destinos...
+2026-04-12 17:05:08,262 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-12 17:05:08,314 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-12 17:05:08,314 - src.pipeline - INFO - Número de destinos: (1, 4)
+2026-04-12 17:05:08,314 - src.pipeline - INFO - Generando indices...
+2026-04-12 17:05:08,315 - src.indices_generator - INFO - Generando índices por sector...
+2026-04-12 17:05:08,490 - src.indices_generator - INFO - Índices generados exitosamente
+2026-04-12 17:05:08,491 - src.pipeline - INFO - Exportando a Excel...
+2026-04-12 17:05:08,492 - src.excel_writer - INFO - Cargando plantilla: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-12 17:05:56,974 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-12 17:05:56,997 - src.excel_writer - INFO - Guardando reporte en: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\outputs\reportes\RMC_feb_2026.xlsx
+2026-04-12 17:06:29,046 - src.excel_writer - INFO - Reporte completado exitosamente
+2026-04-12 17:06:29,052 - src.pipeline - INFO - ======================================================================
+2026-04-12 17:06:29,053 - src.pipeline - INFO - PIPELINE COMPLETADO EXITOSAMENTE
+2026-04-12 17:06:29,053 - src.pipeline - INFO - ======================================================================
+2026-04-12 17:06:29,211 - __main__ - INFO - 
+======================================================================
+2026-04-12 17:06:29,211 - __main__ - INFO - EJECUCION COMPLETADA EXITOSAMENTE
+2026-04-12 17:06:29,211 - __main__ - INFO - ======================================================================
+
+2026-04-12 17:30:11,566 - __main__ - INFO - 
+======================================================================
+2026-04-12 17:30:11,567 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-12 17:30:11,567 - __main__ - INFO - ======================================================================
+
+2026-04-12 17:30:11,567 - src.pipeline - INFO - ======================================================================
+2026-04-12 17:30:11,567 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-12 17:30:11,567 - src.pipeline - INFO - ======================================================================
+2026-04-12 17:30:11,568 - src.pipeline - INFO - Cargando datos...
+2026-04-12 17:30:11,568 - src.data_loader - INFO - Cargando archivo: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-12 17:30:39,620 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-12 17:30:39,621 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-12 17:30:39,621 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-12 17:30:40,759 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-12 17:30:40,759 - src.pipeline - INFO - Procesando base...
+2026-04-12 17:30:40,759 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-12 17:30:42,139 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-12 17:30:42,176 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-12 17:30:42,176 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-12 17:30:43,528 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-12 17:30:43,545 - src.pipeline - INFO - Períodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-12 17:30:43,546 - src.pipeline - INFO - Período para ordenar: Ult_12_meses
+2026-04-12 17:30:43,546 - src.pipeline - INFO - Generando tablas para Textil/Confecciones...
+2026-04-12 17:30:43,546 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-12 17:30:43,612 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-12 17:30:43,680 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-12 17:30:43,768 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-12 17:30:43,775 - src.pipeline - INFO - Tabla final generada: (3, 6)
+2026-04-12 17:30:43,775 - src.pipeline - INFO - Generando detalle de productos textil...
+2026-04-12 17:30:43,775 - src.tables - INFO - Generando detalle de productos para Textil
+2026-04-12 17:30:43,921 - src.tables - INFO - Detalle de productos textil generado: (8, 6)
+2026-04-12 17:30:43,926 - src.pipeline - INFO - Generando ranking de destinos...
+2026-04-12 17:30:43,927 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-12 17:30:43,990 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 17:30:43,997 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 17:30:43,997 - src.pipeline - INFO - Calculando numero de destinos...
+2026-04-12 17:30:43,997 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-12 17:30:44,047 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-12 17:30:44,048 - src.pipeline - INFO - Número de destinos: (1, 4)
+2026-04-12 17:30:44,048 - src.pipeline - INFO - Generando indices...
+2026-04-12 17:30:44,048 - src.indices_generator - INFO - Generando índices por sector...
+2026-04-12 17:30:44,226 - src.indices_generator - INFO - Índices generados exitosamente
+2026-04-12 17:30:44,226 - src.pipeline - INFO - Exportando a Excel...
+2026-04-12 17:30:44,227 - src.excel_writer - INFO - Cargando plantilla: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-12 17:31:27,579 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-12 17:31:27,592 - src.excel_writer - INFO - Guardando reporte en: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\outputs\reportes\RMC_feb_2026.xlsx
+2026-04-12 17:31:58,779 - src.excel_writer - INFO - Reporte completado exitosamente
+2026-04-12 17:31:58,783 - src.pipeline - INFO - ======================================================================
+2026-04-12 17:31:58,783 - src.pipeline - INFO - PIPELINE COMPLETADO EXITOSAMENTE
+2026-04-12 17:31:58,783 - src.pipeline - INFO - ======================================================================
+2026-04-12 17:31:58,947 - __main__ - INFO - 
+======================================================================
+2026-04-12 17:31:58,948 - __main__ - INFO - EJECUCION COMPLETADA EXITOSAMENTE
+2026-04-12 17:31:58,948 - __main__ - INFO - ======================================================================
+
+2026-04-12 17:36:09,961 - __main__ - INFO - 
+======================================================================
+2026-04-12 17:36:09,961 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-12 17:36:09,961 - __main__ - INFO - ======================================================================
+
+2026-04-12 17:36:09,961 - src.pipeline - INFO - ======================================================================
+2026-04-12 17:36:09,961 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-12 17:36:09,961 - src.pipeline - INFO - ======================================================================
+2026-04-12 17:36:09,961 - src.pipeline - INFO - Cargando datos...
+2026-04-12 17:36:09,962 - src.data_loader - INFO - Cargando archivo: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-12 17:36:37,783 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-12 17:36:37,784 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-12 17:36:37,784 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-12 17:36:38,970 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-12 17:36:38,970 - src.pipeline - INFO - Procesando base...
+2026-04-12 17:36:38,970 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-12 17:36:40,437 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-12 17:36:40,470 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-12 17:36:40,471 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-12 17:36:41,821 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-12 17:36:41,830 - src.pipeline - INFO - Períodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-12 17:36:41,830 - src.pipeline - INFO - Período para ordenar: Ult_12_meses
+2026-04-12 17:36:41,830 - src.pipeline - INFO - Generando tablas para Textil/Confecciones...
+2026-04-12 17:36:41,831 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-12 17:36:41,893 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-12 17:36:41,962 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-12 17:36:42,025 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-12 17:36:42,033 - src.pipeline - INFO - Tabla final generada: (3, 6)
+2026-04-12 17:36:42,033 - src.pipeline - INFO - Generando detalle de productos textil...
+2026-04-12 17:36:42,033 - src.tables - INFO - Generando detalle de productos para Textil
+2026-04-12 17:36:42,165 - src.tables - INFO - Detalle de productos textil generado: (8, 6)
+2026-04-12 17:36:42,172 - src.pipeline - INFO - Generando ranking de destinos...
+2026-04-12 17:36:42,172 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-12 17:36:42,236 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 17:36:42,243 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 17:36:42,244 - src.pipeline - INFO - Calculando numero de destinos...
+2026-04-12 17:36:42,244 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-12 17:36:42,295 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-12 17:36:42,296 - src.pipeline - INFO - Número de destinos: (1, 4)
+2026-04-12 17:36:42,296 - src.pipeline - INFO - Generando indices...
+2026-04-12 17:36:42,296 - src.indices_generator - INFO - Generando índices por sector...
+2026-04-12 17:36:42,491 - src.indices_generator - INFO - Índices generados exitosamente
+2026-04-12 17:36:42,491 - src.pipeline - INFO - Exportando a Excel...
+2026-04-12 17:36:42,492 - src.excel_writer - INFO - Cargando plantilla: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-12 17:37:27,570 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-12 17:37:27,600 - src.excel_writer - INFO - Guardando reporte en: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\outputs\reportes\RMC_feb_2026.xlsx
+2026-04-12 17:37:56,806 - src.excel_writer - INFO - Reporte completado exitosamente
+2026-04-12 17:37:56,806 - src.pipeline - INFO - ======================================================================
+2026-04-12 17:37:56,807 - src.pipeline - INFO - PIPELINE COMPLETADO EXITOSAMENTE
+2026-04-12 17:37:56,807 - src.pipeline - INFO - ======================================================================
+2026-04-12 17:37:56,970 - __main__ - INFO - 
+======================================================================
+2026-04-12 17:37:56,970 - __main__ - INFO - EJECUCION COMPLETADA EXITOSAMENTE
+2026-04-12 17:37:56,971 - __main__ - INFO - ======================================================================
+
+2026-04-12 17:48:08,689 - __main__ - INFO - 
+======================================================================
+2026-04-12 17:48:08,689 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-12 17:48:08,689 - __main__ - INFO - ======================================================================
+
+2026-04-12 17:48:08,689 - src.pipeline - INFO - ======================================================================
+2026-04-12 17:48:08,689 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-12 17:48:08,690 - src.pipeline - INFO - ======================================================================
+2026-04-12 17:48:08,690 - src.pipeline - INFO - Cargando datos...
+2026-04-12 17:48:08,690 - src.data_loader - INFO - Cargando archivo: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-12 17:48:40,139 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-12 17:48:40,139 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-12 17:48:40,139 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-12 17:48:41,425 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-12 17:48:41,426 - src.pipeline - INFO - Procesando base...
+2026-04-12 17:48:41,426 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-12 17:48:43,040 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-12 17:48:43,101 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-12 17:48:43,102 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-12 17:48:44,711 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-12 17:48:44,722 - src.pipeline - INFO - Períodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-12 17:48:44,722 - src.pipeline - INFO - Período para ordenar: Ult_12_meses
+2026-04-12 17:48:44,722 - src.pipeline - INFO - Generando tablas para Textil/Confecciones...
+2026-04-12 17:48:44,723 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-12 17:48:44,820 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-12 17:48:44,915 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-12 17:48:44,999 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-12 17:48:45,006 - src.pipeline - INFO - Tabla final generada: (3, 6)
+2026-04-12 17:48:45,006 - src.pipeline - INFO - Generando detalle de productos textil...
+2026-04-12 17:48:45,006 - src.tables - INFO - Generando detalle de productos para Textil
+2026-04-12 17:48:45,140 - src.tables - INFO - Detalle de productos textil generado: (8, 6)
+2026-04-12 17:48:45,146 - src.pipeline - INFO - Generando ranking de destinos...
+2026-04-12 17:48:45,147 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-12 17:48:45,211 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 17:48:45,218 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 17:48:45,218 - src.pipeline - INFO - Calculando numero de destinos...
+2026-04-12 17:48:45,218 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-12 17:48:45,268 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-12 17:48:45,268 - src.pipeline - INFO - Número de destinos: (1, 4)
+2026-04-12 17:48:45,269 - src.pipeline - INFO - Generando indices...
+2026-04-12 17:48:45,269 - src.indices_generator - INFO - Generando índices por sector...
+2026-04-12 17:48:45,442 - src.indices_generator - INFO - Índices generados exitosamente
+2026-04-12 17:48:45,442 - src.pipeline - INFO - Exportando a Excel...
+2026-04-12 17:48:45,444 - src.excel_writer - INFO - Cargando plantilla: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-12 17:49:34,369 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-12 17:49:34,382 - src.excel_writer - INFO - Guardando reporte en: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\outputs\reportes\RMC_feb_2026.xlsx
+2026-04-12 17:50:08,409 - src.excel_writer - INFO - Reporte completado exitosamente
+2026-04-12 17:50:08,416 - src.pipeline - INFO - ======================================================================
+2026-04-12 17:50:08,416 - src.pipeline - INFO - PIPELINE COMPLETADO EXITOSAMENTE
+2026-04-12 17:50:08,416 - src.pipeline - INFO - ======================================================================
+2026-04-12 17:50:08,583 - __main__ - INFO - 
+======================================================================
+2026-04-12 17:50:08,584 - __main__ - INFO - EJECUCION COMPLETADA EXITOSAMENTE
+2026-04-12 17:50:08,584 - __main__ - INFO - ======================================================================
+
+2026-04-12 17:50:42,503 - __main__ - INFO - 
+======================================================================
+2026-04-12 17:50:42,503 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-12 17:50:42,503 - __main__ - INFO - ======================================================================
+
+2026-04-12 17:50:42,503 - src.pipeline - INFO - ======================================================================
+2026-04-12 17:50:42,503 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-12 17:50:42,503 - src.pipeline - INFO - ======================================================================
+2026-04-12 17:50:42,503 - src.pipeline - INFO - Cargando datos...
+2026-04-12 17:50:42,504 - src.data_loader - INFO - Cargando archivo: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-12 17:51:16,533 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-12 17:51:16,533 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-12 17:51:16,533 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-12 17:51:18,006 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-12 17:51:18,007 - src.pipeline - INFO - Procesando base...
+2026-04-12 17:51:18,007 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-12 17:51:19,413 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-12 17:51:19,446 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-12 17:51:19,446 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-12 17:51:20,841 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-12 17:51:20,850 - src.pipeline - INFO - Períodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-12 17:51:20,850 - src.pipeline - INFO - Período para ordenar: Ult_12_meses
+2026-04-12 17:51:20,850 - src.pipeline - INFO - Generando tablas para Textil/Confecciones...
+2026-04-12 17:51:20,851 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-12 17:51:20,913 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-12 17:51:20,984 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-12 17:51:21,046 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-12 17:51:21,054 - src.pipeline - INFO - Tabla final generada: (3, 6)
+2026-04-12 17:51:21,055 - src.pipeline - INFO - Generando detalle de productos textil...
+2026-04-12 17:51:21,055 - src.tables - INFO - Generando detalle de productos para Textil
+2026-04-12 17:51:21,192 - src.tables - INFO - Detalle de productos textil generado: (8, 6)
+2026-04-12 17:51:21,199 - src.pipeline - INFO - Generando ranking de destinos...
+2026-04-12 17:51:21,199 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-12 17:51:21,260 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 17:51:21,266 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 17:51:21,267 - src.pipeline - INFO - Calculando numero de destinos...
+2026-04-12 17:51:21,267 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-12 17:51:21,317 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-12 17:51:21,317 - src.pipeline - INFO - Número de destinos: (1, 4)
+2026-04-12 17:51:21,317 - src.pipeline - INFO - Generando indices...
+2026-04-12 17:51:21,317 - src.indices_generator - INFO - Generando índices por sector...
+2026-04-12 17:51:21,487 - src.indices_generator - INFO - Índices generados exitosamente
+2026-04-12 17:51:21,487 - src.pipeline - INFO - Exportando a Excel...
+2026-04-12 17:51:21,489 - src.excel_writer - INFO - Cargando plantilla: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-12 17:52:07,536 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-12 17:52:07,554 - src.excel_writer - INFO - Guardando reporte en: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\outputs\reportes\RMC_feb_2026.xlsx
+2026-04-12 17:52:38,643 - src.excel_writer - INFO - Reporte completado exitosamente
+2026-04-12 17:52:38,647 - src.pipeline - INFO - ======================================================================
+2026-04-12 17:52:38,647 - src.pipeline - INFO - PIPELINE COMPLETADO EXITOSAMENTE
+2026-04-12 17:52:38,648 - src.pipeline - INFO - ======================================================================
+2026-04-12 17:52:38,800 - __main__ - INFO - 
+======================================================================
+2026-04-12 17:52:38,800 - __main__ - INFO - EJECUCION COMPLETADA EXITOSAMENTE
+2026-04-12 17:52:38,800 - __main__ - INFO - ======================================================================
+
+2026-04-12 18:00:14,770 - __main__ - INFO - 
+======================================================================
+2026-04-12 18:00:14,770 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-12 18:00:14,771 - __main__ - INFO - ======================================================================
+
+2026-04-12 18:00:14,771 - src.pipeline - INFO - ======================================================================
+2026-04-12 18:00:14,771 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-12 18:00:14,771 - src.pipeline - INFO - ======================================================================
+2026-04-12 18:00:14,772 - src.pipeline - INFO - Cargando datos...
+2026-04-12 18:00:14,772 - src.data_loader - INFO - Cargando archivo: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-12 18:00:46,260 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-12 18:00:46,260 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-12 18:00:46,260 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-12 18:00:47,491 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-12 18:00:47,491 - src.pipeline - INFO - Procesando base...
+2026-04-12 18:00:47,492 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-12 18:00:48,992 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-12 18:00:49,028 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-12 18:00:49,028 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-12 18:00:50,409 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-12 18:00:50,418 - src.pipeline - INFO - Períodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-12 18:00:50,418 - src.pipeline - INFO - Período para ordenar: Ult_12_meses
+2026-04-12 18:00:50,418 - src.pipeline - INFO - Generando tablas para Textil/Confecciones...
+2026-04-12 18:00:50,419 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-12 18:00:50,500 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-12 18:00:50,583 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-12 18:00:50,672 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-12 18:00:50,679 - src.pipeline - INFO - Tabla final generada: (3, 6)
+2026-04-12 18:00:50,679 - src.pipeline - INFO - Generando detalle de productos textil...
+2026-04-12 18:00:50,680 - src.tables - INFO - Generando detalle de productos para Textil
+2026-04-12 18:00:50,810 - src.tables - INFO - Detalle de productos textil generado: (8, 6)
+2026-04-12 18:00:50,818 - src.pipeline - INFO - Generando ranking de destinos...
+2026-04-12 18:00:50,818 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-12 18:00:50,885 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 18:00:50,892 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 18:00:50,892 - src.pipeline - INFO - Calculando numero de destinos...
+2026-04-12 18:00:50,892 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-12 18:00:50,943 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-12 18:00:50,943 - src.pipeline - INFO - Número de destinos: (1, 4)
+2026-04-12 18:00:50,944 - src.pipeline - INFO - Generando indices...
+2026-04-12 18:00:50,944 - src.indices_generator - INFO - Generando índices por sector...
+2026-04-12 18:00:51,131 - src.indices_generator - INFO - Índices generados exitosamente
+2026-04-12 18:00:51,131 - src.pipeline - INFO - Exportando a Excel...
+2026-04-12 18:00:51,132 - src.excel_writer - INFO - Cargando plantilla: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-12 18:01:39,282 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-12 18:01:39,320 - src.excel_writer - INFO - Guardando reporte en: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\outputs\reportes\RMC_feb_2026.xlsx
+2026-04-12 18:02:33,756 - src.excel_writer - INFO - Reporte completado exitosamente
+2026-04-12 18:02:33,765 - src.pipeline - INFO - ======================================================================
+2026-04-12 18:02:33,766 - src.pipeline - INFO - PIPELINE COMPLETADO EXITOSAMENTE
+2026-04-12 18:02:33,767 - src.pipeline - INFO - ======================================================================
+2026-04-12 18:02:34,005 - __main__ - INFO - 
+======================================================================
+2026-04-12 18:02:34,005 - __main__ - INFO - EJECUCION COMPLETADA EXITOSAMENTE
+2026-04-12 18:02:34,005 - __main__ - INFO - ======================================================================
+
+2026-04-12 18:05:43,619 - __main__ - INFO - 
+======================================================================
+2026-04-12 18:05:43,619 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-12 18:05:43,619 - __main__ - INFO - ======================================================================
+
+2026-04-12 18:05:43,620 - src.pipeline - INFO - ======================================================================
+2026-04-12 18:05:43,620 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-12 18:05:43,620 - src.pipeline - INFO - ======================================================================
+2026-04-12 18:05:43,620 - src.pipeline - INFO - Cargando datos...
+2026-04-12 18:05:43,620 - src.data_loader - INFO - Cargando archivo: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-12 18:06:14,801 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-12 18:06:14,802 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-12 18:06:14,802 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-12 18:06:16,298 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-12 18:06:16,298 - src.pipeline - INFO - Procesando base...
+2026-04-12 18:06:16,298 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-12 18:06:17,762 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-12 18:06:17,804 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-12 18:06:17,805 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-12 18:06:19,210 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-12 18:06:19,219 - src.pipeline - INFO - Períodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-12 18:06:19,219 - src.pipeline - INFO - Período para ordenar: Ult_12_meses
+2026-04-12 18:06:19,219 - src.pipeline - INFO - Generando tablas para Textil/Confecciones...
+2026-04-12 18:06:19,220 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-12 18:06:19,283 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-12 18:06:19,359 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-12 18:06:19,427 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-12 18:06:19,437 - src.pipeline - INFO - Tabla final generada: (3, 6)
+2026-04-12 18:06:19,437 - src.pipeline - INFO - Generando detalle de productos textil...
+2026-04-12 18:06:19,437 - src.tables - INFO - Generando detalle de productos para Textil
+2026-04-12 18:06:19,585 - src.tables - INFO - Detalle de productos textil generado: (8, 6)
+2026-04-12 18:06:19,594 - src.pipeline - INFO - Generando ranking de destinos...
+2026-04-12 18:06:19,595 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-12 18:06:19,667 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 18:06:19,677 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 18:06:19,678 - src.pipeline - INFO - Calculando numero de destinos...
+2026-04-12 18:06:19,678 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-12 18:06:19,732 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-12 18:06:19,733 - src.pipeline - INFO - Número de destinos: (1, 4)
+2026-04-12 18:06:19,733 - src.pipeline - INFO - Generando indices...
+2026-04-12 18:06:19,733 - src.indices_generator - INFO - Generando índices por sector...
+2026-04-12 18:06:19,934 - src.indices_generator - INFO - Índices generados exitosamente
+2026-04-12 18:06:19,934 - src.pipeline - INFO - Exportando a Excel...
+2026-04-12 18:06:19,951 - src.excel_writer - INFO - Cargando plantilla: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-12 18:07:07,065 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-12 18:07:07,084 - src.excel_writer - INFO - Guardando reporte en: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\outputs\reportes\RMC_feb_2026.xlsx
+2026-04-12 18:07:39,699 - src.excel_writer - INFO - Reporte completado exitosamente
+2026-04-12 18:07:39,705 - src.pipeline - INFO - ======================================================================
+2026-04-12 18:07:39,706 - src.pipeline - INFO - PIPELINE COMPLETADO EXITOSAMENTE
+2026-04-12 18:07:39,706 - src.pipeline - INFO - ======================================================================
+2026-04-12 18:07:39,859 - __main__ - INFO - 
+======================================================================
+2026-04-12 18:07:39,859 - __main__ - INFO - EJECUCION COMPLETADA EXITOSAMENTE
+2026-04-12 18:07:39,860 - __main__ - INFO - ======================================================================
+
+2026-04-12 18:09:59,228 - __main__ - INFO - 
+======================================================================
+2026-04-12 18:09:59,229 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-12 18:09:59,229 - __main__ - INFO - ======================================================================
+
+2026-04-12 18:09:59,229 - src.pipeline - INFO - ======================================================================
+2026-04-12 18:09:59,229 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-12 18:09:59,229 - src.pipeline - INFO - ======================================================================
+2026-04-12 18:09:59,230 - src.pipeline - INFO - Cargando datos...
+2026-04-12 18:09:59,230 - src.data_loader - INFO - Cargando archivo: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-12 18:10:33,349 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-12 18:10:33,349 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-12 18:10:33,349 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-12 18:10:34,961 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-12 18:10:34,961 - src.pipeline - INFO - Procesando base...
+2026-04-12 18:10:34,961 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-12 18:10:36,749 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-12 18:10:36,789 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-12 18:10:36,790 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-12 18:10:38,250 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-12 18:10:38,259 - src.pipeline - INFO - Períodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-12 18:10:38,259 - src.pipeline - INFO - Período para ordenar: Ult_12_meses
+2026-04-12 18:10:38,259 - src.pipeline - INFO - Generando tablas para Textil/Confecciones...
+2026-04-12 18:10:38,260 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-12 18:10:38,325 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-12 18:10:38,408 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-12 18:10:38,476 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-12 18:10:38,484 - src.pipeline - INFO - Tabla final generada: (3, 6)
+2026-04-12 18:10:38,485 - src.pipeline - INFO - Generando detalle de productos textil...
+2026-04-12 18:10:38,485 - src.tables - INFO - Generando detalle de productos para Textil
+2026-04-12 18:10:38,644 - src.tables - INFO - Detalle de productos textil generado: (8, 6)
+2026-04-12 18:10:38,649 - src.pipeline - INFO - Generando ranking de destinos...
+2026-04-12 18:10:38,650 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-12 18:10:38,710 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 18:10:38,717 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 18:10:38,717 - src.pipeline - INFO - Calculando numero de destinos...
+2026-04-12 18:10:38,718 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-12 18:10:38,775 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-12 18:10:38,776 - src.pipeline - INFO - Número de destinos: (1, 4)
+2026-04-12 18:10:38,776 - src.pipeline - INFO - Generando indices...
+2026-04-12 18:10:38,776 - src.indices_generator - INFO - Generando índices por sector...
+2026-04-12 18:10:38,954 - src.indices_generator - INFO - Índices generados exitosamente
+2026-04-12 18:10:38,954 - src.pipeline - INFO - Exportando a Excel...
+2026-04-12 18:10:38,956 - src.excel_writer - INFO - Cargando plantilla: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-12 18:11:26,746 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-12 18:11:26,766 - src.excel_writer - INFO - Guardando reporte en: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\outputs\reportes\RMC_feb_2026.xlsx
+2026-04-12 18:12:05,008 - src.excel_writer - INFO - Reporte completado exitosamente
+2026-04-12 18:12:05,019 - src.pipeline - INFO - ======================================================================
+2026-04-12 18:12:05,020 - src.pipeline - INFO - PIPELINE COMPLETADO EXITOSAMENTE
+2026-04-12 18:12:05,020 - src.pipeline - INFO - ======================================================================
+2026-04-12 18:12:05,199 - __main__ - INFO - 
+======================================================================
+2026-04-12 18:12:05,199 - __main__ - INFO - EJECUCION COMPLETADA EXITOSAMENTE
+2026-04-12 18:12:05,199 - __main__ - INFO - ======================================================================
+
+2026-04-12 18:19:48,710 - __main__ - INFO - 
+======================================================================
+2026-04-12 18:19:48,711 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-12 18:19:48,711 - __main__ - INFO - ======================================================================
+
+2026-04-12 18:19:48,711 - src.pipeline - INFO - ======================================================================
+2026-04-12 18:19:48,711 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-12 18:19:48,711 - src.pipeline - INFO - ======================================================================
+2026-04-12 18:19:48,711 - src.pipeline - INFO - Cargando datos...
+2026-04-12 18:19:48,712 - src.data_loader - INFO - Cargando archivo: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-12 18:20:21,013 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-12 18:20:21,013 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-12 18:20:21,013 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-12 18:20:22,743 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-12 18:20:22,744 - src.pipeline - INFO - Procesando base...
+2026-04-12 18:20:22,744 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-12 18:20:24,279 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-12 18:20:24,321 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-12 18:20:24,321 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-12 18:20:25,825 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-12 18:20:25,834 - src.pipeline - INFO - Períodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-12 18:20:25,834 - src.pipeline - INFO - Período para ordenar: Ult_12_meses
+2026-04-12 18:20:25,834 - src.pipeline - INFO - Generando tablas para Textil/Confecciones...
+2026-04-12 18:20:25,835 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-12 18:20:25,900 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-12 18:20:25,985 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-12 18:20:26,050 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-12 18:20:26,057 - src.pipeline - INFO - Tabla final generada: (3, 6)
+2026-04-12 18:20:26,057 - src.pipeline - INFO - Generando detalle de productos textil...
+2026-04-12 18:20:26,058 - src.tables - INFO - Generando detalle de productos para Textil
+2026-04-12 18:20:26,211 - src.tables - INFO - Detalle de productos textil generado: (8, 6)
+2026-04-12 18:20:26,217 - src.pipeline - INFO - Generando ranking de destinos...
+2026-04-12 18:20:26,218 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-12 18:20:26,324 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 18:20:26,333 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 18:20:26,333 - src.pipeline - INFO - Calculando numero de destinos...
+2026-04-12 18:20:26,333 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-12 18:20:26,396 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-12 18:20:26,396 - src.pipeline - INFO - Número de destinos: (1, 4)
+2026-04-12 18:20:26,396 - src.pipeline - INFO - Generando indices...
+2026-04-12 18:20:26,396 - src.indices_generator - INFO - Generando índices por sector...
+2026-04-12 18:20:26,557 - src.indices_generator - INFO - Índices generados exitosamente
+2026-04-12 18:20:26,557 - src.pipeline - INFO - Exportando a Excel...
+2026-04-12 18:20:26,558 - src.excel_writer - INFO - Cargando plantilla: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-12 18:21:13,521 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-12 18:21:13,574 - src.excel_writer - INFO - Guardando reporte en: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\outputs\reportes\RMC_feb_2026.xlsx
+2026-04-12 18:21:46,033 - src.excel_writer - INFO - Reporte completado exitosamente
+2026-04-12 18:21:46,039 - src.pipeline - INFO - ======================================================================
+2026-04-12 18:21:46,039 - src.pipeline - INFO - PIPELINE COMPLETADO EXITOSAMENTE
+2026-04-12 18:21:46,039 - src.pipeline - INFO - ======================================================================
+2026-04-12 18:21:46,221 - __main__ - INFO - 
+======================================================================
+2026-04-12 18:21:46,222 - __main__ - INFO - EJECUCION COMPLETADA EXITOSAMENTE
+2026-04-12 18:21:46,222 - __main__ - INFO - ======================================================================
+
+2026-04-12 18:23:18,613 - __main__ - INFO - 
+======================================================================
+2026-04-12 18:23:18,614 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-12 18:23:18,614 - __main__ - INFO - ======================================================================
+
+2026-04-12 18:23:18,614 - src.pipeline - INFO - ======================================================================
+2026-04-12 18:23:18,615 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-12 18:23:18,615 - src.pipeline - INFO - ======================================================================
+2026-04-12 18:23:18,615 - src.pipeline - INFO - Cargando datos...
+2026-04-12 18:23:18,615 - src.data_loader - INFO - Cargando archivo: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-12 18:23:48,059 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-12 18:23:48,059 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-12 18:23:48,059 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-12 18:23:49,286 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-12 18:23:49,286 - src.pipeline - INFO - Procesando base...
+2026-04-12 18:23:49,287 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-12 18:23:50,688 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-12 18:23:50,722 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-12 18:23:50,723 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-12 18:23:52,186 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-12 18:23:52,195 - src.pipeline - INFO - Períodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-12 18:23:52,195 - src.pipeline - INFO - Período para ordenar: Ult_12_meses
+2026-04-12 18:23:52,195 - src.pipeline - INFO - Generando tablas para Textil/Confecciones...
+2026-04-12 18:23:52,196 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-12 18:23:52,261 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-12 18:23:52,334 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-12 18:23:52,396 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-12 18:23:52,404 - src.pipeline - INFO - Tabla final generada: (3, 6)
+2026-04-12 18:23:52,404 - src.pipeline - INFO - Generando detalle de productos textil...
+2026-04-12 18:23:52,404 - src.tables - INFO - Generando detalle de productos para Textil
+2026-04-12 18:23:52,574 - src.tables - INFO - Detalle de productos textil generado: (8, 6)
+2026-04-12 18:23:52,580 - src.pipeline - INFO - Generando ranking de destinos...
+2026-04-12 18:23:52,581 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-12 18:23:52,648 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 18:23:52,655 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 18:23:52,655 - src.pipeline - INFO - Calculando numero de destinos...
+2026-04-12 18:23:52,655 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-12 18:23:52,707 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-12 18:23:52,708 - src.pipeline - INFO - Número de destinos: (1, 4)
+2026-04-12 18:23:52,708 - src.pipeline - INFO - Generando indices...
+2026-04-12 18:23:52,708 - src.indices_generator - INFO - Generando índices por sector...
+2026-04-12 18:23:52,861 - src.indices_generator - INFO - Índices generados exitosamente
+2026-04-12 18:23:52,862 - src.pipeline - INFO - Exportando a Excel...
+2026-04-12 18:23:52,868 - src.excel_writer - INFO - Cargando plantilla: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-12 18:24:37,529 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-12 18:24:37,547 - src.excel_writer - INFO - Guardando reporte en: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\outputs\reportes\RMC_feb_2026.xlsx
+2026-04-12 18:25:08,418 - src.excel_writer - INFO - Reporte completado exitosamente
+2026-04-12 18:25:08,420 - src.pipeline - INFO - ======================================================================
+2026-04-12 18:25:08,420 - src.pipeline - INFO - PIPELINE COMPLETADO EXITOSAMENTE
+2026-04-12 18:25:08,421 - src.pipeline - INFO - ======================================================================
+2026-04-12 18:25:08,577 - __main__ - INFO - 
+======================================================================
+2026-04-12 18:25:08,577 - __main__ - INFO - EJECUCION COMPLETADA EXITOSAMENTE
+2026-04-12 18:25:08,577 - __main__ - INFO - ======================================================================
+
+2026-04-12 18:26:58,043 - __main__ - INFO - 
+======================================================================
+2026-04-12 18:26:58,044 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-12 18:26:58,044 - __main__ - INFO - ======================================================================
+
+2026-04-12 18:26:58,044 - src.pipeline - INFO - ======================================================================
+2026-04-12 18:26:58,044 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-12 18:26:58,044 - src.pipeline - INFO - ======================================================================
+2026-04-12 18:26:58,044 - src.pipeline - INFO - Cargando datos...
+2026-04-12 18:26:58,044 - src.data_loader - INFO - Cargando archivo: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-12 18:27:35,116 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-12 18:27:35,116 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-12 18:27:35,116 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-12 18:27:36,545 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-12 18:27:36,545 - src.pipeline - INFO - Procesando base...
+2026-04-12 18:27:36,545 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-12 18:27:38,060 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-12 18:27:38,104 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-12 18:27:38,104 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-12 18:27:39,512 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-12 18:27:39,521 - src.pipeline - INFO - Períodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-12 18:27:39,521 - src.pipeline - INFO - Período para ordenar: Ult_12_meses
+2026-04-12 18:27:39,522 - src.pipeline - INFO - Generando tablas para Textil/Confecciones...
+2026-04-12 18:27:39,522 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-12 18:27:39,584 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-12 18:27:39,659 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-12 18:27:39,738 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-12 18:27:39,747 - src.pipeline - INFO - Tabla final generada: (3, 6)
+2026-04-12 18:27:39,747 - src.pipeline - INFO - Generando detalle de productos textil...
+2026-04-12 18:27:39,747 - src.tables - INFO - Generando detalle de productos para Textil
+2026-04-12 18:27:39,948 - src.tables - INFO - Detalle de productos textil generado: (8, 6)
+2026-04-12 18:27:39,954 - src.pipeline - INFO - Generando ranking de destinos...
+2026-04-12 18:27:39,954 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-12 18:27:40,017 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 18:27:40,024 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-12 18:27:40,025 - src.pipeline - INFO - Calculando numero de destinos...
+2026-04-12 18:27:40,025 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-12 18:27:40,077 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-12 18:27:40,077 - src.pipeline - INFO - Número de destinos: (1, 4)
+2026-04-12 18:27:40,077 - src.pipeline - INFO - Generando indices...
+2026-04-12 18:27:40,078 - src.indices_generator - INFO - Generando índices por sector...
+2026-04-12 18:27:40,231 - src.indices_generator - INFO - Índices generados exitosamente
+2026-04-12 18:27:40,232 - src.pipeline - INFO - Exportando a Excel...
+2026-04-12 18:27:40,233 - src.excel_writer - INFO - Cargando plantilla: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-12 18:28:26,794 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-12 18:28:26,822 - src.excel_writer - INFO - Guardando reporte en: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\outputs\reportes\RMC_feb_2026.xlsx
+2026-04-12 18:29:03,439 - src.excel_writer - INFO - Reporte completado exitosamente
+2026-04-12 18:29:03,444 - src.pipeline - INFO - ======================================================================
+2026-04-12 18:29:03,444 - src.pipeline - INFO - PIPELINE COMPLETADO EXITOSAMENTE
+2026-04-12 18:29:03,445 - src.pipeline - INFO - ======================================================================
+2026-04-12 18:29:03,664 - __main__ - INFO - 
+======================================================================
+2026-04-12 18:29:03,664 - __main__ - INFO - EJECUCION COMPLETADA EXITOSAMENTE
+2026-04-12 18:29:03,665 - __main__ - INFO - ======================================================================
+
+2026-04-13 22:26:04,769 - __main__ - INFO - 
+======================================================================
+2026-04-13 22:26:04,769 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-13 22:26:04,769 - __main__ - INFO - ======================================================================
+
+2026-04-13 22:26:04,769 - src.pipeline - INFO - ======================================================================
+2026-04-13 22:26:04,769 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-13 22:26:04,769 - src.pipeline - INFO - ======================================================================
+2026-04-13 22:26:04,769 - src.pipeline - INFO - Cargando datos...
+2026-04-13 22:26:04,769 - src.data_loader - INFO - Cargando archivo: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-13 22:26:36,356 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-13 22:26:36,356 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-13 22:26:36,356 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-13 22:26:37,790 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-13 22:26:37,791 - src.pipeline - INFO - Procesando base...
+2026-04-13 22:26:37,791 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-13 22:26:39,488 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-13 22:26:39,528 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-13 22:26:39,528 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-13 22:26:41,170 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-13 22:26:41,178 - src.pipeline - INFO - Períodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-13 22:26:41,178 - src.pipeline - INFO - Período para ordenar: Ult_12_meses
+2026-04-13 22:26:41,178 - src.pipeline - INFO - Generando tablas para Textil/Confecciones...
+2026-04-13 22:26:41,178 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-13 22:26:41,266 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-13 22:26:41,347 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-13 22:26:41,415 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-13 22:26:41,425 - src.pipeline - INFO - Tabla final generada: (3, 6)
+2026-04-13 22:26:41,426 - src.pipeline - INFO - Generando detalle de productos textil...
+2026-04-13 22:26:41,426 - src.tables - INFO - Generando detalle de productos para Textil
+2026-04-13 22:26:41,589 - src.tables - INFO - Detalle de productos textil generado: (8, 6)
+2026-04-13 22:26:41,599 - src.pipeline - INFO - Generando ranking de destinos...
+2026-04-13 22:26:41,599 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-13 22:26:41,663 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-13 22:26:41,670 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-13 22:26:41,670 - src.pipeline - INFO - Calculando numero de destinos...
+2026-04-13 22:26:41,670 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-13 22:26:41,720 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-13 22:26:41,720 - src.pipeline - INFO - Número de destinos: (1, 4)
+2026-04-13 22:26:41,720 - src.pipeline - INFO - Generando indices...
+2026-04-13 22:26:41,720 - src.indices_generator - INFO - Generando índices por sector...
+2026-04-13 22:26:41,880 - src.indices_generator - INFO - Índices generados exitosamente
+2026-04-13 22:26:41,880 - src.pipeline - INFO - Exportando a Excel...
+2026-04-13 22:26:41,882 - src.excel_writer - INFO - Cargando plantilla: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-13 22:27:23,787 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-13 22:27:23,789 - src.excel_writer - INFO - Guardando reporte en: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\outputs\reportes\RMC_feb_2026.xlsx
+2026-04-13 22:27:53,682 - src.excel_writer - INFO - Reporte completado exitosamente
+2026-04-13 22:27:53,686 - src.pipeline - INFO - ======================================================================
+2026-04-13 22:27:53,686 - src.pipeline - INFO - PIPELINE COMPLETADO EXITOSAMENTE
+2026-04-13 22:27:53,686 - src.pipeline - INFO - ======================================================================
+2026-04-13 22:27:53,822 - __main__ - INFO - 
+======================================================================
+2026-04-13 22:27:53,822 - __main__ - INFO - EJECUCION COMPLETADA EXITOSAMENTE
+2026-04-13 22:27:53,822 - __main__ - INFO - ======================================================================
+
+2026-04-13 22:28:15,220 - __main__ - INFO - 
+======================================================================
+2026-04-13 22:28:15,220 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-13 22:28:15,220 - __main__ - INFO - ======================================================================
+
+2026-04-13 22:28:15,220 - src.pipeline - INFO - ======================================================================
+2026-04-13 22:28:15,220 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-13 22:28:15,220 - src.pipeline - INFO - ======================================================================
+2026-04-13 22:28:15,220 - src.pipeline - INFO - Cargando datos...
+2026-04-13 22:28:15,220 - src.data_loader - INFO - Cargando archivo: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-13 22:28:47,182 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-13 22:28:47,183 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-13 22:28:47,183 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-13 22:28:48,474 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-13 22:28:48,474 - src.pipeline - INFO - Procesando base...
+2026-04-13 22:28:48,474 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-13 22:28:50,269 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-13 22:28:50,323 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-13 22:28:50,323 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-13 22:28:51,905 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-13 22:28:51,915 - src.pipeline - INFO - Períodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-13 22:28:51,915 - src.pipeline - INFO - Período para ordenar: Ult_12_meses
+2026-04-13 22:28:51,915 - src.pipeline - INFO - Generando tablas para Textil/Confecciones...
+2026-04-13 22:28:51,915 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-13 22:28:52,013 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-13 22:28:52,087 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-13 22:28:52,157 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-13 22:28:52,171 - src.pipeline - INFO - Tabla final generada: (3, 6)
+2026-04-13 22:28:52,171 - src.pipeline - INFO - Generando detalle de productos textil...
+2026-04-13 22:28:52,171 - src.tables - INFO - Generando detalle de productos para Textil
+2026-04-13 22:28:52,337 - src.tables - INFO - Detalle de productos textil generado: (8, 6)
+2026-04-13 22:28:52,343 - src.pipeline - INFO - Generando ranking de destinos...
+2026-04-13 22:28:52,344 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-13 22:28:52,406 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-13 22:28:52,412 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-13 22:28:52,412 - src.pipeline - INFO - Calculando numero de destinos...
+2026-04-13 22:28:52,412 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-13 22:28:52,460 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-13 22:28:52,460 - src.pipeline - INFO - Número de destinos: (1, 4)
+2026-04-13 22:28:52,460 - src.pipeline - INFO - Generando indices...
+2026-04-13 22:28:52,460 - src.indices_generator - INFO - Generando índices por sector...
+2026-04-13 22:28:52,619 - src.indices_generator - INFO - Índices generados exitosamente
+2026-04-13 22:28:52,619 - src.pipeline - INFO - Exportando a Excel...
+2026-04-13 22:28:52,620 - src.excel_writer - INFO - Cargando plantilla: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-13 22:29:35,720 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-13 22:29:35,722 - src.excel_writer - INFO - Guardando reporte en: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\outputs\reportes\RMC_feb_2026.xlsx
+2026-04-13 22:30:08,069 - src.excel_writer - INFO - Reporte completado exitosamente
+2026-04-13 22:30:08,071 - src.pipeline - INFO - ======================================================================
+2026-04-13 22:30:08,071 - src.pipeline - INFO - PIPELINE COMPLETADO EXITOSAMENTE
+2026-04-13 22:30:08,071 - src.pipeline - INFO - ======================================================================
+2026-04-13 22:30:08,232 - __main__ - INFO - 
+======================================================================
+2026-04-13 22:30:08,232 - __main__ - INFO - EJECUCION COMPLETADA EXITOSAMENTE
+2026-04-13 22:30:08,232 - __main__ - INFO - ======================================================================
+
+2026-04-13 22:33:36,890 - __main__ - INFO - 
+======================================================================
+2026-04-13 22:33:36,890 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-13 22:33:36,891 - __main__ - INFO - ======================================================================
+
+2026-04-13 22:33:36,891 - src.pipeline - INFO - ======================================================================
+2026-04-13 22:33:36,891 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-13 22:33:36,891 - src.pipeline - INFO - ======================================================================
+2026-04-13 22:33:36,891 - src.pipeline - INFO - Cargando datos...
+2026-04-13 22:33:36,891 - src.data_loader - INFO - Cargando archivo: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-13 22:34:12,549 - src.data_loader - INFO - Base cargada con éxito: 305994 registros
+2026-04-13 22:34:12,549 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-13 22:34:12,549 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-13 22:34:13,966 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-13 22:34:13,966 - src.pipeline - INFO - Procesando base...
+2026-04-13 22:34:13,966 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-13 22:34:15,648 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 períodos
+2026-04-13 22:34:15,706 - src.pipeline - INFO - Aplicando transformaciones...
+2026-04-13 22:34:15,707 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-13 22:34:17,359 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-13 22:34:17,367 - src.pipeline - INFO - Períodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-13 22:34:17,367 - src.pipeline - INFO - Período para ordenar: Ult_12_meses
+2026-04-13 22:34:17,368 - src.pipeline - INFO - Generando tablas para Textil/Confecciones...
+2026-04-13 22:34:17,368 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-13 22:34:17,436 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-13 22:34:17,509 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-13 22:34:17,619 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-13 22:34:17,632 - src.pipeline - INFO - Tabla final generada: (3, 6)
+2026-04-13 22:34:17,633 - src.pipeline - INFO - Generando detalle de productos textil...
+2026-04-13 22:34:17,633 - src.tables - INFO - Generando detalle de productos para Textil
+2026-04-13 22:34:17,801 - src.tables - INFO - Detalle de productos textil generado: (8, 6)
+2026-04-13 22:34:17,808 - src.pipeline - INFO - Generando ranking de destinos...
+2026-04-13 22:34:17,809 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-13 22:34:17,874 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-13 22:34:17,883 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-13 22:34:17,884 - src.pipeline - INFO - Calculando numero de destinos...
+2026-04-13 22:34:17,884 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-13 22:34:17,959 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-13 22:34:17,959 - src.pipeline - INFO - Número de destinos: (1, 4)
+2026-04-13 22:34:17,959 - src.pipeline - INFO - Generando indices...
+2026-04-13 22:34:17,959 - src.indices_generator - INFO - Generando índices por sector...
+2026-04-13 22:34:18,205 - src.indices_generator - INFO - Índices generados exitosamente
+2026-04-13 22:34:18,205 - src.pipeline - INFO - Exportando a Excel...
+2026-04-13 22:34:18,207 - src.excel_writer - INFO - Cargando plantilla: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-13 22:35:39,197 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-13 22:35:39,232 - src.excel_writer - INFO - Guardando reporte en: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\outputs\reportes\RMC_feb_2026.xlsx
+2026-04-13 22:36:38,538 - src.excel_writer - INFO - Reporte completado exitosamente
+2026-04-13 22:36:38,550 - src.pipeline - INFO - ======================================================================
+2026-04-13 22:36:38,551 - src.pipeline - INFO - PIPELINE COMPLETADO EXITOSAMENTE
+2026-04-13 22:36:38,552 - src.pipeline - INFO - ======================================================================
+2026-04-13 22:36:38,803 - __main__ - INFO - 
+======================================================================
+2026-04-13 22:36:38,803 - __main__ - INFO - EJECUCION COMPLETADA EXITOSAMENTE
+2026-04-13 22:36:38,803 - __main__ - INFO - ======================================================================
+
