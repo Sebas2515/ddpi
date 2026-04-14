@@ -17,6 +17,9 @@ def generar_reporte(tablas, indices, config):
         
         logger.info(f"Cargando plantilla: {template}")
         libro = load_workbook(template)
+        libro.calculation.calcMode = "auto"
+        libro.calculation.fullCalcOnLoad = True
+        libro.calculation.forceFullCalc = True
 
         # LLENAR HOJA COMERCIO_TEXTIL
         logger.info("Escribiendo datos en hoja Comercio_Textil...")
@@ -26,6 +29,7 @@ def generar_reporte(tablas, indices, config):
         num_destinos = tablas['num_destinos']
         
         _escribir_comercio_textil(libro['Comercio_Textil'], tabla_final, detalle_textil, tabla_destinos, num_destinos)
+        _escribir_indices_textil(libro['Indices_X_Textil'], indices.get('indice_textil', {}))
         
         logger.info(f"Guardando reporte en: {output}")
         libro.save(output)
@@ -162,3 +166,56 @@ def _escribir_comercio_pesca(hoja, tabla_final, tabla_destinos, num_destinos):
     except Exception as e:
         logger.error(f"Error escribiendo comercio_Pesca: {str(e)}")
         raise
+
+
+def _escribir_indices_textil(hoja, indice_textil):
+    """Escribe los indices del sector textil en la hoja Indices_X_Textil."""
+    try:
+        if not indice_textil:
+            logger.warning("No se encontraron indices para Textil")
+            return
+
+        bloque_total = indice_textil.get('total', {})
+        _limpiar_bloque_indices(hoja, 11, 3010, 1, 5)
+        _limpiar_bloque_indices(hoja, 11, 3010, 8, 12)
+        _escribir_bloque_indices(hoja, bloque_total.get('TM_sector', pd.DataFrame()), 11, 1)
+        _escribir_bloque_indices(hoja, bloque_total.get('FOB_sector', pd.DataFrame()), 11, 8)
+
+        bloques_fob = {
+            'confecciones': 27,
+            'prendas_vestir': 46,
+            'otras_confecciones': 65,
+            'textiles': 84,
+            'fibras_textiles': 103,
+            'tejidos': 122,
+            'hilos_hilados': 141,
+        }
+
+        for etiqueta, col_fob in bloques_fob.items():
+            bloque = indice_textil.get(etiqueta, {})
+            _limpiar_bloque_indices(hoja, 11, 3010, col_fob, col_fob + 4)
+            _escribir_bloque_indices(hoja, bloque.get('FOB_sector', pd.DataFrame()), 11, col_fob)
+
+        logger.debug("Hoja Indices_X_Textil completada")
+    except Exception as e:
+        logger.error(f"Error escribiendo Indices_X_Textil: {str(e)}")
+        raise
+
+
+def _limpiar_bloque_indices(hoja, fila_inicio, fila_fin, col_inicio, col_fin):
+    for fila in range(fila_inicio, fila_fin + 1):
+        for col in range(col_inicio, col_fin + 1):
+            hoja.cell(fila, col).value = None
+
+
+def _escribir_bloque_indices(hoja, tabla, fila_inicio, col_inicio):
+    if tabla is None or tabla.empty:
+        return
+
+    tabla_exportar = tabla.reset_index()
+
+    for fila_offset, (_, row) in enumerate(tabla_exportar.iterrows()):
+        fila_excel = fila_inicio + fila_offset
+        for col_offset, valor in enumerate(row):
+            hoja.cell(fila_excel, col_inicio + col_offset).value = valor
+

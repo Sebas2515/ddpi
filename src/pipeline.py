@@ -44,7 +44,7 @@ def run_pipeline():
         # GENERAR TABLAS SECTORIALES PARA AGRO
         logger.info("Generando tablas para Textil/Confecciones...")
         sectores_a_procesar = ['Textil']
-        
+    
         tabla_final = pd.DataFrame()
         for sector in sectores_a_procesar:
             tabla_1 = tabla_sectorial(df, sector, periodos, periodos_miles_TM)
