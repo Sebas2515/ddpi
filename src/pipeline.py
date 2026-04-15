@@ -11,7 +11,9 @@ from src.tables import (
     detalle_textil,
     detalle_textil_importaciones,
     numero_destinos,
+    numero_proveedores,
     ranking_destinos,
+    ranking_proveedores,
     tabla_grupos,
     tabla_sectorial,
 )
@@ -97,6 +99,17 @@ def run_pipeline():
         num_destinos_sect = numero_destinos(df_expo, sectores_a_procesar, periodos)
         logger.info(f"Numero de destinos: {num_destinos_sect.shape}")
 
+        logger.info("Generando ranking de proveedores de importaciones...")
+        tabla_proveedores = pd.DataFrame()
+        for sector in sectores_a_procesar:
+            tabla_rank = ranking_proveedores(df_impo, sector, periodos, periodos_miles_tm, periodo_ordenar, top_n=4)
+            tabla_proveedores = pd.concat([tabla_proveedores, tabla_rank])
+        logger.info(f"Ranking de proveedores generado: {tabla_proveedores.shape}")
+
+        logger.info("Calculando numero de proveedores de importaciones...")
+        num_proveedores_sect = numero_proveedores(df_impo, sectores_a_procesar, periodos)
+        logger.info(f"Numero de proveedores: {num_proveedores_sect.shape}")
+
         logger.info("Generando indices de exportaciones...")
         indices = generar_indices(df_expo, sectores_a_procesar, periodos, periodo_ordenar)
 
@@ -114,6 +127,8 @@ def run_pipeline():
             'detalle_textil_import': tabla_detalle_textil_import,
             'tabla_destinos': tabla_destinos,
             'num_destinos': num_destinos_sect,
+            'tabla_proveedores': tabla_proveedores,
+            'num_proveedores': num_proveedores_sect,
         }
 
         generar_reporte(tablas_dict, indices, config)

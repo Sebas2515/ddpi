@@ -338,3 +338,63 @@ def numero_destinos(df, sectores, periodos):
     except Exception as e:
         logger.error(f"Error en numero_destinos: {str(e)}")
         raise
+
+
+def ranking_proveedores(df, sector, periodos, periodos_miles_TM, periodo_orden, top_n=4):
+    """Genera ranking de principales proveedores (importaciones) por sector."""
+    try:
+        logger.info(f"Generando ranking de proveedores para {sector}")
+        data_filtrada = df[(df['sector2'] == sector) & (df['periodo'].isin(periodos))]
+
+        if data_filtrada.empty:
+            logger.warning(f"Sin datos para ranking de proveedores de {sector}")
+            return pd.DataFrame()
+
+        tabla_sector = data_filtrada.pivot_table(
+            index='sector2',
+            columns='periodo',
+            values=['millones_fob', 'miles_TM'],
+            aggfunc='sum',
+        )
+        tabla_sector = tabla_sector.sort_values(by=('millones_fob', periodo_orden), ascending=False)
+
+        tabla_paises = data_filtrada.pivot_table(
+            index='Pais_UE27',
+            columns='periodo',
+            values=['millones_fob', 'miles_TM'],
+            aggfunc='sum',
+        )
+        tabla_paises = tabla_paises.sort_values(by=('millones_fob', periodo_orden), ascending=False).head(top_n)
+
+        columnas_miles_TM_s = [col for col in tabla_sector.columns if col[1] in periodos_miles_TM and col[0] == 'miles_TM']
+        columnas_miles_TM_p = [col for col in tabla_paises.columns if col[1] in periodos_miles_TM and col[0] == 'miles_TM']
+        columnas_millones_fob_s = [col for col in tabla_sector.columns if col[0] == 'millones_fob']
+        columnas_millones_fob_p = [col for col in tabla_paises.columns if col[0] == 'millones_fob']
+
+        tabla_sectores = tabla_sector[columnas_millones_fob_s + columnas_miles_TM_s]
+        tabla_paises_final = tabla_paises[columnas_millones_fob_p + columnas_miles_TM_p]
+
+        tabla_final = pd.concat([tabla_sectores, tabla_paises_final])
+        logger.info(f"Ranking de proveedores generado: {tabla_final.shape}")
+        return tabla_final
+    except Exception as e:
+        logger.error(f"Error en ranking_proveedores: {str(e)}")
+        raise
+
+
+def numero_proveedores(df, sectores, periodos):
+    """Calcula número único de proveedores (países) por sector y período."""
+    try:
+        logger.info("Calculando número de proveedores por sector")
+        resultado = df[
+            (df['periodo'].isin(periodos))
+            & (df['sector2'].isin(sectores))
+            & (df['millones_fob'] > 0)
+        ].groupby(['sector2', 'periodo']).agg(
+            Numero_Proveedores=('Pais', 'nunique')
+        ).unstack()
+        logger.info(f"Número de proveedores calculado: {resultado.shape}")
+        return resultado
+    except Exception as e:
+        logger.error(f"Error en numero_proveedores: {str(e)}")
+        raise

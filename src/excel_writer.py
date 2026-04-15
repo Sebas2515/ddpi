@@ -29,6 +29,8 @@ def generar_reporte(tablas, indices, config):
         detalle_textil_import = tablas.get('detalle_textil_import', pd.DataFrame())
         tabla_destinos = tablas['tabla_destinos']
         num_destinos = tablas['num_destinos']
+        tabla_proveedores = tablas.get('tabla_proveedores', pd.DataFrame())
+        num_proveedores = tablas.get('num_proveedores', pd.DataFrame())
         
         _escribir_comercio_textil(
             libro['Comercio_Textil'],
@@ -37,6 +39,8 @@ def generar_reporte(tablas, indices, config):
             detalle_textil_import,
             tabla_destinos,
             num_destinos,
+            tabla_proveedores,
+            num_proveedores,
         )
         _escribir_indices_textil(libro['Indices_X_Textil'], indices.get('indice_textil', {}))
         _escribir_indices_textil_import(libro['Indices_M_Textil'], indices.get('indice_textil_import', {}))
@@ -97,11 +101,20 @@ def _index_label(value):
     return str(value)
 
 
-def _escribir_comercio_textil(hoja, tabla_final, detalle_textil, detalle_textil_import, tabla_destinos, num_destinos):
+def _escribir_comercio_textil(
+    hoja,
+    tabla_final,
+    detalle_textil,
+    detalle_textil_import,
+    tabla_destinos,
+    num_destinos,
+    tabla_proveedores,
+    num_proveedores,
+):
     """Escribe datos en la hoja Comercio_Textil."""
     try:
         _escribir_comercio_textil_exportaciones(hoja, tabla_final, detalle_textil, tabla_destinos, num_destinos)
-        _escribir_comercio_textil_importaciones(hoja, detalle_textil_import)
+        _escribir_comercio_textil_importaciones(hoja, detalle_textil_import, tabla_proveedores, num_proveedores)
         
         logger.debug("Hoja Comercio_Textil completada")
     except Exception as e:
@@ -142,7 +155,7 @@ def _escribir_comercio_textil_exportaciones(hoja, tabla_final, detalle_textil, t
         hoja.cell(28, 8+t).value = num_destinos.iloc[0, t]
 
 
-def _escribir_comercio_textil_importaciones(hoja, detalle_textil_import):
+def _escribir_comercio_textil_importaciones(hoja, detalle_textil_import, tabla_proveedores, num_proveedores):
     """Escribe la seccion de importaciones en Comercio_Textil."""
     _escribir_resumen_fila(hoja, 29, detalle_textil_import, 'sector_total')
 
@@ -158,6 +171,34 @@ def _escribir_comercio_textil_importaciones(hoja, detalle_textil_import):
             _escribir_bloque_import_textiles(hoja, detalle_textil_import, row_start)
         else:
             _escribir_bloque_import_confecciones(hoja, detalle_textil_import, row_start)
+
+    _escribir_proveedores_importacion(hoja, tabla_proveedores, num_proveedores)
+
+
+def _escribir_proveedores_importacion(hoja, tabla_proveedores, num_proveedores):
+    for x in range(0, 4):
+        row = 49 + x
+        hoja.cell(row, 6).value = None
+        for t in range(0, 3):
+            hoja.cell(row, 8+t).value = None
+        for t in range(0, 2):
+            hoja.cell(row, 13+t).value = None
+
+    for t in range(0, 3):
+        hoja.cell(53, 8+t).value = None
+
+    if tabla_proveedores is not None and not tabla_proveedores.empty:
+        for x in range(0, min(4, max(len(tabla_proveedores) - 1, 0))):
+            row = 49 + x
+            hoja.cell(row, 6).value = _index_label(tabla_proveedores.index[x+1])
+            for t in range(0, 3):
+                hoja.cell(row, 8+t).value = tabla_proveedores.iloc[x+1, t]
+            for t in range(0, 2):
+                hoja.cell(row, 13+t).value = tabla_proveedores.iloc[x+1, t+4]
+
+    if num_proveedores is not None and not num_proveedores.empty:
+        for t in range(0, min(3, num_proveedores.shape[1])):
+            hoja.cell(53, 8+t).value = num_proveedores.iloc[0, t]
 
 
 def _escribir_bloque_import_textiles(hoja, tabla_resumen, row_start):
