@@ -78,7 +78,13 @@ def aplicar_transformaciones(df, correlac_pais, correlac_prod, correlac_cap):
             (df['codigo_partida']=='6301300000'),
             'producto21'
         ] = 'Mantas de algodón'
-      
+        df.loc[
+            (df['Sector']=='Textil') &
+            (df['producto2']=='Otras confecciones') &
+            (df['Producto_Textil'].fillna('').str.contains('ropa de cama', case=False, na=False)),
+            'producto21'
+        ] = 'Ropa de cama'    
+
         # PRODUCTO3 - Para análisis de familia textil
         df['producto3'] = df['producto2']
         df.loc[df['Sector']=='Textil', 'producto3'] = df['Familia_Textil']

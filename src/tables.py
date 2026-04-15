@@ -244,7 +244,7 @@ def detalle_textil_importaciones(df, periodos, periodos_miles_TM):
             'ropa_de_cama': (
                 (data_textil['grupo2']=='Confecciones') &
                 (data_textil['producto2']=='Otras confecciones') &
-                (data_textil['cuatro_dig']=='6302')
+                (data_textil['producto21']=='Ropa de cama')
             ),
         }
 
