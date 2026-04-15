@@ -13,7 +13,7 @@ def generar_indices(df, sectores, periodos, periodo_orden):
         indices = {
             'indice_agro': _generar_indice_sector(df, 'Agropecuario', periodos, periodo_orden),
             'indice_pesca': _generar_indice_sector(df, 'Pesquero', periodos, periodo_orden),
-            'indice_textil': _generar_indices_textil(df, periodos, periodo_orden),
+            'indice_textil': _generar_indices_textil_exportaciones(df, periodos, periodo_orden),
         }
 
         logger.info("Indices generados exitosamente")
@@ -36,7 +36,53 @@ def _generar_indice_sector(df, sector, periodos, periodo_orden):
         raise
 
 
-def _generar_indices_textil(df, periodos, periodo_orden):
+def generar_indices_importaciones_textil(df, periodos, periodo_orden):
+    """Genera los bloques requeridos por la hoja Indices_M_Textil."""
+    try:
+        data_textil = df[(df['sector2'] == 'Textil') & (df['periodo'].isin(periodos))]
+
+        definiciones = {
+            'total': pd.Series(True, index=data_textil.index),
+            'textiles': data_textil['grupo2'] == 'Textiles',
+            'tejidos': (
+                (data_textil['grupo2'] == 'Textiles') &
+                (data_textil['producto2'] == 'Tejidos')
+            ),
+            'hilos_hilados': (
+                (data_textil['grupo2'] == 'Textiles') &
+                (data_textil['producto2'] == 'Hilos e Hilados')
+            ),
+            'fibras_textiles': (
+                (data_textil['grupo2'] == 'Textiles') &
+                (data_textil['producto2'] == 'Fibras textiles')
+            ),
+            'confecciones': data_textil['grupo2'] == 'Confecciones',
+            'prendas_vestir': (
+                (data_textil['grupo2'] == 'Confecciones') &
+                (data_textil['producto2'] == 'Prendas de vestir')
+            ),
+            'otras_confecciones': (
+                (data_textil['grupo2'] == 'Confecciones') &
+                (data_textil['producto2'] == 'Otras confecciones')
+            ),
+        }
+
+        indices_textil = {}
+        for etiqueta, filtro in definiciones.items():
+            indices_textil[etiqueta] = _generar_indice_desde_df(
+                data_textil[filtro],
+                periodos,
+                periodo_orden,
+            )
+
+        logger.debug("Indices de importaciones Textil generados")
+        return indices_textil
+    except Exception as e:
+        logger.error(f"Error generando indices de importaciones Textil: {str(e)}")
+        raise
+
+
+def _generar_indices_textil_exportaciones(df, periodos, periodo_orden):
     """Genera todos los bloques requeridos por la hoja Indices_X_Textil."""
     try:
         data_textil = df[(df['sector2'] == 'Textil') & (df['periodo'].isin(periodos))]

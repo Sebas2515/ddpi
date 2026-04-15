@@ -168,6 +168,100 @@ def detalle_textil(df, periodos, periodos_miles_TM):
         raise
 
 
+def detalle_textil_importaciones(df, periodos, periodos_miles_TM):
+    """Construye el detalle de importaciones esperado por Comercio_Textil."""
+    try:
+        logger.info("Generando detalle de productos para importaciones de Textil")
+        data_textil = df[(df['sector2']=='Textil') & (df['periodo'].isin(periodos))]
+
+        materiales_sinteticos = [
+            'sinteticas',
+            'sinteticas y artificiales',
+            'Artificiales',
+            'Acrilicas o modacrilicas',
+            'Acrilicos o modacrilicos',
+            'Nailon y demás poliamidas',
+            'Poliamidas',
+            'Poliuretano',
+            'Polipropileno',
+            'Poliester',
+        ]
+
+        definiciones = {
+            'sector_total': pd.Series(True, index=data_textil.index),
+            'textiles': data_textil['grupo2']=='Textiles',
+            'tejidos': (
+                (data_textil['grupo2']=='Textiles') &
+                (data_textil['producto2']=='Tejidos')
+            ),
+            'tejidos_poliester': (
+                (data_textil['grupo2']=='Textiles') &
+                (data_textil['producto2']=='Tejidos') &
+                (data_textil['producto21']=='Poliester')
+            ),
+            'tejidos_algodon': (
+                (data_textil['grupo2']=='Textiles') &
+                (data_textil['producto2']=='Tejidos') &
+                (data_textil['producto21']=='Algodón')
+            ),
+            'hilos_hilados': (
+                (data_textil['grupo2']=='Textiles') &
+                (data_textil['producto2']=='Hilos e Hilados')
+            ),
+            'hilos_algodon': (
+                (data_textil['grupo2']=='Textiles') &
+                (data_textil['producto2']=='Hilos e Hilados') &
+                (data_textil['producto21']=='Algodón')
+            ),
+            'fibras_textiles': (
+                (data_textil['grupo2']=='Textiles') &
+                (data_textil['producto2']=='Fibras textiles')
+            ),
+            'confecciones': data_textil['grupo2']=='Confecciones',
+            'prendas_vestir': (
+                (data_textil['grupo2']=='Confecciones') &
+                (data_textil['producto2']=='Prendas de vestir')
+            ),
+            'prendas_algodon': (
+                (data_textil['grupo2']=='Confecciones') &
+                (data_textil['producto2']=='Prendas de vestir') &
+                (data_textil['producto21']=='Algodón')
+            ),
+            'prendas_sinteticas': (
+                (data_textil['grupo2']=='Confecciones') &
+                (data_textil['producto2']=='Prendas de vestir') &
+                (data_textil['producto21'].isin(materiales_sinteticos))
+            ),
+            'otras_confecciones': (
+                (data_textil['grupo2']=='Confecciones') &
+                (data_textil['producto2']=='Otras confecciones')
+            ),
+            'mantas_fibra_sintetica': (
+                (data_textil['grupo2']=='Confecciones') &
+                (data_textil['producto2']=='Otras confecciones') &
+                (data_textil['codigo_partida']=='6301400000')
+            ),
+            'ropa_de_cama': (
+                (data_textil['grupo2']=='Confecciones') &
+                (data_textil['producto2']=='Otras confecciones') &
+                (data_textil['cuatro_dig']=='6302')
+            ),
+        }
+
+        filas = []
+        for etiqueta, filtro in definiciones.items():
+            serie = _resumen_periodos(data_textil[filtro], periodos, periodos_miles_TM)
+            serie.name = etiqueta
+            filas.append(serie)
+
+        resultado = pd.DataFrame(filas)
+        logger.info(f"Detalle de importaciones textil generado: {resultado.shape}")
+        return resultado
+    except Exception as e:
+        logger.error(f"Error en detalle_textil_importaciones: {str(e)}")
+        raise
+
+
 def _resumen_periodos(df_filtrado, periodos, periodos_miles_TM):
     """Resume FOB y TM por período en el orden esperado por la plantilla."""
     columnas = (
