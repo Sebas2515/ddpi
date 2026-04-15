@@ -151,13 +151,13 @@ def _escribir_comercio_textil_importaciones(hoja, detalle_textil_import):
         'tejidos_algodon': 34,
         'hilos_hilados': 35,
         'hilos_algodon': 36,
-        'fibras_textiles': 37,
-        'confecciones': 39,
-        'prendas_vestir': 40,
-        'prendas_algodon': 41,
-        'prendas_sinteticas': 42,
-        'mantas_fibra_sintetica': 44,
-        'ropa_de_cama': 45,
+        'fibras_textiles': 38,
+        'confecciones': 40,
+        'prendas_vestir': 41,
+        'prendas_algodon': 42,
+        'prendas_sinteticas': 43,
+        'mantas_fibra_sintetica': 45,
+        'ropa_de_cama': 46,
     }
 
     for etiqueta, row in detalle_map.items():
