@@ -3836,3 +3836,70 @@ PermissionError: [Errno 13] Permission denied: 'C:\\Users\\Sebasteitor\\Desktop\
 2026-04-15 01:15:35,618 - __main__ - INFO - EJECUCION COMPLETADA EXITOSAMENTE
 2026-04-15 01:15:35,618 - __main__ - INFO - ======================================================================
 
+2026-04-15 01:25:49,704 - __main__ - INFO - 
+======================================================================
+2026-04-15 01:25:49,705 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-04-15 01:25:49,705 - __main__ - INFO - ======================================================================
+
+2026-04-15 01:25:49,705 - src.pipeline - INFO - ======================================================================
+2026-04-15 01:25:49,705 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-04-15 01:25:49,705 - src.pipeline - INFO - ======================================================================
+2026-04-15 01:25:49,706 - src.pipeline - INFO - Cargando datos...
+2026-04-15 01:25:49,707 - src.data_loader - INFO - Cargando archivo de exportaciones: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Expo_2025-2026_feb.xlsx
+2026-04-15 01:26:26,155 - src.data_loader - INFO - Base de exportaciones cargada con exito: 305994 registros
+2026-04-15 01:26:26,156 - src.data_loader - INFO - Cargando archivo de importaciones: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\data\raw\BD_Impo_ 2025-2026_feb.xlsx
+2026-04-15 01:27:38,713 - src.data_loader - INFO - Base de importaciones cargada con exito: 594709 registros
+2026-04-15 01:27:38,714 - src.pipeline - INFO - Cargando correlaciones...
+2026-04-15 01:27:38,714 - src.data_loader - INFO - Cargando correlaciones...
+2026-04-15 01:27:40,336 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-04-15 01:27:40,337 - src.pipeline - INFO - Procesando base de exportaciones...
+2026-04-15 01:27:40,337 - src.processing - INFO - Iniciando procesamiento de 305994 registros
+2026-04-15 01:27:42,048 - src.processing - INFO - Procesamiento completado. 280702 registros con 4 periodos
+2026-04-15 01:27:42,095 - src.pipeline - INFO - Aplicando transformaciones a exportaciones...
+2026-04-15 01:27:42,096 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-15 01:27:43,823 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-15 01:27:43,835 - src.pipeline - INFO - Procesando base de importaciones...
+2026-04-15 01:27:43,835 - src.processing - INFO - Iniciando procesamiento de 594709 registros
+2026-04-15 01:27:46,363 - src.processing - INFO - Procesamiento completado. 232012 registros con 4 periodos
+2026-04-15 01:27:46,411 - src.pipeline - INFO - Aplicando transformaciones a importaciones...
+2026-04-15 01:27:46,412 - src.transformations - INFO - Iniciando transformaciones...
+2026-04-15 01:27:47,786 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-04-15 01:27:47,794 - src.pipeline - INFO - Periodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-04-15 01:27:47,794 - src.pipeline - INFO - Periodo para ordenar: Ult_12_meses
+2026-04-15 01:27:47,795 - src.pipeline - INFO - Generando tablas de exportaciones para Textil/Confecciones...
+2026-04-15 01:27:47,795 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-04-15 01:27:47,868 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-04-15 01:27:47,956 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-04-15 01:27:48,124 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-04-15 01:27:48,132 - src.pipeline - INFO - Tabla final de exportaciones generada: (3, 6)
+2026-04-15 01:27:48,133 - src.pipeline - INFO - Generando detalle de exportaciones textil...
+2026-04-15 01:27:48,133 - src.tables - INFO - Generando detalle de productos para Textil
+2026-04-15 01:27:48,298 - src.tables - INFO - Detalle de productos textil generado: (8, 6)
+2026-04-15 01:27:48,304 - src.pipeline - INFO - Generando detalle de importaciones textil...
+2026-04-15 01:27:48,304 - src.tables - INFO - Generando detalle de productos para importaciones de Textil
+2026-04-15 01:27:48,437 - src.tables - INFO - Detalle de importaciones textil generado: (15, 6)
+2026-04-15 01:27:48,440 - src.pipeline - INFO - Generando ranking de destinos de exportaciones...
+2026-04-15 01:27:48,441 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-04-15 01:27:48,525 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-04-15 01:27:48,538 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-04-15 01:27:48,539 - src.pipeline - INFO - Calculando numero de destinos de exportaciones...
+2026-04-15 01:27:48,539 - src.tables - INFO - Calculando número de destinos por sector
+2026-04-15 01:27:48,601 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-04-15 01:27:48,601 - src.pipeline - INFO - Numero de destinos: (1, 4)
+2026-04-15 01:27:48,602 - src.pipeline - INFO - Generando indices de exportaciones...
+2026-04-15 01:27:48,602 - src.indices_generator - INFO - Generando indices por sector...
+2026-04-15 01:27:49,021 - src.indices_generator - INFO - Indices generados exitosamente
+2026-04-15 01:27:49,021 - src.pipeline - INFO - Generando indices de importaciones...
+2026-04-15 01:27:49,179 - src.pipeline - INFO - Exportando a Excel...
+2026-04-15 01:27:49,181 - src.excel_writer - INFO - Cargando plantilla: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\templates\Cuadros de RMC-feb-2026-Joel-act.xlsx
+2026-04-15 01:28:42,754 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-04-15 01:28:43,442 - src.excel_writer - INFO - Guardando reporte en: C:\Users\Sebasteitor\Desktop\DDPI_Repositorios\ddpi_rmc\outputs\reportes\RMC_feb_2026.xlsx
+2026-04-15 01:29:20,438 - src.excel_writer - INFO - Reporte completado exitosamente
+2026-04-15 01:29:20,440 - src.pipeline - INFO - ======================================================================
+2026-04-15 01:29:20,440 - src.pipeline - INFO - PIPELINE COMPLETADO EXITOSAMENTE
+2026-04-15 01:29:20,440 - src.pipeline - INFO - ======================================================================
+2026-04-15 01:29:21,108 - __main__ - INFO - 
+======================================================================
+2026-04-15 01:29:21,109 - __main__ - INFO - EJECUCION COMPLETADA EXITOSAMENTE
+2026-04-15 01:29:21,109 - __main__ - INFO - ======================================================================
+

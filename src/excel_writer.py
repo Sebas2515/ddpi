@@ -1,4 +1,5 @@
 from openpyxl import load_workbook
+from openpyxl.cell.cell import MergedCell
 import logging
 import pandas as pd
 
@@ -143,25 +144,149 @@ def _escribir_comercio_textil_exportaciones(hoja, tabla_final, detalle_textil, t
 
 def _escribir_comercio_textil_importaciones(hoja, detalle_textil_import):
     """Escribe la seccion de importaciones en Comercio_Textil."""
-    detalle_map = {
-        'sector_total': 29,
-        'textiles': 31,
-        'tejidos': 32,
-        'tejidos_poliester': 33,
-        'tejidos_algodon': 34,
-        'hilos_hilados': 35,
-        'hilos_algodon': 36,
-        'fibras_textiles': 38,
-        'confecciones': 40,
-        'prendas_vestir': 41,
-        'prendas_algodon': 42,
-        'prendas_sinteticas': 43,
-        'mantas_fibra_sintetica': 45,
-        'ropa_de_cama': 46,
+    _escribir_resumen_fila(hoja, 29, detalle_textil_import, 'sector_total')
+
+    bloques = [
+        ('textiles', _valor_ult12(detalle_textil_import, 'textiles')),
+        ('confecciones', _valor_ult12(detalle_textil_import, 'confecciones')),
+    ]
+    bloques.sort(key=lambda item: item[1], reverse=True)
+
+    block_rows = [31, 40]
+    for row_start, (bloque, _) in zip(block_rows, bloques):
+        if bloque == 'textiles':
+            _escribir_bloque_import_textiles(hoja, detalle_textil_import, row_start)
+        else:
+            _escribir_bloque_import_confecciones(hoja, detalle_textil_import, row_start)
+
+
+def _escribir_bloque_import_textiles(hoja, tabla_resumen, row_start):
+    _limpiar_area_importaciones(hoja, row_start, row_start + 8)
+
+    resumen_row = row_start
+    _escribir_resumen_fila(hoja, resumen_row, tabla_resumen, 'textiles')
+    hoja.cell(resumen_row, 6).value = 'Textiles [2]'
+    _escribir_indice_referencia(hoja, resumen_row, 'textiles', 'Textiles')
+
+    _escribir_resumen_fila(hoja, row_start + 1, tabla_resumen, 'tejidos')
+    hoja.cell(row_start + 1, 6).value = 'Tejidos'
+    _escribir_indice_referencia(hoja, row_start + 1, 'tejidos', 'Tejidos')
+
+    tejidos_subs = [
+        ('tejidos_poliester', '   -  De poliester'),
+        ('tejidos_algodon', '   -  De algodón'),
+    ]
+    tejidos_subs.sort(key=lambda item: _valor_ult12(tabla_resumen, item[0]), reverse=True)
+    for offset, (etiqueta, label) in enumerate(tejidos_subs, start=2):
+        _escribir_resumen_fila(hoja, row_start + offset, tabla_resumen, etiqueta)
+        hoja.cell(row_start + offset, 6).value = label
+
+    _escribir_resumen_fila(hoja, row_start + 4, tabla_resumen, 'hilos_hilados')
+    hoja.cell(row_start + 4, 6).value = 'Hilos e hilados'
+    _escribir_indice_referencia(hoja, row_start + 4, 'hilos_hilados', 'Hilos e hilados')
+
+    _escribir_resumen_fila(hoja, row_start + 5, tabla_resumen, 'hilos_algodon')
+    hoja.cell(row_start + 5, 6).value = '   -  De algodón'
+
+    _escribir_resumen_fila(hoja, row_start + 6, tabla_resumen, 'fibras_textiles')
+    hoja.cell(row_start + 6, 6).value = 'Fibras textiles'
+    _escribir_indice_referencia(hoja, row_start + 6, 'fibras_textiles', 'Fibras textiles')
+
+    if row_start + 7 <= 47:
+        _limpiar_fila_importacion(hoja, row_start + 7)
+    if row_start + 8 <= 48:
+        _limpiar_fila_importacion(hoja, row_start + 8)
+
+
+def _escribir_bloque_import_confecciones(hoja, tabla_resumen, row_start):
+    end_row = min(row_start + 7, 47)
+    _limpiar_area_importaciones(hoja, row_start, end_row)
+
+    _escribir_resumen_fila(hoja, row_start, tabla_resumen, 'confecciones')
+    hoja.cell(row_start, 6).value = 'Confecciones [2]'
+    _escribir_indice_referencia(hoja, row_start, 'confecciones', 'Confecciones')
+
+    padres = [
+        ('prendas_vestir', 'Prendas de vestir', [('prendas_algodon', '   -  De algodón'), ('prendas_sinteticas', '   -  Sintéticas')]),
+        ('otras_confecciones', 'Otras confecciones', [('mantas_fibra_sintetica', '   -  Mantas de fibra sintética'), ('ropa_de_cama', '   -  Ropa de cama')]),
+    ]
+    padres.sort(key=lambda item: _valor_ult12(tabla_resumen, item[0]), reverse=True)
+
+    row_pairs = [(row_start + 1, [row_start + 2, row_start + 3]), (row_start + 4, [row_start + 5, row_start + 6])]
+    for (etiqueta, label, hijos), (parent_row, child_rows) in zip(padres, row_pairs):
+        _escribir_resumen_fila(hoja, parent_row, tabla_resumen, etiqueta)
+        hoja.cell(parent_row, 6).value = label
+        _escribir_indice_referencia(hoja, parent_row, etiqueta, label.strip())
+
+        hijos_ordenados = sorted(hijos, key=lambda item: _valor_ult12(tabla_resumen, item[0]), reverse=True)
+        for child_row, (child_etiqueta, child_label) in zip(child_rows, hijos_ordenados):
+            _escribir_resumen_fila(hoja, child_row, tabla_resumen, child_etiqueta)
+            hoja.cell(child_row, 6).value = child_label
+
+    if row_start + 7 <= 47:
+        _limpiar_fila_importacion(hoja, row_start + 7)
+
+
+def _valor_ult12(tabla_resumen, etiqueta):
+    if tabla_resumen is None or tabla_resumen.empty or etiqueta not in tabla_resumen.index:
+        return float('-inf')
+    return tabla_resumen.loc[etiqueta].iloc[3]
+
+
+def _escribir_indice_referencia(hoja, row, etiqueta, label):
+    referencias = {
+        'sector_total': ('H', 'M'),
+        'textiles': ('AA', 'AF'),
+        'tejidos': ('AT', 'AY'),
+        'hilos_hilados': ('BM', 'BR'),
+        'fibras_textiles': ('CF', 'CK'),
+        'confecciones': ('CY', 'DD'),
+        'prendas_vestir': ('DR', 'DW'),
+        'otras_confecciones': ('EK', 'EP'),
     }
 
-    for etiqueta, row in detalle_map.items():
-        _escribir_resumen_fila(hoja, row, detalle_textil_import, etiqueta)
+    hoja.cell(row, 22).value = label
+    cols = referencias.get(etiqueta)
+    if not cols:
+        for col in range(23, 29):
+            _set_safe_value(hoja, row, col, None)
+        return
+
+    inicio, fin = cols
+    letras = _column_range(inicio, fin)
+    for idx, col_letter in enumerate(letras, start=23):
+        hoja.cell(row, idx).value = f"=Indices_M_Textil!{col_letter}6"
+
+
+def _column_range(start, end):
+    from openpyxl.utils import column_index_from_string, get_column_letter
+
+    start_idx = column_index_from_string(start)
+    end_idx = column_index_from_string(end)
+    return [get_column_letter(idx) for idx in range(start_idx, end_idx + 1)]
+
+
+def _limpiar_area_importaciones(hoja, row_start, row_end):
+    for row in range(row_start, row_end + 1):
+        _limpiar_fila_importacion(hoja, row)
+
+
+def _limpiar_fila_importacion(hoja, row):
+    _set_safe_value(hoja, row, 6, None)
+    _set_safe_value(hoja, row, 22, None)
+    for col in range(8, 11):
+        _set_safe_value(hoja, row, col, None)
+    for col in range(13, 15):
+        _set_safe_value(hoja, row, col, None)
+    for col in range(23, 29):
+        _set_safe_value(hoja, row, col, None)
+
+
+def _set_safe_value(hoja, row, col, value):
+    cell = hoja.cell(row, col)
+    if isinstance(cell, MergedCell):
+        return
+    cell.value = value
 
 
 def _escribir_resumen_fila(hoja, row, tabla_resumen, etiqueta):
