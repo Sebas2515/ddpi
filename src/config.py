@@ -17,8 +17,8 @@ OUTPUT_REPORTES = OUTPUTS / "reportes"
 
 # ⚙️ Parámetros
 ANIOS = [2026, 2025] # Años a procesar (ANIOS[0] = año actual, ANIOS[1] = año anterior)
-MES_NUM = [2, 3] # Meses a procesar (1=Enero, 2=Febrero, etc.)
-MES_ACTUAL = "feb" # Cambiar según el mes actual (ene, feb, mar, etc.)
+MES_NUM = [3, 4] # Meses a procesar (1=Enero, 2=Febrero, etc.)
+MES_ACTUAL = "mar" # Cambiar según el mes actual (ene, feb, mar, etc.)
  
 def construir_periodos():
     """Construye dinámicamente los periodos según el mes actual.
@@ -27,7 +27,7 @@ def construir_periodos():
         tuple: (periodo_crear, periodos) donde periodo_crear es lista de 3 periodos
                y periodos es lista con año anterior + 3 periodos creados.
     """
-    if MES_ACTUAL == "feb":
+    if MES_ACTUAL == "mar":
         periodo_crear = [
             f"Ene {str(ANIOS[0]-1)[-2:]}",
             f"Ene {str(ANIOS[0])[-2:]}",

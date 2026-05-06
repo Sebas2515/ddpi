@@ -174,19 +174,6 @@ def detalle_textil_importaciones(df, periodos, periodos_miles_TM):
         logger.info("Generando detalle de productos para importaciones de Textil")
         data_textil = df[(df['sector2']=='Textil') & (df['periodo'].isin(periodos))]
 
-        materiales_sinteticos = [
-            'sinteticas',
-            'sinteticas y artificiales',
-            'Artificiales',
-            'Acrilicas o modacrilicas',
-            'Acrilicos o modacrilicos',
-            'Nailon y demás poliamidas',
-            'Poliamidas',
-            'Poliuretano',
-            'Polipropileno',
-            'Poliester',
-        ]
-
         definiciones = {
             'sector_total': pd.Series(True, index=data_textil.index),
             'textiles': data_textil['grupo2']=='Textiles',
@@ -230,7 +217,7 @@ def detalle_textil_importaciones(df, periodos, periodos_miles_TM):
             'prendas_sinteticas': (
                 (data_textil['grupo2']=='Confecciones') &
                 (data_textil['producto2']=='Prendas de vestir') &
-                (data_textil['producto21'].isin(materiales_sinteticos))
+                (data_textil['producto21']== 'Sinteticas')
             ),
             'otras_confecciones': (
                 (data_textil['grupo2']=='Confecciones') &
