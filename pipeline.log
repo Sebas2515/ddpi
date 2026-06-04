@@ -5685,3 +5685,297 @@ PermissionError: [Errno 13] Permission denied: 'C:\\Users\\gmendoza\\Desktop\\DD
 2026-06-04 12:09:23,810 - __main__ - INFO - EJECUCION COMPLETADA EXITOSAMENTE
 2026-06-04 12:09:23,810 - __main__ - INFO - ======================================================================
 
+2026-06-04 12:28:54,807 - __main__ - INFO - 
+======================================================================
+2026-06-04 12:28:54,808 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-06-04 12:28:54,808 - __main__ - INFO - ======================================================================
+
+2026-06-04 12:28:54,808 - src.pipeline - INFO - ======================================================================
+2026-06-04 12:28:54,808 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-06-04 12:28:54,808 - src.pipeline - INFO - ======================================================================
+2026-06-04 12:28:54,808 - src.pipeline - INFO - Cargando datos...
+2026-06-04 12:28:54,809 - src.data_loader - INFO - Cargando archivo de exportaciones: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\data\raw\BD_Expo_2025-2026_mar.xlsx
+2026-06-04 12:29:32,970 - src.data_loader - INFO - Base de exportaciones cargada con exito: 327893 registros
+2026-06-04 12:29:32,971 - src.data_loader - INFO - Cargando archivo de importaciones: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\data\raw\BD_Impo_2025-2026_mar.xlsx
+2026-06-04 12:30:50,557 - src.data_loader - INFO - Base de importaciones cargada con exito: 638762 registros
+2026-06-04 12:30:50,557 - src.pipeline - INFO - Cargando correlaciones...
+2026-06-04 12:30:50,558 - src.data_loader - INFO - Cargando correlaciones...
+2026-06-04 12:30:52,109 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-06-04 12:30:52,110 - src.pipeline - INFO - Procesando base de exportaciones...
+2026-06-04 12:30:52,110 - src.processing - INFO - Iniciando procesamiento de 327893 registros
+2026-06-04 12:30:53,466 - src.processing - INFO - Procesamiento completado. 302678 registros con 4 periodos
+2026-06-04 12:30:53,484 - src.pipeline - INFO - Aplicando transformaciones a exportaciones...
+2026-06-04 12:30:53,484 - src.transformations - INFO - Iniciando transformaciones...
+2026-06-04 12:30:54,876 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-06-04 12:30:54,882 - src.pipeline - INFO - Procesando base de importaciones...
+2026-06-04 12:30:54,882 - src.processing - INFO - Iniciando procesamiento de 638762 registros
+2026-06-04 12:30:56,938 - src.processing - INFO - Procesamiento completado. 246984 registros con 4 periodos
+2026-06-04 12:30:56,969 - src.pipeline - INFO - Aplicando transformaciones a importaciones...
+2026-06-04 12:30:56,969 - src.transformations - INFO - Iniciando transformaciones...
+2026-06-04 12:30:58,065 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-06-04 12:30:58,070 - src.pipeline - INFO - Periodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-06-04 12:30:58,070 - src.pipeline - INFO - Periodo para ordenar: Ult_12_meses
+2026-06-04 12:30:58,070 - src.pipeline - INFO - Generando tablas de exportaciones para Textil/Confecciones...
+2026-06-04 12:30:58,071 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-06-04 12:30:58,171 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-06-04 12:30:58,234 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-06-04 12:30:58,292 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-06-04 12:30:58,299 - src.pipeline - INFO - Tabla final de exportaciones generada: (3, 6)
+2026-06-04 12:30:58,299 - src.pipeline - INFO - Generando detalle de exportaciones textil...
+2026-06-04 12:30:58,299 - src.tables - INFO - Generando detalle de productos para Textil
+2026-06-04 12:30:58,451 - src.tables - INFO - Detalle de productos textil generado: (10, 6)
+2026-06-04 12:30:58,458 - src.pipeline - INFO - Generando detalle de importaciones textil...
+2026-06-04 12:30:58,459 - src.tables - INFO - Generando detalle de productos para importaciones de Textil
+2026-06-04 12:30:58,593 - src.tables - INFO - Detalle de importaciones textil generado: (16, 6)
+2026-06-04 12:30:58,596 - src.pipeline - INFO - Generando ranking de destinos de exportaciones...
+2026-06-04 12:30:58,597 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-06-04 12:30:58,663 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-06-04 12:30:58,669 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-06-04 12:30:58,669 - src.pipeline - INFO - Calculando numero de destinos de exportaciones...
+2026-06-04 12:30:58,670 - src.tables - INFO - Calculando número de destinos por sector
+2026-06-04 12:30:58,721 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-06-04 12:30:58,721 - src.pipeline - INFO - Numero de destinos: (1, 4)
+2026-06-04 12:30:58,722 - src.pipeline - INFO - Generando ranking de proveedores de importaciones...
+2026-06-04 12:30:58,722 - src.tables - INFO - Generando ranking de proveedores para Textil
+2026-06-04 12:30:58,756 - src.tables - INFO - Ranking de proveedores generado: (5, 6)
+2026-06-04 12:30:58,760 - src.pipeline - INFO - Ranking de proveedores generado: (5, 6)
+2026-06-04 12:30:58,761 - src.pipeline - INFO - Calculando numero de proveedores de importaciones...
+2026-06-04 12:30:58,761 - src.tables - INFO - Calculando número de proveedores por sector
+2026-06-04 12:30:58,786 - src.tables - INFO - Número de proveedores calculado: (1, 4)
+2026-06-04 12:30:58,786 - src.pipeline - INFO - Numero de proveedores: (1, 4)
+2026-06-04 12:30:58,786 - src.pipeline - INFO - Generando indices de exportaciones...
+2026-06-04 12:30:58,786 - src.indices_generator - INFO - Generando indices por sector...
+2026-06-04 12:30:59,117 - src.indices_generator - INFO - Indices generados exitosamente
+2026-06-04 12:30:59,117 - src.pipeline - INFO - Generando indices de importaciones...
+2026-06-04 12:30:59,234 - src.pipeline - INFO - Exportando a Excel...
+2026-06-04 12:30:59,235 - src.excel_writer - INFO - Cargando plantilla: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\templates\Cuadros de RMC-mar-2026-Joel-act.xlsx
+2026-06-04 12:31:16,473 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-06-04 12:31:16,950 - src.excel_writer - INFO - Guardando reporte en: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\outputs\reportes\RMC_mar_2026.xlsx
+2026-06-04 12:31:32,391 - src.excel_writer - INFO - Reporte completado exitosamente
+2026-06-04 12:31:32,392 - src.pipeline - INFO - ======================================================================
+2026-06-04 12:31:32,392 - src.pipeline - INFO - PIPELINE COMPLETADO EXITOSAMENTE
+2026-06-04 12:31:32,392 - src.pipeline - INFO - ======================================================================
+2026-06-04 12:31:32,504 - __main__ - INFO - 
+======================================================================
+2026-06-04 12:31:32,504 - __main__ - INFO - EJECUCION COMPLETADA EXITOSAMENTE
+2026-06-04 12:31:32,504 - __main__ - INFO - ======================================================================
+
+2026-06-04 12:41:45,048 - __main__ - INFO - 
+======================================================================
+2026-06-04 12:41:45,049 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-06-04 12:41:45,049 - __main__ - INFO - ======================================================================
+
+2026-06-04 12:41:45,049 - src.pipeline - INFO - ======================================================================
+2026-06-04 12:41:45,049 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-06-04 12:41:45,049 - src.pipeline - INFO - ======================================================================
+2026-06-04 12:41:45,049 - src.pipeline - INFO - Cargando datos...
+2026-06-04 12:41:45,050 - src.data_loader - INFO - Cargando archivo de exportaciones: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\data\raw\BD_Expo_2025-2026_mar.xlsx
+2026-06-04 12:42:22,649 - src.data_loader - INFO - Base de exportaciones cargada con exito: 327893 registros
+2026-06-04 12:42:22,650 - src.data_loader - INFO - Cargando archivo de importaciones: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\data\raw\BD_Impo_2025-2026_mar.xlsx
+2026-06-04 12:43:38,299 - src.data_loader - INFO - Base de importaciones cargada con exito: 638762 registros
+2026-06-04 12:43:38,300 - src.pipeline - INFO - Cargando correlaciones...
+2026-06-04 12:43:38,300 - src.data_loader - INFO - Cargando correlaciones...
+2026-06-04 12:43:39,676 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-06-04 12:43:39,676 - src.pipeline - INFO - Procesando base de exportaciones...
+2026-06-04 12:43:39,677 - src.processing - INFO - Iniciando procesamiento de 327893 registros
+2026-06-04 12:43:40,862 - src.processing - INFO - Procesamiento completado. 302678 registros con 4 periodos
+2026-06-04 12:43:40,880 - src.pipeline - INFO - Aplicando transformaciones a exportaciones...
+2026-06-04 12:43:40,880 - src.transformations - INFO - Iniciando transformaciones...
+2026-06-04 12:43:42,171 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-06-04 12:43:42,179 - src.pipeline - INFO - Procesando base de importaciones...
+2026-06-04 12:43:42,179 - src.processing - INFO - Iniciando procesamiento de 638762 registros
+2026-06-04 12:43:44,067 - src.processing - INFO - Procesamiento completado. 246984 registros con 4 periodos
+2026-06-04 12:43:44,097 - src.pipeline - INFO - Aplicando transformaciones a importaciones...
+2026-06-04 12:43:44,097 - src.transformations - INFO - Iniciando transformaciones...
+2026-06-04 12:43:45,194 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-06-04 12:43:45,200 - src.pipeline - INFO - Periodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-06-04 12:43:45,200 - src.pipeline - INFO - Periodo para ordenar: Ult_12_meses
+2026-06-04 12:43:45,200 - src.pipeline - INFO - Generando tablas de exportaciones para Textil/Confecciones...
+2026-06-04 12:43:45,201 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-06-04 12:43:45,305 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-06-04 12:43:45,368 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-06-04 12:43:45,426 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-06-04 12:43:45,432 - src.pipeline - INFO - Tabla final de exportaciones generada: (3, 6)
+2026-06-04 12:43:45,433 - src.pipeline - INFO - Generando detalle de exportaciones textil...
+2026-06-04 12:43:45,433 - src.tables - INFO - Generando detalle de productos para Textil
+2026-06-04 12:43:45,570 - src.tables - INFO - Detalle de productos textil generado: (10, 6)
+2026-06-04 12:43:45,577 - src.pipeline - INFO - Generando detalle de importaciones textil...
+2026-06-04 12:43:45,577 - src.tables - INFO - Generando detalle de productos para importaciones de Textil
+2026-06-04 12:43:45,678 - src.tables - INFO - Detalle de importaciones textil generado: (16, 6)
+2026-06-04 12:43:45,680 - src.pipeline - INFO - Generando ranking de destinos de exportaciones...
+2026-06-04 12:43:45,680 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-06-04 12:43:45,733 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-06-04 12:43:45,738 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-06-04 12:43:45,738 - src.pipeline - INFO - Calculando numero de destinos de exportaciones...
+2026-06-04 12:43:45,739 - src.tables - INFO - Calculando número de destinos por sector
+2026-06-04 12:43:45,782 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-06-04 12:43:45,783 - src.pipeline - INFO - Numero de destinos: (1, 4)
+2026-06-04 12:43:45,783 - src.pipeline - INFO - Generando ranking de proveedores de importaciones...
+2026-06-04 12:43:45,783 - src.tables - INFO - Generando ranking de proveedores para Textil
+2026-06-04 12:43:45,813 - src.tables - INFO - Ranking de proveedores generado: (5, 6)
+2026-06-04 12:43:45,815 - src.pipeline - INFO - Ranking de proveedores generado: (5, 6)
+2026-06-04 12:43:45,815 - src.pipeline - INFO - Calculando numero de proveedores de importaciones...
+2026-06-04 12:43:45,815 - src.tables - INFO - Calculando número de proveedores por sector
+2026-06-04 12:43:45,837 - src.tables - INFO - Número de proveedores calculado: (1, 4)
+2026-06-04 12:43:45,837 - src.pipeline - INFO - Numero de proveedores: (1, 4)
+2026-06-04 12:43:45,838 - src.pipeline - INFO - Generando indices de exportaciones...
+2026-06-04 12:43:45,838 - src.indices_generator - INFO - Generando indices por sector...
+2026-06-04 12:43:46,134 - src.indices_generator - INFO - Indices generados exitosamente
+2026-06-04 12:43:46,134 - src.pipeline - INFO - Generando indices de importaciones...
+2026-06-04 12:43:46,240 - src.pipeline - INFO - Exportando a Excel...
+2026-06-04 12:43:46,240 - src.excel_writer - ERROR - Plantilla no encontrada: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\templates\Cuadros de RMC-mar-2026-Joel-act.xlsx
+2026-06-04 12:43:46,240 - src.pipeline - ERROR - 
+ERROR EN PIPELINE: Plantilla no encontrada: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\templates\Cuadros de RMC-mar-2026-Joel-act.xlsx
+
+2026-06-04 12:43:46,240 - __main__ - ERROR - 
+ARCHIVO NO ENCONTRADO: Plantilla no encontrada: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\templates\Cuadros de RMC-mar-2026-Joel-act.xlsx
+2026-06-04 12:47:14,986 - __main__ - INFO - 
+======================================================================
+2026-06-04 12:47:14,986 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-06-04 12:47:14,987 - __main__ - INFO - ======================================================================
+
+2026-06-04 12:47:14,987 - src.pipeline - INFO - ======================================================================
+2026-06-04 12:47:14,987 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-06-04 12:47:14,987 - src.pipeline - INFO - ======================================================================
+2026-06-04 12:47:14,987 - src.pipeline - INFO - Cargando datos...
+2026-06-04 12:47:14,987 - src.data_loader - INFO - Cargando archivo de exportaciones: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\data\raw\BD_Expo_2025-2026_mar.xlsx
+2026-06-04 12:47:51,158 - src.data_loader - INFO - Base de exportaciones cargada con exito: 327893 registros
+2026-06-04 12:47:51,159 - src.data_loader - INFO - Cargando archivo de importaciones: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\data\raw\BD_Impo_2025-2026_mar.xlsx
+2026-06-04 12:49:05,060 - src.data_loader - INFO - Base de importaciones cargada con exito: 638762 registros
+2026-06-04 12:49:05,060 - src.pipeline - INFO - Cargando correlaciones...
+2026-06-04 12:49:05,060 - src.data_loader - INFO - Cargando correlaciones...
+2026-06-04 12:49:06,500 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-06-04 12:49:06,500 - src.pipeline - INFO - Procesando base de exportaciones...
+2026-06-04 12:49:06,500 - src.processing - INFO - Iniciando procesamiento de 327893 registros
+2026-06-04 12:49:07,701 - src.processing - INFO - Procesamiento completado. 302678 registros con 4 periodos
+2026-06-04 12:49:07,717 - src.pipeline - INFO - Aplicando transformaciones a exportaciones...
+2026-06-04 12:49:07,717 - src.transformations - INFO - Iniciando transformaciones...
+2026-06-04 12:49:08,993 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-06-04 12:49:09,000 - src.pipeline - INFO - Procesando base de importaciones...
+2026-06-04 12:49:09,000 - src.processing - INFO - Iniciando procesamiento de 638762 registros
+2026-06-04 12:49:10,879 - src.processing - INFO - Procesamiento completado. 246984 registros con 4 periodos
+2026-06-04 12:49:10,906 - src.pipeline - INFO - Aplicando transformaciones a importaciones...
+2026-06-04 12:49:10,906 - src.transformations - INFO - Iniciando transformaciones...
+2026-06-04 12:49:11,938 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-06-04 12:49:11,945 - src.pipeline - INFO - Periodos configurados: ['2025', 'Ene 25', 'Ene 26', 'Ult_12_meses']
+2026-06-04 12:49:11,945 - src.pipeline - INFO - Periodo para ordenar: Ult_12_meses
+2026-06-04 12:49:11,945 - src.pipeline - INFO - Generando tablas de exportaciones para Textil/Confecciones...
+2026-06-04 12:49:11,945 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-06-04 12:49:12,049 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-06-04 12:49:12,112 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-06-04 12:49:12,167 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-06-04 12:49:12,173 - src.pipeline - INFO - Tabla final de exportaciones generada: (3, 6)
+2026-06-04 12:49:12,173 - src.pipeline - INFO - Generando detalle de exportaciones textil...
+2026-06-04 12:49:12,173 - src.tables - INFO - Generando detalle de productos para Textil
+2026-06-04 12:49:12,363 - src.tables - INFO - Detalle de productos textil generado: (10, 6)
+2026-06-04 12:49:12,368 - src.pipeline - INFO - Generando detalle de importaciones textil...
+2026-06-04 12:49:12,368 - src.tables - INFO - Generando detalle de productos para importaciones de Textil
+2026-06-04 12:49:12,472 - src.tables - INFO - Detalle de importaciones textil generado: (16, 6)
+2026-06-04 12:49:12,474 - src.pipeline - INFO - Generando ranking de destinos de exportaciones...
+2026-06-04 12:49:12,474 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-06-04 12:49:12,528 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-06-04 12:49:12,534 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-06-04 12:49:12,534 - src.pipeline - INFO - Calculando numero de destinos de exportaciones...
+2026-06-04 12:49:12,534 - src.tables - INFO - Calculando número de destinos por sector
+2026-06-04 12:49:12,585 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-06-04 12:49:12,585 - src.pipeline - INFO - Numero de destinos: (1, 4)
+2026-06-04 12:49:12,585 - src.pipeline - INFO - Generando ranking de proveedores de importaciones...
+2026-06-04 12:49:12,586 - src.tables - INFO - Generando ranking de proveedores para Textil
+2026-06-04 12:49:12,615 - src.tables - INFO - Ranking de proveedores generado: (5, 6)
+2026-06-04 12:49:12,618 - src.pipeline - INFO - Ranking de proveedores generado: (5, 6)
+2026-06-04 12:49:12,618 - src.pipeline - INFO - Calculando numero de proveedores de importaciones...
+2026-06-04 12:49:12,618 - src.tables - INFO - Calculando número de proveedores por sector
+2026-06-04 12:49:12,639 - src.tables - INFO - Número de proveedores calculado: (1, 4)
+2026-06-04 12:49:12,640 - src.pipeline - INFO - Numero de proveedores: (1, 4)
+2026-06-04 12:49:12,640 - src.pipeline - INFO - Generando indices de exportaciones...
+2026-06-04 12:49:12,640 - src.indices_generator - INFO - Generando indices por sector...
+2026-06-04 12:49:12,932 - src.indices_generator - INFO - Indices generados exitosamente
+2026-06-04 12:49:12,933 - src.pipeline - INFO - Generando indices de importaciones...
+2026-06-04 12:49:13,038 - src.pipeline - INFO - Exportando a Excel...
+2026-06-04 12:49:13,038 - src.excel_writer - INFO - Cargando plantilla: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\templates\Cuadros de RMC-mar-2026-Joel-act.xlsx
+2026-06-04 12:49:29,414 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-06-04 12:49:29,850 - src.excel_writer - INFO - Guardando reporte en: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\outputs\reportes\RMC_mar_2026.xlsx
+2026-06-04 12:49:44,246 - src.excel_writer - INFO - Reporte completado exitosamente
+2026-06-04 12:49:44,246 - src.pipeline - INFO - ======================================================================
+2026-06-04 12:49:44,246 - src.pipeline - INFO - PIPELINE COMPLETADO EXITOSAMENTE
+2026-06-04 12:49:44,246 - src.pipeline - INFO - ======================================================================
+2026-06-04 12:49:44,357 - __main__ - INFO - 
+======================================================================
+2026-06-04 12:49:44,357 - __main__ - INFO - EJECUCION COMPLETADA EXITOSAMENTE
+2026-06-04 12:49:44,357 - __main__ - INFO - ======================================================================
+
+2026-06-04 12:56:59,341 - __main__ - INFO - 
+======================================================================
+2026-06-04 12:56:59,341 - __main__ - INFO - INICIÓ EJECUCIÓN DEL PIPELINE RMC
+2026-06-04 12:56:59,341 - __main__ - INFO - ======================================================================
+
+2026-06-04 12:56:59,341 - src.pipeline - INFO - ======================================================================
+2026-06-04 12:56:59,341 - src.pipeline - INFO - INICIANDO PIPELINE DE PROCESAMIENTO RMC
+2026-06-04 12:56:59,341 - src.pipeline - INFO - ======================================================================
+2026-06-04 12:56:59,341 - src.pipeline - INFO - Cargando datos...
+2026-06-04 12:56:59,342 - src.data_loader - INFO - Cargando archivo de exportaciones: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\data\raw\BD_Expo_2025-2026_abr.xlsx
+2026-06-04 12:57:35,766 - src.data_loader - INFO - Base de exportaciones cargada con exito: 350220 registros
+2026-06-04 12:57:35,766 - src.data_loader - INFO - Cargando archivo de importaciones: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\data\raw\BD_Impo_2025-2026_abr.xlsx
+2026-06-04 12:58:50,131 - src.data_loader - INFO - Base de importaciones cargada con exito: 681982 registros
+2026-06-04 12:58:50,131 - src.pipeline - INFO - Cargando correlaciones...
+2026-06-04 12:58:50,131 - src.data_loader - INFO - Cargando correlaciones...
+2026-06-04 12:58:51,527 - src.data_loader - INFO - Correlaciones cargadas exitosamente
+2026-06-04 12:58:51,527 - src.pipeline - INFO - Procesando base de exportaciones...
+2026-06-04 12:58:51,527 - src.processing - INFO - Iniciando procesamiento de 350220 registros
+2026-06-04 12:58:52,883 - src.processing - INFO - Procesamiento completado. 320712 registros con 4 periodos
+2026-06-04 12:58:52,898 - src.pipeline - INFO - Aplicando transformaciones a exportaciones...
+2026-06-04 12:58:52,898 - src.transformations - INFO - Iniciando transformaciones...
+2026-06-04 12:58:54,237 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-06-04 12:58:54,245 - src.pipeline - INFO - Procesando base de importaciones...
+2026-06-04 12:58:54,245 - src.processing - INFO - Iniciando procesamiento de 681982 registros
+2026-06-04 12:58:56,356 - src.processing - INFO - Procesamiento completado. 257709 registros con 4 periodos
+2026-06-04 12:58:56,401 - src.pipeline - INFO - Aplicando transformaciones a importaciones...
+2026-06-04 12:58:56,401 - src.transformations - INFO - Iniciando transformaciones...
+2026-06-04 12:58:57,601 - src.transformations - INFO - Transformaciones completadas exitosamente
+2026-06-04 12:58:57,608 - src.pipeline - INFO - Periodos configurados: ['2025', 'Ene-abr 25', 'Ene-abr 26', 'Ult_12_meses']
+2026-06-04 12:58:57,608 - src.pipeline - INFO - Periodo para ordenar: Ult_12_meses
+2026-06-04 12:58:57,608 - src.pipeline - INFO - Generando tablas de exportaciones para Textil/Confecciones...
+2026-06-04 12:58:57,608 - src.tables - INFO - Generando tabla sectorial para Textil
+2026-06-04 12:58:57,731 - src.tables - INFO - Tabla sectorial generada: (1, 6)
+2026-06-04 12:58:57,805 - src.tables - INFO - Generando tabla de grupos para Textil
+2026-06-04 12:58:57,867 - src.tables - INFO - Tabla de grupos generada: (2, 6)
+2026-06-04 12:58:57,875 - src.pipeline - INFO - Tabla final de exportaciones generada: (3, 6)
+2026-06-04 12:58:57,875 - src.pipeline - INFO - Generando detalle de exportaciones textil...
+2026-06-04 12:58:57,875 - src.tables - INFO - Generando detalle de productos para Textil
+2026-06-04 12:58:58,022 - src.tables - INFO - Detalle de productos textil generado: (10, 6)
+2026-06-04 12:58:58,027 - src.pipeline - INFO - Generando detalle de importaciones textil...
+2026-06-04 12:58:58,028 - src.tables - INFO - Generando detalle de productos para importaciones de Textil
+2026-06-04 12:58:58,135 - src.tables - INFO - Detalle de importaciones textil generado: (16, 6)
+2026-06-04 12:58:58,138 - src.pipeline - INFO - Generando ranking de destinos de exportaciones...
+2026-06-04 12:58:58,138 - src.tables - INFO - Generando ranking de destinos para Textil
+2026-06-04 12:58:58,210 - src.tables - INFO - Ranking de destinos generado: (6, 6)
+2026-06-04 12:58:58,215 - src.pipeline - INFO - Ranking de destinos generado: (6, 6)
+2026-06-04 12:58:58,215 - src.pipeline - INFO - Calculando numero de destinos de exportaciones...
+2026-06-04 12:58:58,216 - src.tables - INFO - Calculando número de destinos por sector
+2026-06-04 12:58:58,260 - src.tables - INFO - Número de destinos calculado: (1, 4)
+2026-06-04 12:58:58,261 - src.pipeline - INFO - Numero de destinos: (1, 4)
+2026-06-04 12:58:58,261 - src.pipeline - INFO - Generando ranking de proveedores de importaciones...
+2026-06-04 12:58:58,261 - src.tables - INFO - Generando ranking de proveedores para Textil
+2026-06-04 12:58:58,293 - src.tables - INFO - Ranking de proveedores generado: (5, 6)
+2026-06-04 12:58:58,296 - src.pipeline - INFO - Ranking de proveedores generado: (5, 6)
+2026-06-04 12:58:58,296 - src.pipeline - INFO - Calculando numero de proveedores de importaciones...
+2026-06-04 12:58:58,296 - src.tables - INFO - Calculando número de proveedores por sector
+2026-06-04 12:58:58,317 - src.tables - INFO - Número de proveedores calculado: (1, 4)
+2026-06-04 12:58:58,317 - src.pipeline - INFO - Numero de proveedores: (1, 4)
+2026-06-04 12:58:58,318 - src.pipeline - INFO - Generando indices de exportaciones...
+2026-06-04 12:58:58,318 - src.indices_generator - INFO - Generando indices por sector...
+2026-06-04 12:58:58,646 - src.indices_generator - INFO - Indices generados exitosamente
+2026-06-04 12:58:58,646 - src.pipeline - INFO - Generando indices de importaciones...
+2026-06-04 12:58:58,759 - src.pipeline - INFO - Exportando a Excel...
+2026-06-04 12:58:58,760 - src.excel_writer - INFO - Cargando plantilla: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\templates\Cuadros de RMC-abr-2026-Joel-act.xlsx
+2026-06-04 12:59:14,756 - src.excel_writer - INFO - Escribiendo datos en hoja Comercio_Textil...
+2026-06-04 12:59:15,190 - src.excel_writer - INFO - Guardando reporte en: C:\Users\gmendoza\Desktop\DDPI-REPOSITORIOS\ddpi\outputs\reportes\RMC_abr_2026.xlsx
+2026-06-04 12:59:29,545 - src.excel_writer - INFO - Reporte completado exitosamente
+2026-06-04 12:59:29,545 - src.pipeline - INFO - ======================================================================
+2026-06-04 12:59:29,545 - src.pipeline - INFO - PIPELINE COMPLETADO EXITOSAMENTE
+2026-06-04 12:59:29,546 - src.pipeline - INFO - ======================================================================
+2026-06-04 12:59:29,656 - __main__ - INFO - 
+======================================================================
+2026-06-04 12:59:29,656 - __main__ - INFO - EJECUCION COMPLETADA EXITOSAMENTE
+2026-06-04 12:59:29,656 - __main__ - INFO - ======================================================================
+

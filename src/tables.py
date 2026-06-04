@@ -231,7 +231,7 @@ def detalle_textil_importaciones(df, periodos, periodos_miles_TM):
             'prendas_sinteticas': (
                 (data_textil['grupo2']=='Confecciones') &
                 (data_textil['producto2']=='Prendas de vestir') &
-                (data_textil['producto21']== 'Sinteticas y artificiales')
+                (data_textil['producto21']== 'sinteticas y artificiales')
             ),
             'otras_confecciones': (
                 (data_textil['grupo2']=='Confecciones') &
