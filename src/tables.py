@@ -124,6 +124,11 @@ def detalle_textil(df, periodos, periodos_miles_TM):
                 (data_textil['producto2']=='Prendas de vestir') &
                 (data_textil['producto21']=='Algodón')
             ),
+            'prendas_sinteticas': (
+                (data_textil['grupo2']=='Confecciones') &
+                (data_textil['producto2']=='Prendas de vestir') &
+                (data_textil['producto21']=='Sinteticas')
+            ),
             'mantas_pelo_fino': (
                 (data_textil['grupo2']=='Confecciones') &
                 (data_textil['producto2']=='Otras confecciones') &
@@ -134,6 +139,10 @@ def detalle_textil(df, periodos, periodos_miles_TM):
                 (data_textil['producto2']=='Otras confecciones') &
                 (data_textil['producto21']=='Mantas de algodón') &
                 (data_textil['codigo_partida']=='6301300000')    
+            ),
+            'otras_confecciones': (
+                (data_textil['grupo2']=='Confecciones') &
+                (data_textil['producto2']=='Otras confecciones')
             ),
             'fibras_textiles': (
                 (data_textil['grupo2']=='Textiles') &
@@ -200,6 +209,11 @@ def detalle_textil_importaciones(df, periodos, periodos_miles_TM):
                 (data_textil['producto2']=='Hilos e Hilados') &
                 (data_textil['producto21']=='Algodón')
             ),
+            'hilos_poliester': (
+                (data_textil['grupo2']=='Textiles') &
+                (data_textil['producto2']=='Hilos e Hilados') &
+                (data_textil['producto21']=='Poliester')
+            ),           
             'fibras_textiles': (
                 (data_textil['grupo2']=='Textiles') &
                 (data_textil['producto2']=='Fibras textiles')
@@ -217,7 +231,7 @@ def detalle_textil_importaciones(df, periodos, periodos_miles_TM):
             'prendas_sinteticas': (
                 (data_textil['grupo2']=='Confecciones') &
                 (data_textil['producto2']=='Prendas de vestir') &
-                (data_textil['producto21']== 'Sinteticas')
+                (data_textil['producto21']== 'Sinteticas y artificiales')
             ),
             'otras_confecciones': (
                 (data_textil['grupo2']=='Confecciones') &

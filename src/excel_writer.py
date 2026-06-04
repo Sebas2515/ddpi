@@ -134,6 +134,7 @@ def _escribir_comercio_textil_exportaciones(hoja, tabla_final, detalle_textil, t
     detalle_map = {
         'prendas_vestir': 13,
         'prendas_algodon': 14,
+        'otras_confecciones': 15,
         'mantas_pelo_fino': 16,
         'mantas_algodon': 17,
         'fibras_textiles': 19,
@@ -165,7 +166,7 @@ def _escribir_comercio_textil_importaciones(hoja, detalle_textil_import, tabla_p
     ]
     bloques.sort(key=lambda item: item[1], reverse=True)
 
-    block_rows = [31, 40]
+    block_rows = [31, 38]
     for row_start, (bloque, _) in zip(block_rows, bloques):
         if bloque == 'textiles':
             _escribir_bloque_import_textiles(hoja, detalle_textil_import, row_start)
@@ -177,7 +178,7 @@ def _escribir_comercio_textil_importaciones(hoja, detalle_textil_import, tabla_p
 
 def _escribir_proveedores_importacion(hoja, tabla_proveedores, num_proveedores):
     for x in range(0, 4):
-        row = 49 + x
+        row = 47 + x
         hoja.cell(row, 6).value = None
         for t in range(0, 3):
             hoja.cell(row, 8+t).value = None
@@ -189,7 +190,7 @@ def _escribir_proveedores_importacion(hoja, tabla_proveedores, num_proveedores):
 
     if tabla_proveedores is not None and not tabla_proveedores.empty:
         for x in range(0, min(4, max(len(tabla_proveedores) - 1, 0))):
-            row = 49 + x
+            row = 47 + x
             hoja.cell(row, 6).value = _index_label(tabla_proveedores.index[x+1])
             for t in range(0, 3):
                 hoja.cell(row, 8+t).value = tabla_proveedores.iloc[x+1, t]
@@ -198,7 +199,7 @@ def _escribir_proveedores_importacion(hoja, tabla_proveedores, num_proveedores):
 
     if num_proveedores is not None and not num_proveedores.empty:
         for t in range(0, min(3, num_proveedores.shape[1])):
-            hoja.cell(53, 8+t).value = num_proveedores.iloc[0, t]
+            hoja.cell(51, 8+t).value = num_proveedores.iloc[0, t]
 
 
 def _escribir_bloque_import_textiles(hoja, tabla_resumen, row_start):
@@ -226,17 +227,19 @@ def _escribir_bloque_import_textiles(hoja, tabla_resumen, row_start):
     hoja.cell(row_start + 4, 6).value = 'Hilos e hilados'
     _escribir_indice_referencia(hoja, row_start + 4, 'hilos_hilados', 'Hilos e hilados')
 
-    _escribir_resumen_fila(hoja, row_start + 5, tabla_resumen, 'hilos_algodon')
-    hoja.cell(row_start + 5, 6).value = '   -  De algodón'
+    hilos_subs = [
+        ('hilos_algodon', '   -  De algodón'),
+        ('hilos_poliester', '   -  De poliéster'),
+    ]
+    hilos_subs.sort(key=lambda item: _valor_ult12(tabla_resumen, item[0]), reverse=True)
 
-    _escribir_resumen_fila(hoja, row_start + 6, tabla_resumen, 'fibras_textiles')
-    hoja.cell(row_start + 6, 6).value = 'Fibras textiles'
-    _escribir_indice_referencia(hoja, row_start + 6, 'fibras_textiles', 'Fibras textiles')
+    for offset, (etiqueta, label) in enumerate(hilos_subs, start=5):
+        _escribir_resumen_fila(hoja, row_start + offset, tabla_resumen, etiqueta)
+        hoja.cell(row_start + offset, 6).value = label
 
-    if row_start + 7 <= 47:
-        _limpiar_fila_importacion(hoja, row_start + 7)
-    if row_start + 8 <= 48:
-        _limpiar_fila_importacion(hoja, row_start + 8)
+    _escribir_resumen_fila(hoja, row_start + 7, tabla_resumen, 'fibras_textiles')
+    hoja.cell(row_start + 7, 6).value = 'Fibras textiles [2]'
+    _escribir_indice_referencia(hoja, row_start + 7, 'fibras_textiles', 'Fibras textiles')
 
 
 def _escribir_bloque_import_confecciones(hoja, tabla_resumen, row_start):
@@ -286,16 +289,16 @@ def _escribir_indice_referencia(hoja, row, etiqueta, label):
         'otras_confecciones': ('EK', 'EP'),
     }
 
-    hoja.cell(row, 22).value = label
+    hoja.cell(row, 25).value = label
     cols = referencias.get(etiqueta)
     if not cols:
-        for col in range(23, 29):
+        for col in range(27, 33):
             _set_safe_value(hoja, row, col, None)
         return
 
     inicio, fin = cols
     letras = _column_range(inicio, fin)
-    for idx, col_letter in enumerate(letras, start=23):
+    for idx, col_letter in enumerate(letras, start=26):
         hoja.cell(row, idx).value = f"=Indices_M_Textil!{col_letter}6"
 
 
